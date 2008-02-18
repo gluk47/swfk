@@ -1,0 +1,349 @@
+% ch4.tex
+% This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 New Zealand License.
+% To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/nz
+% or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+
+
+\chapter{How to ask a question}\label{ch:howtoaskaquestion}
+
+In programming terms, a question usually means we want to do either one thing, or another, depending upon the answer to the question.  This is called an \textbf{if-statement}\index{if-statement}.  For example:
+
+\begin{quotation}
+How old are you?  If you're older than 20, you're too old!
+\end{quotation}
+
+This might be written in Python as the following if-statement:
+
+\begin{listing}
+\begin{verbatim}
+if age > 20:
+    print 'you are too old!'
+\end{verbatim}
+\end{listing}
+
+An if-statement is made up of an `if' followed by what is called a `condition' (more on that in a second), followed by a colon (:).  The lines following the if must be in a block---and if the answer to the question is `yes' (or True, as we call it in programming terms) the commands in the block will be run.
+\par
+A condition\index{conditions} is a programming statement that returns `yes' (True) or `no' (False).  There are certain symbols (or operators) used to create conditions, such as:
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+== & equals \\
+\hline
+!= & not equals \\
+\hline
+$>$ & greater than \\
+\hline
+$<$ & less than \\
+\hline
+$>$= & greater than or equal to \\
+\hline
+$<$= & less than or equal to \\
+\hline
+\end{tabular}
+\end{center}
+
+For example, if you are 10 years old, then the condition \code{your\_age == 10} would return True (yes), but if you are not 10, it would return False.  Remember: don't mix up the \textbf{two} equals symbols used in a condition (==), with the equals used in assigning values (=)---if you use a single = symbol in a \emph{condition}, you'll get an error message.
+\par
+Assuming you set the variable \code{age} to your age, then if you are 12 years old, the condition$\ldots$
+
+\begin{listing}
+\begin{verbatim}
+age > 10
+\end{verbatim}
+\end{listing}
+
+$\ldots$ would again return True.  If you are 8 years old, it would return False.  If you are 10 years old, it would also return False---because the condition is checking for greater than ($>$) 10, and not greater than or equal ($>$=) to 10.
+
+Let's try a few examples:
+
+\begin{listing}
+\begin{verbatim}
+>>> age = 10
+>>> if age > 10:
+...     print 'got here'
+\end{verbatim}
+\end{listing}
+
+\noindent
+If you enter the above example into the console, what might happen?
+\par
+\noindent
+Nothing.
+\par
+\noindent
+Because the value of the variable \code{age} is not greater than 10, the print command in the block will not be run. How about:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> age = 10
+>>> if age >= 10:
+...     print 'got here'
+\end{verbatim}
+\end{listingignore}
+
+If you try this example, then you should see the message got here printed to the console.  The same will happen for the next example:
+
+\begin{listing}
+\begin{verbatim}
+>>> age = 10
+>>> if age == 10:
+...     print 'got here'
+got here
+\end{verbatim}
+\end{listing}
+
+\section{Do this$\ldots$ or ELSE!!!}
+
+We can also extend an if-statement, so that it does something when a condition is not true.  For example, print `Hello' if your age is 12, but print `Goodbye' if it's not.  To do this, we use an if-then-else-statement\index{if-then-else-statement} (this is another way of saying \emph{``if something is true, then do \textbf{this}, otherwise do \textbf{that}''}):
+
+\begin{listing}
+\begin{verbatim}
+>>> age = 12
+>>> if age == 12:
+...     print 'Hello'
+... else:
+...     print 'Goodbye'
+Hello
+\end{verbatim}
+\end{listing}
+
+Type in the above example and you should see `Hello' printed to the console.  Change the value of the variable \code{age} to another number, and `Goodbye' will be printed:
+
+\begin{listing}
+\begin{verbatim}
+>>> age = 8
+>>> if age == 12:
+...     print 'Hello'
+... else:
+...     print 'Goodbye'
+
+Goodbye
+\end{verbatim}
+\end{listing}
+
+\section{Do this$\ldots$ or do this$\ldots$ or do this$\ldots$ or ELSE!!!}
+
+We can extend an if-statement even further using elif (short for else-if). For example, we can check if your age is 10, or if it's 11, or if it's 12 and so on:
+
+\begin{listing}
+\begin{verbatim}
+ 1. >>> age = 12
+ 2. >>> if age == 10:
+ 3. ...     print 'you are 10'
+ 4. ... elif age == 11:
+ 5. ...     print 'you are 11'
+ 6. ... elif age == 12:
+ 7. ...     print 'you are 12'
+ 8. ... elif age == 13:
+ 9. ...     print 'you are 13'
+10. ... else:
+11. ...     print 'huh?'
+12. ...
+13. you are 12
+\end{verbatim}
+\end{listing}
+
+In the code above, line 2 checks whether the value of the age variable is equal to 10.  It's not, so it then jumps to line 4 to check whether the value of the \code{age} variable is equal to 11.  Again, it's not, so it jumps to line 6 to check whether the variable is equal to 12.  In this case it is, so Python moves to the block in line 7, and runs the print command.  (Hopefully you've also noticed that there are 5 groups in this code---lines 3, 5, 7, 9 and line 11)
+
+\section{Combining conditions}\index{conditions!combining}
+You can combine conditions together using the keywords `and' and `or'.  We can shrink the example above, a little, by using `or' to join the conditions together:
+
+\begin{listing}
+\begin{verbatim}
+1. >>> if age == 10 or age == 11 or age == 12 or age == 13:
+2. ...     print 'you are %s' % age
+3. ... else:
+4. ...     print 'huh?'
+\end{verbatim}
+\end{listing}
+
+If any of the conditions in line 2 are true (i.e. if age is 10 \textbf{or} age is 11 \textbf{or} age is 12 \textbf{or} age is 13), then the block of code in line 3 is run, otherwise Python moves to line 4.  We could shrink the example a little bit more by using the `and', $>$= and $<$= symbols:
+
+\begin{listing}
+\begin{verbatim}
+1. >>> if age >= 10 and age <= 13:
+2. ...     print 'you are %s' % age
+3. ... else:
+4. ...     print 'huh?'
+\end{verbatim}
+\end{listing}
+
+Hopefully, you've figured out that if \textbf{both} the conditions on line 1 are true then the block of code in line 2 is run (if age is greater than or equal to 10 \textbf{and} age is less than or equal to 13). So if the value of the variable age is 12, then `you are 12' would be printed to the console:  because 12 is greater than 10 and it is also less than 13.
+
+\section{Emptiness}\index{None}
+
+There is another sort of value, that can be assigned to a variable, that we didn't talk about in the previous chapter:  \textbf{Nothing}.
+\par
+In the same way that numbers, strings and lists are all values that can be assigned to a variable, `nothing' is also a kind of value that can be assigned.  In Python, an empty value is referred to as \code{None} (in other programming languages, it is sometimes called null) and you can use it in the same way as other values:
+
+\begin{listing}
+\begin{verbatim}
+>>> myval = None
+>>> print myval
+None
+\end{verbatim}
+\end{listing}
+
+None is a way to reset a variable back to being un-used, or can be a way to create a variable without setting its value before it is used.
+\par
+For example, if your football team were raising funds for new uniforms, and you were adding up how much money had been raised, you might want to wait until all the team had returned with the money before you started adding it all up.  In programming terms, we might have a variable for each member of the team, and then set all the variables to None:
+
+\begin{listing}
+\begin{verbatim}
+>>> player1 = None
+>>> player2 = None
+>>> player3 = None
+\end{verbatim}
+\end{listing}
+
+We could then use an if-statement, to check these variables, to determine if all the members of the team had returned with the money they'd raised:
+
+\begin{listing}
+\begin{verbatim}
+>>> if player1 is None or player2 is None or player3 is None:
+...     print 'Please wait until all players have returned'
+... else:
+...     print 'You have raised %s' % (player1 + player2 + player3)
+\end{verbatim}
+\end{listing}
+
+The if-statement checks whether any of the variables have a value of \code{None}, and prints the first message if they do.  If each variable has a real value, then the second message is printed with the total money raised. If you try this code out with all variables set to None, you'll see the first message (don't forget to create the variables first or you'll get an error message):
+
+\begin{listing}
+\begin{verbatim}
+>>> if player1 is None or player2 is None or player3 is None:
+...     print 'Please wait until all players have returned'
+... else:
+...     print 'You have raised %s' % (player1 + player2 + player3)
+Please wait until all players have returned
+\end{verbatim}
+\end{listing}
+
+Even if we set one or two of the variables, we'll still get the message:
+
+\begin{listing}
+\begin{verbatim}
+>>> player1 = 100
+>>> player3 = 300
+>>> if player1 is None or player2 is None or player3 is None:
+...     print 'Please wait until all players have returned'
+... else:
+...     print 'You have raised %s' % (player1 + player2 + player3)
+Please wait until all players have returned
+\end{verbatim}
+\end{listing}
+
+\noindent
+Finally, once all variables are set, you'll see the message in the second block:
+
+\begin{listing}
+\begin{verbatim}
+>>> player1 = 100
+>>> player3 = 300
+>>> player2 = 500
+>>> if player1 is None or player2 is None or player3 is None:
+...     print 'Please wait until all players have returned'
+... else:
+...     print 'You have raised %s' % (player1 + player2 + player3)
+You have raised 900
+\end{verbatim}
+\end{listing}
+
+\section{What's the difference$\ldots$?}\label{whatsthedifference}\index{equality}
+
+What's the difference between 10 and `10'?
+\par
+Not much apart from the quotes, you might be thinking.  Well, from reading the earlier chapters, you know that the first is a number and the second is a string. This makes them differ more than you might expect.  Earlier we compared the value of a variable (age) to a number in an if-statement:
+
+\begin{listing}
+\begin{verbatim}
+>>> if age == 10:
+...     print 'you are 10'
+\end{verbatim}
+\end{listing}
+
+If you set variable age to 10, the print statement will be called:
+
+\begin{listing}
+\begin{verbatim}
+>>> age = 10
+>>> if age == 10:
+...     print 'you are 10'
+...
+you are 10
+\end{verbatim}
+\end{listing}
+
+However, if age is set to '10' (note the quotes), then it won't:
+
+\begin{listing}
+\begin{verbatim}
+>>> age = '10'
+>>> if age == 10:
+...     print 'you are 10'
+...
+\end{verbatim}
+\end{listing}
+
+Why is the code in the block not run?  Because a string is different from a number, even if they look the same:
+
+\begin{listing}
+\begin{verbatim}
+>>> age1 = 10
+>>> age2 = '10'
+>>> print age1
+10
+>>> print age2
+10
+\end{verbatim}
+\end{listing}
+
+See!  They look exactly the same.  Yet, because one is a string, and the other is a number, they are different values. Therefore age == 10 (age equals 10) will never be true, if the value of the variable is a string.
+\par
+Probably the best way to think about it, is to consider 10 books and 10 bricks.  The number of items might be the same, but you couldn't say that 10 books are exactly the same as 10 bricks, could you? Luckily in Python we have magic functions which can turn strings into numbers and numbers into strings (even if they won't quite turn bricks into books). For example, to convert the string '10' into a number you would use the function \code{int}:
+
+\begin{listing}
+\begin{verbatim}
+>>> age = '10'
+>>> converted_age = int(age)
+\end{verbatim}
+\end{listing}
+
+\noindent
+The variable converted\_age now holds the number 10, and not a string. To convert a number into a string, you would use the function \code{str}:
+
+\begin{listing}
+\begin{verbatim}
+>>> age = 10
+>>> converted_age = str(age)
+\end{verbatim}
+\end{listing}
+
+\noindent
+converted\_age now holds the string 10, and not a number. Back to that if-statement which prints nothing:
+
+\begin{listing}
+\begin{verbatim}
+>>> age = '10'
+>>> if age == 10:
+...     print 'you are 10'
+...
+\end{verbatim}
+\end{listing}
+
+\noindent
+If we convert the variable \emph{before} we check, then we'll get a different result:
+
+\begin{listing}
+\begin{verbatim}
+>>> age = '10'
+>>> converted_age = int(age)
+>>> if converted_age == 10:
+...     print 'you are 10'
+...
+you are 10
+\end{verbatim}
+\end{listing}
+
+\newpage
