@@ -1,0 +1,614 @@
+% appendixa.tex
+% This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 New Zealand License.
+% To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/nz
+% or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+
+\chapter{Python Keywords}\label{app:pythonkeywords}
+
+Keywords in Python (indeed, in most programming languages) are important words that are used by the language itself. If you try to use these special words as variables, or use them in the wrong way, you will get strange (sometimes funny, sometimes confusing) error messages from the Python console.  Each of the Python keywords, and a basic description is given below.
+
+\subsection*{and}\index{keywords!and}
+
+The keyword \textbf{and} is used to join two expressions together in a statement (like an if-statement), to say that both expressions must be true.  For example:
+
+\begin{listing}
+\begin{verbatim}
+if age > 10 and age < 20
+\end{verbatim}
+\end{listing}
+
+\noindent
+This means that age must be greater than 10 and less than 20.
+
+\subsection*{as}\index{keywords!as}
+
+The keyword \textbf{as} is used to give another name to an imported module. For example, if you had a module with a name like:
+
+\begin{listing}
+\begin{verbatim}
+i_am_a_python_module_that_is_not_very_useful
+\end{verbatim}
+\end{listing}
+
+\noindent
+It would be enormously annoying to have to type that module name every time you want to use it:
+
+\begin{listing}
+\begin{verbatim}
+>>> import i_am_a_python_module_that_is_not_very_useful
+>>>
+>>> i_am_a_python_module_that_is_not_very_useful.do_something()
+I have done something
+>>>  i_am_a_python_module_that_is_not_very_useful.do_something_else()
+I have done something else!
+\end{verbatim}
+\end{listing}
+
+\noindent
+Instead you can give it a new name when you import it, then just use that new name (kind of like a nickname):
+
+\begin{listing}
+\begin{verbatim}
+>>> import i_am_a_python_module_that_is_not_very_useful as notuseful
+>>>
+>>> notuseful.do_something()
+I have done something
+
+>>> notuseful.do_something_else()
+I have done something else!
+\end{verbatim}
+\end{listing}
+
+\noindent
+You probably won't use the keyword `as' that much, though.
+
+\subsection*{assert}\index{keywords!assert}
+
+Assert is an advanced keyword that is used by programmers to say that some code must be true. It's another way of catching errors and problems in code---and usually used by more advanced programs.
+
+\subsection*{break}\index{keywords!break}
+
+The \textbf{break} keyword is used to stop some code from running. You might use a break inside a for-loop such as:
+
+\begin{listing}
+\begin{verbatim}
+>>> for x in range(1, 100):
+...     print 'counting %s' % x
+...     if x == age:
+...         print 'end counting'
+...         break
+\end{verbatim}
+\end{listing}
+
+\noindent
+If the variable `age' was set to 10, this would print out:
+
+\begin{listing}
+\begin{verbatim}
+counting 1
+counting 2
+counting 3
+counting 4
+counting 5
+counting 6
+counting 7
+counting 8
+counting 9
+counting 10
+end counting
+\end{verbatim}
+\end{listing}
+
+\noindent
+Take a look at Chapter~\ref{ch:againandagain} to find out more information about for-loops.
+
+\subsection*{class}\index{keywords!class}
+
+The \textbf{class} keyword is used to define a type of object. This is a feature provided in many programming languages, and is very useful when developing more complicated programs, but is a little too advanced for this book.
+
+\subsection*{del}\index{keywords!del}
+
+Del is a special function used to get rid of something. For example, if you had a list of things you wanted for your birthday in your diary, but then changed your mind about one, you would cross it off the list, and add the new one:
+
+\begin{center}
+\includegraphics*[width=70mm]{list.eps}
+\end{center}
+
+\noindent
+If we had the same list in python:
+
+\begin{listing}
+\begin{verbatim}
+>>> what_i_want = ['remote controlled car','new bike','computer game']
+\end{verbatim}
+\end{listing}
+
+\noindent
+We could remove the computer game by using \code{del}, and add the new item by using the function append:
+
+\begin{listing}
+\begin{verbatim}
+>>> del what_i_want[2]
+>>> what_i_want.append('roboreptile')
+\end{verbatim}
+\end{listing}
+
+\noindent
+And then to see the new list:
+
+\begin{listing}
+\begin{verbatim}
+>>> print what_i_want
+['remote controlled car', 'new bike', 'roboreptile']
+\end{verbatim}
+\end{listing}
+
+\noindent
+See Chapter~\ref{ch:8multipliedby3.57} for more information about lists.
+
+\subsection*{elif}\index{keywords!elif}
+
+The keyword \textbf{elif} is used as part of an if-statement.  See \textbf{if} below...
+
+\subsection*{else}\index{keywords!else}
+
+The keyword \textbf{else} is also used as part of an if-statement.  See if below...
+
+\subsection*{except}\index{keywords!except}
+
+Another keyword used for catching problems in code. Again this is used in more complicated programs, but too advanced for this book.
+
+\subsection*{exec}\index{keywords!exec}
+
+The \textbf{exec} keyword is a special function to look at a string as though it was a piece of Python code. For example, you can create a variable with a string value as follows:
+
+\begin{listing}
+\begin{verbatim}
+>>> myvar = 'hello there'
+\end{verbatim}
+\end{listing}
+
+\noindent
+Then print the contents:
+
+\begin{listing}
+\begin{verbatim}
+>>> print myvar
+hello there
+\end{verbatim}
+\end{listing}
+
+\noindent
+But you could also put some Python code in that string instead:
+
+\begin{listing}
+\begin{verbatim}
+>>> myvar = 'print “hello there”'
+\end{verbatim}
+\end{listing}
+
+\noindent
+And then you could use exec to turn that string into a mini Python program and run it:
+
+\begin{listing}
+\begin{verbatim}
+>>> exec myvar
+hello there
+\end{verbatim}
+\end{listing}
+
+It's a bit of a weird idea, and something that might not make sense to you until you needed it.  Like \code{assert} it's one of those advanced keywords that is used in more sophisticated programs.
+
+\subsection*{finally}\index{keywords!finally}
+
+This is another advanced keyword, used to make sure that if an error occurs, some special code runs (usually to tidy up any 'mess' that a piece of code has left behind).
+
+\subsection*{for}\index{keywords!for}
+
+The \textbf{for} keyword is used to create a for-loop of some kind. For example:
+
+\begin{listing}
+\begin{verbatim}
+for x in range(0,5):
+    print 'x is %s' % x
+\end{verbatim}
+\end{listing}
+
+\noindent
+The above for-loop executes the block of code (the print statement) 5 times, creating the output:
+
+\begin{listing}
+\begin{verbatim}
+x is 0
+x is 1
+x is 2
+x is 3
+x is 4
+\end{verbatim}
+\end{listing}
+
+\subsection*{from}\index{keywords!from}
+
+When importing a module, you can just import the part of it you need, using the \textbf{from} keyword. For example, the turtle module has a function \code{Pen()}, which is used to create a Pen object (basically a canvas on which the turtle moves)---you can import the entire turtle module and then use the \code{Pen} function, as follows:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import turtle
+>>> t = turtle.Pen()
+\end{verbatim}
+\end{listingignore}
+
+Or, you can just import the \code{Pen} function on its own, and then use it directly (without needing to refer to the turtle module at all):
+
+\begin{listingignore}
+\begin{verbatim}
+>>> from turtle import Pen
+>>> t = Pen()
+\end{verbatim}
+\end{listingignore}
+
+Of course, this does mean that you can't use the parts of the module you haven't imported.  For example, the time module has a functions called localtime and gmtime.  If we import localtime, then try to use gmtime, we'll get an error:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> from time import localtime
+>>> print localtime()
+(2007, 1, 30, 20, 53, 42, 1, 30, 0)
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+This works fine, but:
+
+\begin{listing}
+\begin{verbatim}
+>>> print gmtime()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'gmtime' is not defined
+\end{verbatim}
+\end{listing}
+
+By saying ```gmtime' is not defined'' Python is telling us that it doesn't know about the function \code{gmtime}$\ldots$ yet. If there are a bunch of functions in a particular module that you want to use, and you don't want to refer to them by using the module name (i.e. \code{time.localtime}, or \code{time.something-else}) you can import everything in the module using an asterisk (*):
+
+\begin{listingignore}
+\begin{verbatim}
+>>> from time import *
+>>> print localtime()
+(2007, 1, 30, 20, 57, 7, 1, 30, 0)
+>>> print gmtime()
+(2007, 1, 30, 13, 57, 9, 1, 30, 0)
+\end{verbatim}
+\end{listingignore}
+
+In this case, we import everything from the time module, and can refer to the individual functions by name.
+
+\subsection*{global}\index{keywords!global}
+
+In Chapter~\ref{ch:sortoflikerecycling}, we talked about \emph{scope}.  Scope is the `visibility' of a variable. If a variable is defined outside of a function, usually it can be seen inside the function. If defined inside a function, usually it can't be seen \textbf{outside} of that function.
+\par
+The \code{global} keyword is one exception to this rule. A variable that is defined as global, can be seen everywhere. The definition of the word global is world-wide or universal, so if you think of your Python console as like a mini-world, then global truly means world-wide.  For example:
+
+\begin{listing}
+\begin{verbatim}
+>>> def test():
+...     global a
+...     a = 1
+...     b = 2
+\end{verbatim}
+\end{listing}
+
+What do you think happens when you call print a, and then print b, after running the function test?  The first will work, and then second will cause an error message to be displayed:
+
+\begin{listing}
+\begin{verbatim}
+>>> test()
+>>> print a
+1
+>>> print b
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'b' is not defined
+\end{verbatim}
+\end{listing}
+
+The variable \code{a} is now global (visible across the `world'), but \code{b} is still only visible inside the function.  Note that you must call \code{global} before saving a value using in your global variable.
+
+\subsection*{if}\index{keywords!if}
+
+A statement making a decision about something---which is sometimes used with the additional keywords \code{else} and \code{elif} (else if).  An if-statement is a way of saying, ``if something is true, then perform an action of some kind''.  For example:
+
+\begin{listing}
+\begin{verbatim}
+if toy_price > 1000:
+    print 'That toy is over-priced'
+elif toy_price > 100:
+    print 'That toy is expensive'
+else:
+    print 'I would like that toy'
+\end{verbatim}
+\end{listing}
+
+This if-statement says that if a toy price is over \$1000, it is over-priced; if the toy price is over \$100, then it's expensive.... otherwise it says (prints) ``I would like that toy''. Chapter~\ref{ch:howtoaskaquestion} has more information about if-statements.
+
+\subsection*{import}\index{keywords!import}
+
+The \textbf{import} keyword is to tell Python to load a module so it can be used. For example:
+
+\begin{listing}
+\begin{verbatim}
+>>> import sys
+\end{verbatim}
+\end{listing}
+
+This code tells Python you want to use the module \code{sys}.
+
+\section*{in}\index{keywords!in}
+
+The \textbf{in} keyword is used in expressions, to find if an item is within a collection of items. For example, can the number 1 be found in a list (a collection) of numbers:
+
+\begin{listing}
+\begin{verbatim}
+>>> if 1 in [1,2,3,4]:
+...     print 'number is in list'
+number is in list
+\end{verbatim}
+\end{listing}
+
+\noindent
+Or can lettuce be found in a shopping list:
+
+\begin{listing}
+\begin{verbatim}
+>>> shopping_list = [ 'eggs', 'milk', 'cheese' ]
+>>> if 'lettuce' in shopping_list:
+...     print 'lettuce is in the shopping list'
+... else:
+...     print 'lettuce is not in the shopping list'
+...
+lettuce is not in the shopping list
+\end{verbatim}
+\end{listing}
+
+\subsection*{is}\index{keywords!is}
+
+The keyword \textbf{is}, is sort of like the equals operator (==) which is used to tell if two things are equal (for example 10 == 10 is true, 10 == 11 is false).  However, there is a fundamental difference between \textbf{is} and ==. If you are comparing two things, == may return true, where is may not (even if you think the things are the same). 
+\par
+This is one of those extremely advanced programming concepts, that tends to be enormously confusing, so for the moment just stick with using ==.
+
+\subsection*{lambda}\index{keywords!lambda}
+
+Another advanced keyword. In fact lambda is so complicated, even to write an explanation about it would cause this book to burst into flames.
+\par
+\emph{So best not to talk about it.}
+
+\subsection*{not}\index{keywords!not}
+
+If something is true, the \textbf{not} keyword makes it false.  For example, if we create a variable \code{x} and set it to the value True...
+
+\begin{listing}
+\begin{verbatim}
+>>> x = True
+\end{verbatim}
+\end{listing}
+
+...and then print the value of x using \textbf{not}, we get:
+
+\begin{listing}
+\begin{verbatim}
+>>> print not x
+False
+\end{verbatim}
+\end{listing}
+
+Which doesn't seem very useful, until you start using \textbf{not} in if-statements.  For example, if you are 12 years old, and the most important age for you is 12, you don't particular want to refer to all other years by saying:
+
+\begin{quotation}
+``1 is not an important age''
+``2 is not an important age''
+``3 is not an important age''
+``4 is not an important age''
+...
+...
+``50 is not an important age''
+\end{quotation}
+
+And so on.
+\par\noindent
+In terms of an if-statement, we could write that as$\ldots$
+
+\begin{listing}
+\begin{verbatim}
+if age == 1:
+    print “1 is not an important age”
+elif age == 2:
+    print “2 is not an important age”
+elif age == 3:
+    print “3 is not an important age”
+elif age == 4:
+    print “4 is not an important age”
+\end{verbatim}
+\end{listing}
+
+\noindent
+$\ldots$continuing on forever. A simpler way to write the statement would be:
+
+\begin{listing}
+\begin{verbatim}
+if age < 10 or age > 10:
+    print “%s is not an important age” % age
+\end{verbatim}
+\end{listing}
+
+\noindent
+But one of the most simple ways to write that if-statement is by using \textbf{not}:
+
+\begin{listing}
+\begin{verbatim}
+if not age == 10:
+    print “%s is not an important age” % age
+\end{verbatim}
+\end{listing}
+
+\noindent
+Which, you've probably already realised, is just another way of saying, ``if age is not 10''.
+
+\subsection*{or}\index{keywords!or}
+
+The \textbf{or} keyword is used to join two expressions together in a statement (such as an if-statement), to say that at least one of the expressions should be true.  For example:
+
+\begin{listing}
+\begin{verbatim}
+>>> if friend == 'Rachel' or friend == 'Rob':
+...     print 'The Robinsons'
+... elif friend == 'Bill' or friend == 'Bob':
+...     print 'The Baxters'
+\end{verbatim}
+\end{listing}
+
+In this case, if the variable \code{friend} contains `Rachel' or `Rob' then it prints `The Robinsons'.  If the variable friend contains `Bill' or `Bob' then it prints `The Baxters'.
+
+\subsection*{pass}\index{keywords!pass}
+
+Sometimes when you're writing a program you only want to write bits of it, to try things out.  The problem with this is that you can't have an if-statement without the block of code that should be run if the expression in the if-statement is true. You also can't have a for-loop without the block of code that should be run in the loop. For example:
+
+\begin{listing}
+\begin{verbatim}
+>>> if age > 10:
+...     print 'older than 10'
+\end{verbatim}
+\end{listing}
+
+\noindent
+The above code will work, but if you type:
+
+\begin{listing}
+\begin{verbatim}
+>>> if age > 10:
+...
+\end{verbatim}
+\end{listing}
+
+\noindent
+You'll get an error message in the console that looks something like this:
+
+\begin{listing}
+\begin{verbatim}
+  File "<stdin>", line 2
+    ^
+IndentationError: expected an indented block
+\end{verbatim}
+\end{listing}
+
+This is the error message Python displays, when you should have a block of code after a statement of some kind.
+\par
+The \textbf{pass} keyword can be used in these cases, so you can write a statement, but not provide the block of code that goes with it.  For example, you might want to write a for-loop, with an if-statement inside it.  Perhaps you haven't decided what to put in the if-statement yet.  Maybe you'll put a print, maybe you'll put a break, maybe something else.  In which case, you can use \textbf{pass} and the code will still work (even if it doesn't do exactly what you want yet).  The code:
+
+\begin{listing}
+\begin{verbatim}
+>>> for x in range(1,7):
+...     print 'x is %s' % x
+...     if x == 5:
+...         pass
+\end{verbatim}
+\end{listing}
+
+\noindent
+will print out the following:
+
+\begin{listing}
+\begin{verbatim}
+x is 1
+x is 2
+x is 3
+x is 4
+x is 5
+x is 6
+\end{verbatim}
+\end{listing}
+
+\noindent
+Later on you can add the code in the block for the if-statement (replacing the \textbf{pass} keyword).
+
+\subsection*{print}\index{keywords!print}
+
+The \textbf{print} keyword, writes something to the Python console; such as a string, a number or a variable:
+
+\begin{listing}
+\begin{verbatim}
+print 'hello there'
+print 10
+print x
+\end{verbatim}
+\end{listing}
+
+\subsection*{raise}\index{keywords!raise}
+
+Another advanced keyword.  In this case, \textbf{raise} is used to cause an error to happen---which might seem like a strange thing to do but, in advanced programs, is actually quite useful.
+
+\subsection*{return}\index{keywords!return}
+
+The \textbf{return} keyword is used to return a value from a function.  For example, you might create a function to return the amount of money you've saved:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> def mymoney():
+...     return money_amount
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+When you call this function, the value returned can be assigned to another variable:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> money = mymoney()
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+or printed:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> print mymoney()
+\end{verbatim}
+\end{listingignore}
+
+\subsection*{try}\index{keywords!try}
+
+The \textbf{try} keyword is the beginning of a block of code that ends with the \textbf{except} and/or \textbf{finally} keywords.  All together, these \textbf{try/except/finally} blocks of code are used to handle errors in a program---for example, to make sure that the program displays a useful message to the user, rather than an ugly Python error.
+
+\subsection*{while}\index{keywords!while}
+
+A bit like a for-loop, \textbf{while} is another way of looping code.  Where a for-loop counts through a range (of numbers), a while loop keeps running while an expression is True.  You have to be rather careful with while loops, because if the expression is always True, the loop will never end (this is called an infinite loop).  For example:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> x = 1
+>>> while x == 1:
+...     print 'hello'
+\end{verbatim}
+\end{listingignore}
+
+If you run the above code, it will loop forever.  Well, at least until you either close the Python console, or hit \textbf{CTRL+C} (the control key and the C key together) to interrupt it. However the following code:
+
+\begin{listing}
+\begin{verbatim}
+>>> x = 1
+>>> while x < 10:
+...     print 'hello'
+...     x = x + 1
+\end{verbatim}
+\end{listing}
+
+Will print `hello' 9 times (each time adding 1 to the variable \code{x}, until \code{x} is no longer less than 10). This is obviously a bit like a for-loop, but does have its uses in certain situations.
+
+\subsection*{with}\index{keywords!with}
+
+\textbf{With} is a very advanced keyword.
+
+\subsection*{yield}\index{keywords!yield}
+\textbf{Yield} is another very advanced keyword.
+
+\newpage
