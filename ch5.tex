@@ -1,0 +1,520 @@
+% ch5.tex
+% This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 New Zealand License.
+% To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/nz
+% or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+
+
+\chapter{Again and again}\label{ch:againandagain}
+
+There's nothing worse than having to do the same thing over and over and over again.  There's a reason your parents tell you to count sheep to try to go to sleep, and it has got nothing to do with the amazing sleep-inducing powers of woolly mammals.  It's all to do with the fact that endlessly repeating something is boring, and your mind should drop off to sleep more easily, if it's not focussing on something interesting.
+\par
+Programmers don't particularly like repeating themselves either. It puts them to sleep as well.  Which is a good reason why all programming languages have what is called a \textbf{for-loop}\index{for-loop}. For example, to print hello 5 times in Python, you \emph{could} do the following:
+
+\begin{listing}
+\begin{verbatim}
+>>> print "hello"
+hello
+>>> print "hello"
+hello
+>>> print "hello"
+hello
+>>> print "hello"
+hello
+>>> print "hello"
+hello
+\end{verbatim}
+\end{listing}
+
+Which is$\ldots$ rather tedious.
+
+Or you could use a for-loop (note: there's 4 spaces on the second line before the print statement---I've highlighted them using @ so that you can see where they are):
+
+\begin{listingignore}
+\begin{verbatim}
+>>> for x in range(0, 5):
+... @@@@print 'hello'
+... 
+hello
+hello
+hello
+hello
+hello
+\end{verbatim}
+\end{listingignore}
+
+\code{range}\index{functions!range} is a function and is a quick and easy way to create a list of numbers ranging between a start and end number. For example:
+
+\begin{listing}
+\begin{verbatim}
+>>> print range(10, 20):
+[10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+\end{verbatim}
+\end{listing}
+
+So in the case of the for-loop, what the code `\code{for x in range(0, 5)}' is actually telling Python, is to create a list of numbers (0, 1, 2, 3, 4) and then for each number, store the value in the variable \code{x}. We can then use the x in our print statement if we want to:
+
+\begin{listing}
+\begin{verbatim}
+>>> for x in range(0, 5):
+...     print 'hello %s' % x
+hello 0
+hello 1
+hello 2
+hello 3
+hello 4
+\end{verbatim}
+\end{listing}
+
+If we get rid of the for-loop again, it might look something like this:
+
+\begin{listing}
+\begin{verbatim}
+x = 0
+print 'hello %s' % x
+x = 1
+print 'hello %s' % x
+x = 2
+print 'hello %s' % x
+x = 3
+print 'hello %s' % x
+x = 4
+print 'hello %s' % x
+\end{verbatim}
+\end{listing}
+
+So the loop has actually saved us from writing an extra 8 lines of code.  This is extremely useful, since the average programmer is more lazy than a hippopotamus on a hot day, when it comes to typing. Good programmers hate doing things more than once, so the for-loop is one of the more useful statements in a programming language.
+
+\fbox{\colorbox{PaleBlue}{\parbox{.75\linewidth} {
+\subsection*{WARNING!!!}
+
+If you've been trying out the examples as you go along, you might have got a funny error message when typing in the code for that for-loop.  If you did, it might have looked something like this:
+
+\begin{listing}
+IndentationError: expected an indented block
+\end{listing}
+
+If you see an error like this, then you missed typing the spaces on the second line.  Spaces in Python (either a normal space or a tab) are extremely important.  We'll talk more about this shortly$\ldots$
+}}}
+\linebreak
+\par
+We don't have to stick to using \code{range}, we can also use lists we've already created.  Such as the shopping list we created in the last chapter:
+
+\begin{listing}
+\begin{verbatim}
+>>> shopping_list = [ 'eggs', 'milk', 'cheese', 'celery', 'peanut butter', 'baking soda' ]
+>>> for i in shopping_list:
+...     print i
+eggs
+milk
+cheese
+celery
+peanut butter
+baking soda
+\end{verbatim}
+\end{listing}
+
+The above code is a way of saying, ``for each item in the list, store the value in the variable `i' and then print the contents of that variable''.  Again, if we got rid of the for-loop, we'd have to do something like this:
+
+\begin{listing}
+\begin{verbatim}
+>>> shopping_list = [ 'eggs', 'milk', 'cheese', 'celery', 'peanut butter', 'baking soda' ]
+>>> print shopping_list[0]
+eggs
+>>> print shopping_list[1]
+milk
+>>> print shopping_list[2]
+cheese
+>>> print shopping_list[3]
+celery
+>>> print shopping_list[4]
+peanut butter
+>>> print shopping_list[5]
+baking soda
+\end{verbatim}
+\end{listing}
+
+So once again, the loop has saved us from a lot of typing.
+
+\section{When is a block not square?}\index{blocks of code}
+
+When it's a block of code.
+\par
+\noindent
+So what's a `block of code' then?
+\par
+A block of code is a set of programming statements you want to group together.  For example, in the for-loop example above, you might want to do more than just print out the items.  Perhaps you'd want to buy each item and then print out what it was.  Supposing we had a function called `buy', you might write code like this:
+
+\begin{listing}
+\begin{verbatim}
+>>> for i in shopping_list:
+...     buy(i)
+...     print i
+\end{verbatim}
+\end{listing}
+
+Don't bother typing that example into the Python console---because we don't have a buy function and you'll get an error message if you do try to run it---but it does demonstrate a simple Python block made up of 2 commands:
+
+\begin{listing}
+\begin{verbatim}
+buy(i)
+print i
+\end{verbatim}
+\end{listing}
+
+In Python, white space\index{white space} such as tab (when you press the tab key) and space (when you press the space bar) is \emph{very} important.  Code that is at the same position is grouped together into blocks.
+
+\begin{listing}
+\begin{verbatim}
+	this would be block 1
+	this would be block 1
+	this would be block 1
+	    this would be block 2
+	    this would be block 2
+	    this would be block 2
+	this would still be block 1
+	this would still be block 1
+	    this would be block 3
+	    this would be block 3
+	        this would be block 4
+	        this would be block 4
+	        this would be block 4
+\end{verbatim}
+\end{listing}
+
+But you must be consistent with your spacing.  For example:
+
+\begin{listing}
+\begin{verbatim}
+>>> for i in shopping_list:
+...     buy(i)
+...       print i
+\end{verbatim}
+\end{listing}
+
+The second line (\code{function buy(i)}) starts with \textbf{4} spaces.  The third line (print i) starts with \textbf{6} spaces.  Let's take another look at that code with visible spaces (using @ again):
+
+\begin{listing}
+\begin{verbatim}
+>>> for i in shopping_list:
+... @@@@buy(i)
+... @@@@@@print i
+\end{verbatim}
+\end{listing}
+
+This would cause an error.  Once you start using 4 spaces, you need to continue using 4 spaces.  And if you want to put a block \emph{inside} another block, you'll need 8 spaces (2 x 4) at the beginning of the lines for that inner block.
+\par
+So the first block has 4 spaces (I'll highlight them again so you can see them):
+
+\begin{listing}
+\begin{verbatim}
+@@@@here's my first block
+@@@@here's my first block
+\end{verbatim}
+\end{listing}
+
+And then the second block (which is `inside' the first) needs 8 spaces:
+
+\begin{listing}
+\begin{verbatim}
+@@@@here's my first block
+@@@@here's my first block
+@@@@@@@@here's my second block
+@@@@@@@@here's my second block
+\end{verbatim}
+\end{listing}
+
+Why do we want to put one block `inside' another?  Usually we do this when the second block relies on the first in some way.  Such as our for-loop.  If the line with the for-loop is the first block, then the statements we want to run over and over again are in the second block---in a way they rely on the first block to work properly.
+
+In the Python console, once you start typing code in a block, Python continues that block until you press the Enter key on a blank line (you'll see the 3 dots at the beginning of the line showing that you're still inside a block.
+
+Let's try some real examples.  Open the console and type the following (remember that you need to press the space bar 4 times at the beginning of the print lines):
+
+\begin{listing}
+\begin{verbatim}
+>>> mylist = [ 'a', 'b', 'c' ]
+>>> for i in mylist:
+...     print i
+...     print i
+...
+a
+a
+b
+b
+c
+c
+\end{verbatim}
+\end{listing}
+
+After the second print i, press the Enter key on the blank line---which tells the console you want to end the block. It will then print each item in the list twice.
+\par
+\noindent
+The next example will cause an error message to be displayed:
+
+\begin{listing}
+\begin{verbatim}
+>>> mylist = [ 'a', 'b', 'c' ]
+>>> for i in mylist:
+...     print i
+...       print i
+...
+File “<stdin>”, line 3
+  print i
+  ^
+Syntax Error: invalid syntax
+\end{verbatim}
+\end{listing}
+
+The second print line has 6 spaces, not 4, which Python doesn't like because it wants spacing to stay the same.
+
+\fbox{\colorbox{PaleBlue}{\parbox{.75\linewidth} {
+\subsection*{REMEMBER}
+
+If you start your blocks of code with 4 spaces you must continue using 4 spaces.  If you start blocks with 2 spaces, you must continue with 2 spaces.  Stick to 4 spaces, because that's what most people use.
+
+}}}
+
+\par
+Here's a more complicated example with 2 blocks of code:
+
+\begin{listing}
+\begin{verbatim}
+>>> mylist = [ 'a', 'b', 'c' ]
+>>> for i in mylist:
+...     print i
+...     for j in mylist:
+...         print j
+...
+\end{verbatim}
+\end{listing}
+
+\noindent
+Where are the blocks in this code and what is it going to do...?
+\par
+\noindent
+There are \textbf{two} blocks---number one is part of the first for-loop:
+
+\begin{listing}
+\begin{verbatim}
+>>> mylist = [ 'a', 'b', 'c' ]
+>>> for i in mylist:
+...     print i	                --
+...     for j in mylist:         |-- these lines are the FIRST block
+...         print j             --
+...
+\end{verbatim}
+\end{listing}
+
+Block number two is the single print line in the second for-loop:
+
+\begin{listing}
+\begin{verbatim}
+>>> mylist = [ 'a', 'b', 'c' ]
+>>> for i in mylist:
+...     print i
+...     for j in mylist:
+...         print j               -- this line is the SECOND block
+...
+\end{verbatim}
+\end{listing}
+
+Can you figure out what this little bit of code is going to do?
+\par
+It's going to print out the 3 letters from `mylist', but how many times?  If we look at each line, we can probably figure out the number. We know that the first loop statement will go through each of the items in the list, and then run the commands in block number 1. So it will print out a letter, then start the next loop. This loop will also go through each of the items in the list and then run the command in block number 2.  So what we should get when this code runs, is `a' followed by `a', `b', `c', then `b' followed by `a', `b', `c' and so on. Enter the code into the Python console and see for yourself:
+
+\begin{listing}
+\begin{verbatim}
+>>> mylist = [ 'a', 'b', 'c' ]
+>>> for i in mylist:
+...     print i
+...     for j in mylist:
+...         print j
+... 
+a
+a
+b
+c
+b
+a
+b
+c
+c
+a
+b
+c
+\end{verbatim}
+\end{listing}
+
+How about something more useful than just printing letters?  Remember that calculation we came up with at the beginning of this book to work out how much you might have saved at the end of the year, if you earned \$5 doing chores, \$30 doing a paper route and spent \$10 a week?
+\par
+\noindent
+It looked like this:
+
+\begin{listing}
+\begin{verbatim}
+>>> (5 + 30 - 10) * 52
+\end{verbatim}
+\end{listing}
+
+\noindent
+(That's \$5 + \$30 - \$10 multiplied by 52 weeks in the year).
+
+It might be useful to see how much your savings are increasing during the year, rather than working out what they will be at the very end.  We can do this with another for-loop.  But first of all, we need to load those numbers into variables:
+
+\begin{listing}
+\begin{verbatim}
+>>> chores = 5
+>>> paper = 30
+>>> spending = 10
+\end{verbatim}
+\end{listing}
+
+We can perform the original calculation using the variables:
+
+\begin{listing}
+\begin{verbatim}
+>>> (chores + paper - spending) * 52
+1300
+\end{verbatim}
+\end{listing}
+
+Or we can see the savings increase over the year, by creating another variable called savings, and then using a loop:
+
+\begin{listing}
+\begin{verbatim}
+1. >>> savings = 0
+2. >>> for week in range(1, 53):
+3. ...     savings = savings + chores + paper - spending
+4. ...     print 'Week %s = %s' % (week, savings)
+5. ...
+\end{verbatim}
+\end{listing}
+
+On line 1 the variable `savings' is loaded with 0 (because we haven't saved anything yet).\\
+Line 2 sets up the for-loop, which will run the commands in the block (the block is made up of lines 3 and 4).  Each time it loops, the variable week is loaded with the next number in the range 1-52.\\
+Line 3 is a bit more complicated.  Basically, each week we want to add what we've saved to our total savings.  Think of the variable `savings' as something like a bank.  We add up the money we earn doing odd jobs and the paper route, subtract our spending money and then take the rest to the bank.  So in computer-speak, line 3 really means, ``replace the contents of the variable savings with my current savings, plus what I've earned this week''. Basically, the equals symbol (=) is a bossy piece of code that is a way of saying, ``work out some stuff on the right first and then save it for later, using the name on the left''.\\
+Line 4 is a slightly more complicated print statement, which prints the week number and the total amount saved (for that week) to the screen.  Check the section \emph{Tricks with Strings} on page~\pageref{trickswithstrings}, if this line doesn't make a lot of sense to you. So, if you run this program, you'll see something like the following$\ldots$
+
+\begin{listing}
+\begin{verbatim}
+Week 1 = 25
+Week 2 = 50
+Week 3 = 75
+Week 4 = 100
+Week 5 = 125
+Week 6 = 150
+Week 7 = 175
+Week 8 = 200
+Week 9 = 225
+Week 10 = 250
+Week 11 = 275
+Week 12 = 300
+Week 13 = 325
+Week 14 = 350
+Week 15 = 375
+\end{verbatim}
+\end{listing}
+
+$\ldots$going all the way up to week 52.
+
+\section{While we're talking about looping$\ldots$}\index{while-loop}
+
+A for-loop isn't the only kind of looping you can do in Python. There's also the while-loop. If a for-loop is a loop where you know exactly when you'll stop running, a while-loop is a loop where you don't necessarily know ahead of time when you'll stop. Imagine a staircase with 20 steps.  You know you can easily climb 20 steps.  That's a for-loop.
+
+\begin{listing}
+\begin{verbatim}
+>>> for step in range(0,20):
+...     print step
+\end{verbatim}
+\end{listing}
+
+Now imagine a staircase going up a mountainside.  You might run out of energy before you reach the top.  Or the weather might turn bad forcing you to stop climbing.  This is a while-loop.
+
+\begin{listing}
+\begin{verbatim}
+>>> step = 0
+>>> while step < 10000:
+...     print step
+...     if tired == True:
+...         break
+...     elif badweather == True:
+...         break
+...     else:
+...         step = step + 1
+\end{verbatim}
+\end{listing}
+
+Don't bother running the code sample above, because we haven't bothered to create the variables \code{tired} and \code{badweather}.  But it demonstrates the basics of a while-loop.  \emph{While} the value of variable \code{step} is less than 10000 (step $<$ 10000) the code in the block is executed.  In the block, we print the value of \code{step}, then check whether \code{tired} or \code{badweather} is true.  If \code{tired} is true, then the \code{break} statement stops the code in the loop executing (basically we jump out of the loop to the next line of code immediately following the block).  If \code{badweather} is true, we also break out of the loop.  If not, then \textbf{1} is added to the value of \code{step}, and the condition of the while loop (step $<$ 10000) is checked again.
+\par
+\noindent
+So the steps of a while loop are basically:
+
+{\renewcommand{\labelitemi}{$\triangleright$}
+\begin{itemize}
+\item check the condition,
+\item execute the code in the block,
+\item repeat
+\end{itemize}}
+
+More commonly, a while-loop might be created with a couple of conditions:
+
+\begin{listing}
+\begin{verbatim}
+>>> x = 45
+>>> y = 80
+>>> while x < 50 and y < 100:
+...     x = x + 1
+...     y = y + 1
+...     print x, y
+\end{verbatim}
+\end{listing}
+
+In this loop, we create a variable \code{x} with the value 45, and a variable \code{y} with the value 80.  There are two conditions that are checked by the loop: whether \code{x} is less than 50 and whether \code{y} is less than 100. While both conditions are true, the block of code is executed, adding 1 to both variables and then printing them. The output of this code is just:
+
+\begin{listing}
+\begin{verbatim}
+46 81
+47 82
+48 83
+49 84
+50 85
+\end{verbatim}
+\end{listing}
+
+Maybe you can figure out why these numbers are printed?\footnote{We start counting at 45 in the variable \code{x} and at 80 in the variable \code{y}, and then increment (add one) to each variable every time the code in the loop is run.  The conditions check that \code{x} must be less than 50 and \code{y} must be less than 100.  After looping five times (adding 1 to each variable) the value in x reaches 50.  Now the first condition (x $<$ 50) is no longer true, so Python knows to stop looping.}
+
+Another common usage of a while-loop, is to create a semi-eternal loop. This is a loop that basically goes forever, or at least until something happens in the code to break out of it. For example:
+
+\begin{listing}
+\begin{verbatim}
+>>> while True:
+...     lots of code here
+...     lots of code here
+...     lots of code here
+...     if some_condition == True:
+...         break
+\end{verbatim}
+\end{listing}
+
+The condition for the while loop is just `True'.  So it will always run the code in the block (thus the loop is eternal or infinite). Only if the variable some\_condition is true will the code break out of the loop.  You can see a better example of this in Appendix~\ref{app:afewpythonmodules} (the section about the \code{random} module), but you might want to wait until you've read the next chapter before taking a look at it.
+
+\section{Things to try}
+
+\emph{In this chapter we saw how to use loops to perform repetitive tasks.  We used blocks of code inside the loops for the tasks to be repeated.}
+
+\subsection*{Exercise 1}
+What do you think will happen with the following code?
+
+\begin{listing}
+\begin{verbatim}
+>>> for x in range(0, 20):
+...     print 'hello %s' % x
+...     if x < 9:
+...         break
+\end{verbatim}
+\end{listing}
+
+\subsection*{Exercise 2}
+When you save money in a bank, you earn interest.  `Interest' is the money the bank pays you for letting them use your money---each year you are paid a small amount of money depending upon how much you've saved.  This payment is usually added back to your savings account at the bank, and it also makes you money$\ldots$ which is a bit confusing, so you might have to ask Mum or Dad to explain.
+Interest is calculated using percentages.  If you don't know what a percentage is, don't worry, it's enough to know that if the bank is paying you 1\% (1 percent) interest, you can multiply the monetary amount by the number 0.01 (if your amount is \$1000, then you will do: 1000 * 0.01).  If they're paying you 2\% interest, you can use the number 0.02, and so on.  
+If you have \$100 saved in a bank account, and they pay you 3\% interest every year, how much money do you think you will have each year, up to 10 years?  You can write a program using a for-loop to figure it out  (Hint: remember to add the interest to the total).
+\newpage
