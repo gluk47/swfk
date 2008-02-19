@@ -3,6 +3,10 @@ VERSION = `egrep 'Version\s*(.*)' swfk.tex | cut -d' ' -f2 | tr -d "\\\n\f\r"`
 OUTPUT = target
 
 dist : clean
+	for x in *.zip; \
+		do unzip -qq -o $$x; \
+	done
+	if [ ! -e cover.eps ]; then cp placeholder.eps cover.eps; fi
 	latex --output-directory=$(OUTPUT) swfk.tex
 	makeindex $(OUTPUT)/swfk.idx
 	latex --output-directory=$(OUTPUT) swfk.tex
