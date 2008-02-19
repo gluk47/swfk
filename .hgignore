@@ -3,3 +3,4 @@ syntax: glob
 target
 target/*
 *.eps
+cover.eps
