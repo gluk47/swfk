@@ -3,7 +3,7 @@ img_extIsRegExp=false
 img_extensions=.eps .pdf .dvi .ps .fig .gif .jpg .jpeg .png
 kileprversion=1
 kileversion=1.9.3
-lastDocument=
+lastDocument=ch1.tex
 masterDocument=
 name=swfk
 pkg_extIsRegExp=false
@@ -49,11 +49,11 @@ open=false
 
 [item:ch1.tex]
 archive=true
-column=108
+column=19
 encoding=UTF-8
 highlight=LaTeX
-line=3
-open=false
+line=120
+open=true
 
 [item:ch10.tex]
 archive=true
@@ -105,10 +105,10 @@ open=false
 
 [item:ch7.tex]
 archive=true
-column=108
+column=9
 encoding=UTF-8
 highlight=LaTeX
-line=3
+line=0
 open=false
 
 [item:ch8.tex]
@@ -135,6 +135,30 @@ highlight=LaTeX
 line=0
 open=false
 
+[item:swfk-linux.tex]
+archive=true
+column=20
+encoding=UTF-8
+highlight=LaTeX
+line=10
+open=true
+
+[item:swfk-mac.tex]
+archive=true
+column=3
+encoding=UTF-8
+highlight=LaTeX
+line=33
+open=true
+
+[item:swfk-win.tex]
+archive=true
+column=0
+encoding=
+highlight=LaTeX
+line=33
+open=true
+
 [item:swfk.kilepr]
 archive=true
 column=0
@@ -145,8 +169,8 @@ open=false
 
 [item:swfk.tex]
 archive=true
-column=0
+column=17
 encoding=UTF-8
 highlight=LaTeX
-line=1
+line=51
 open=false

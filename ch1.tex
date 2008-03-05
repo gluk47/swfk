@@ -59,8 +59,7 @@ This is the part where you hope Mum, Dad (or whomever is in charge of the comput
 \noindent
 There's a good way to find out if they actually have read it:
 
-\subsection*{\color{BrickRed}If you're using Windows$\ldots$}\index{Windows}
-
+\begin{WINDOWS}
 Click on the Start button at the bottom left of the screen, click on `All Programs' (which has a green triangle next to it), and hopefully in the list of programs you should see `Python 2.5' (or something like it).  Figure~\ref{fig1} shows you what you should be looking for. Click on `Python (command line)' and you should see something like Figure~\ref{fig2}.
 
 \begin{figure}
@@ -76,9 +75,9 @@ Click on the Start button at the bottom left of the screen, click on `All Progra
 \end{center}
 \caption{The Python console on Windows.}\label{fig2}
 \end{figure}
+\end{WINDOWS}
 
-\subsection*{\color{BrickRed}If you're using Mac OS X$\ldots$}\index{Mac OS X}
-
+\begin{MAC}
 In Finder, on the left you should see a group called `Applications'.  Click on this, and then find a program called `Terminal' (it'll probably be in a folder called `Utilities').
 Click on `Terminal', and when it starts up, type python and hit enter.  You'll should hopefully be looking at a window that looks like Figure~\ref{fig3}.
 
@@ -88,9 +87,9 @@ Click on `Terminal', and when it starts up, type python and hit enter.  You'll s
 \end{center}
 \caption{The Python console on Mac OSX.}\label{fig3}
 \end{figure}
+\end{MAC}
 
-\subsection*{\color{BrickRed}If you're using Linux$\ldots$}\index{Linux}
-
+\begin{LINUX}
 Ask Mum or Dad which terminal application you should use (it could be one called `Konsole', `rxvt', `xterm' or any one of a dozen different programs---which is why you'll probably need to ask).  Start the terminal program and type `python' (without the quotes), and hit enter.  You should see something like Figure~\ref{fig4}.
 
 \begin{figure}
@@ -99,10 +98,11 @@ Ask Mum or Dad which terminal application you should use (it could be one called
 \end{center}
 \caption{The Python console on Linux.}\label{fig4}
 \end{figure}
+\end{LINUX}
 
 \subsection*{\color{BrickRed}If you discover they haven't read the section in the beginning$\ldots$}
 
-$\ldots$because you can't find any of those programs---then turn to the front of the book, poke it under their nose while they're trying to read the newspaper, and look hopeful.  Saying, ``please please please please'' over and over again, until it becomes annoying, might work quite well, if you're having trouble convincing them to get off the couch.
+$\ldots$because there is something missing when you try to follow those instructions---then turn to the front of the book, poke it under their nose while they're trying to read the newspaper, and look hopeful.  Saying, ``please please please please'' over and over again, until it becomes annoying, might work quite well, if you're having trouble convincing them to get off the couch.  Of course, the other thing you can do, is turn to the front of the book, and follow the instructions in the Preface to install Python yourself.
 
 \section{Your first Python program}
 
@@ -149,8 +149,7 @@ $\ldots$and you'd better hope there's no big gust of wind while you're carrying 
 \includegraphics*[width=85mm]{pullinghair.eps}
 \end{center}
 
-\subsection*{\color{BrickRed}If you're using Windows$\ldots$}\index{Windows}
-
+\begin{WINDOWS}
 Open Notepad (Click on Start, All Programs, and it should be in the Accessories sub menu), and then type the print command exactly as you typed it into the console before:
 
 \begin{listing}
@@ -167,9 +166,9 @@ Click on the File menu (in Notepad), then Save, and when prompted for a file nam
 \end{center}
 \caption{hello.py icon on the Windows Desktop.}\label{fig5}
 \end{figure}
+\end{WINDOWS}
 
-\subsection*{\color{BrickRed}If you're using Mac OS X$\ldots$}\index{Mac OS X}
-
+\begin{MAC}
 Open up the Text Editor by clicking on its icon.  It may be in the Dock at the bottom of the screen \includegraphics*[width=12mm]{textedit-icon.eps}, or look for this icon \includegraphics*[width=19mm]{textedit-icon2.eps} in the Applications list in Finder.  Type the print command exactly as you typed it into the console earlier:
 
 \begin{listing}
@@ -208,9 +207,9 @@ At which point, the `Terminal' application will automatically start, followed by
 \emph{What a mess!}
 
 But you can see that the words Hello World were printed in that last window (the fourth line from the bottom of the text).
+\end{MAC}
 
-\subsection*{\color{BrickRed}If you're using Linux$\ldots$}\index{Linux}
-
+\begin{LINUX}
 Open a text editor (again you might have to ask Mum or Dad which one to use), then type the print command exactly as you typed it into the console:
 
 \begin{listing}
@@ -235,10 +234,9 @@ You should see Hello World written to the window exactly as it was when you type
 \end{center}
 \caption{Running a python program from a text file on Linux.}\label{fig9}
 \end{figure}
+\end{LINUX}
 
-\subsection*{\color{BrickRed}Continuing here$\ldots$}
-
-And so, you can now see that the nice people who created Python, have kindly saved you from having to type the same thing over and over and over and over and over again.  Like they did back in the 1980's.  No, I'm serious---they did.  Go and ask your Dad if he ever owned a ZX81 when he was younger?\\
+So you can now see that the nice people who created Python, have kindly saved you from having to type the same thing over and over and over and over and over again.  Like they did back in the 1980's.  No, I'm serious---they did.  Go and ask your Dad if he ever owned a ZX81 when he was younger?\\
 
 \noindent
 If he did you can point at him and laugh.\\
@@ -249,7 +247,7 @@ Trust me on this one.  You won't get it.  But he will.\footnote{The Sinclair ZX8
 \noindent
 \emph{Be prepared to run away though.}
 
-\subsection*{\color{BrickRed}$\ldots$Only to end here}
+\subsection*{\color{BrickRed}The End of the Beginning}
 
 Welcome to the wonderful world of Programming.  We've started really simply with a ``Hello World'' application---everyone starts with that, when they're learning to program.
 In the next chapter we'll start to do some more useful things with the Python console and then look at what goes into making a program.

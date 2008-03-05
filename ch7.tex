@@ -11,7 +11,9 @@ You probably know what a file is already.
 \noindent
 If your parents have a home office, chances are they've got a file cabinet of some sort.  Various important papers (mostly boring adult stuff) are stored in those cabinets, usually in cardboard folders labelled with letters of the alphabet, or months of the year. Files on a computer are rather similar to those cardboard folders. They have labels (the name of the file), and are used to store important information. The drawers on a file cabinet, which might be used to organise paperwork so they are easier to find, are similar to directories (or folders) on a computer.
 \par
-We've already created a file object, using Python, in the previous chapter.  If you're using Windows, the example looked like this:
+We've already created a file object, using Python, in the previous chapter.  The example looked like this:
+
+\begin{WINDOWS}
 
 \begin{listing}
 \begin{verbatim}
@@ -19,6 +21,30 @@ We've already created a file object, using Python, in the previous chapter.  If 
 >>> print f.read()
 \end{verbatim}
 \end{listing}
+
+\end{WINDOWS}
+
+\begin{MAC}
+
+\begin{listing}
+\begin{verbatim}
+>>> f = file('Desktop/test.txt')
+>>> print f.read()
+\end{verbatim}
+\end{listing}
+
+\end{MAC}
+
+\begin{LINUX}
+
+\begin{listing}
+\begin{verbatim}
+>>> f = file('Desktop/test.txt')
+>>> print f.read()
+\end{verbatim}
+\end{listing}
+ 
+\end{LINUX}
 
 A file object doesn't just have the function \code{read}\index{functions!file!read}. After all, file cabinets wouldn't be very useful if you could only open a drawer and take papers out, but could never put them back in. We can create a new, empty file, by passing another parameter when we call the \code{file} function:
 

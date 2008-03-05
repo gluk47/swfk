@@ -184,11 +184,11 @@ This is a bit more useful than re-typing the for-loop every time you want to try
 
 \section{Bits and Pieces}
 
-When Python is installed on your computer, a whole pile of functions and modules are also installed. Some functions are available by default.  \code{range} is a function we've already seen. \code{file}\index{functions!file} is another function we haven't use yet.  To see how \code{file} is used:
+When Python is installed on your computer, a whole pile of functions and modules are also installed. Some functions are available by default.  \code{range} is a function we've already seen. \code{file}\index{functions!file} is another function we haven't use yet.
 
-\subsection*{\color{BrickRed}If you're using Windows$\ldots$}\index{Windows}
+\begin{WINDOWS}
 
-Open Notepad and type a few words, then save the file onto your C drive, by:
+To see how \code{file} is used, open Notepad and type a few words, then save the file onto your C drive, by:
 
 \begin{enumerate}
  \item clicking on the File menu, then Save,
@@ -214,10 +214,10 @@ Open the Python console again, and try the following:
 \end{listing}
 
 The contents of the file you just created should be printed to the console. You can now jump ahead to the bit that says: ``Continuing from here$\ldots$''.
+\end{WINDOWS}
 
-\subsection*{\color{BrickRed}If you're using Mac OS X$\ldots$}\index{Mac OS X}
-
-Open up the Text Editor, by clicking on the editor icon (\includegraphics*[width=12mm]{textedit-icon.eps}).  Type a few words then save the file to the Desktop by clicking File, then Save, and entering the name `text.txt' in the entry box next to `Save As'.
+\begin{MAC}
+To see how \code{file} is used, open up the Text Editor, by clicking on the editor icon (\includegraphics*[width=12mm]{textedit-icon.eps}).  Type a few words then save the file to the Desktop by clicking File, then Save, and entering the name `text.txt' in the entry box next to `Save As'.
 
 \begin{figure}
 \begin{center}
@@ -236,10 +236,10 @@ Open the Python console again, and try the following:
 \end{listing}
 
 The contents of the file you just created should be printed to the console.  You can now jump ahead to the bit that says: ``Continuing from here$\ldots$''.
+\end{MAC}
 
-\subsection*{\color{BrickRed}If you're using Linux$\ldots$}\index{Linux}
-
-Open a text editor, type a few words and then save the file to your home directory, by clicking File, Save, selecting `Home Folder' (or `Home Directory' or `Home') and typing `test.txt' in the file name box (see figure~\ref{fig19} for an example).
+\begin{LINUX}
+To see how \code{file} is used, open a text editor, type a few words and then save the file to your home directory, by clicking File, Save, selecting `Home Folder' (or `Home Directory' or `Home') and typing `test.txt' in the file name box (see figure~\ref{fig19} for an example).
 
 \begin{figure}
 \begin{center}
@@ -257,7 +257,7 @@ Open the Python console again, and try the following:
 \end{verbatim}
 \end{listing}
 
-\subsection*{\color{BrickRed}Continuing from here$\ldots$}
+\end{LINUX}
 
 So what does that little bit of code do?  The first line calls the function \code{file}, passing the name of the file you just created, as a parameter.  The function returns a special type of value (called an object) which represents that file.  It's not the file itself; rather it's a bit like a big finger pointing at the file going ``HERE IT IS!!!!''  The file object is stored in the variable \code{f}.
 \par
