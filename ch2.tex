@@ -10,16 +10,14 @@ What is 8 multiplied by 3.57?  You'd have to use a calculator, wouldn't you?  We
 
 \begin{listing}
 \begin{verbatim}
-Python 2.5.1 (r251:54863, May 2 2007, 16:56:35)
+Python 3.0 (r30:67503, Dec  6 2008, 23:22:48) 
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 8 * 3.57
 28.559999999999999
 \end{verbatim}
 \end{listing}
 
-The star (*), or asterisk key (shift 8 on some keyboards), is used for multiplication\index{multiplication}, instead of the normal times symbol (\textsf{X}) that you use at school (using the star key is necessary, otherwise how would the computer know whether you meant the letter \emph{x} or the multiplication symbol \textsf{X} ?).
-
-How about an equation that's a bit more useful?
+The star (*), or asterisk key (shift 8 on some keyboards), is used for multiplication\index{multiplication}, instead of the normal times symbol (\textsf{X}) that you use at school (using the star key is necessary, otherwise how would the computer know whether you meant the letter \emph{x} or the multiplication symbol \textsf{X} ?).  How about an equation that's a bit more useful?
 
 Suppose you do chores once a week, for which you get \$5 pocket money, and you have a paper round which you do 5 times a week and get \$30---how much money would you earn in a year?
 
@@ -75,7 +73,7 @@ So, what if you spend \$10 each week?  How much do you have left at the end of t
 \end{verbatim}
 \end{listing}
 
-That's \$5 and \$30 minus \$10 multiplied by 52 weeks in the year1.  And you'd have \$1300 left at the end of the year. Okay, so that's not looking all that useful so far.  We can do all of that with a calculator.  But we'll come back to this later and show how to make it much more useful.
+That's \$5 and \$30 minus \$10 multiplied by 52 weeks in the year.  And you'd have \$1300 left at the end of the year. Okay, so that's not looking all that useful so far.  We can do all of that with a calculator.  But we'll come back to this later and show how to make it much more useful.
 
 You can do multiplication\index{multiplication} and addition\index{addition} (obviously), and subtraction\index{subtraction} and division\index{division} in the Python console, along with a bunch of other maths operations that we won't go into now.  For the moment the basic maths symbols for Python (actually they're called operators\index{operators}) are:
 
@@ -121,7 +119,7 @@ We use brackets in a programming language to control what is called ``Order of O
 
 \begin{listing}
 \begin{verbatim}
->>> print 5 + 30 + 20
+>>> print(5 + 30 + 20)
 55
 \end{verbatim}
 \end{listing}
@@ -131,7 +129,7 @@ Similarly, in this equation, there are only addition and subtraction operators, 
 
 \begin{listing}
 \begin{verbatim}
->>> print 5 + 30 - 20
+>>> print(5 + 30 - 20)
 15
 \end{verbatim}
 \end{listing}
@@ -141,7 +139,7 @@ But in the following equation, there is a multiplication operator, so the number
 
 \begin{listing}
 \begin{verbatim}
->>> print 5 + 30 * 20
+>>> print(5 + 30 * 20)
 605
 \end{verbatim}
 \end{listing}
@@ -151,18 +149,18 @@ So what happens when we add brackets?  The following equation shows the result:
 
 \begin{listing}
 \begin{verbatim}
->>> print (5 + 30) * 20
+>>> print((5 + 30) * 20)
 700
 \end{verbatim}
 \end{listing}
 
 \noindent
-Why is the number different?  Because brackets control the order of operations.  With brackets, Python knows to do calculate using the operators in the brackets first, then do the operators outside.  So that equation is another way of saying, ``add 5 and 30, then multiply the result by 20''.
+Why is the number different?  Because brackets control the order of operations.  With brackets, Python knows to calculate using the operators in the brackets first, then do the operators outside.  So that equation is another way of saying, ``add 5 and 30, then multiply the result by 20''.
 The use of brackets can become more complicated.  There can be brackets inside brackets:
 
 \begin{listing}
 \begin{verbatim}
->>> print ((5 + 30) * 20) / 10
+>>> print(((5 + 30) * 20) / 10)
 70
 \end{verbatim}
 \end{listing}
@@ -204,7 +202,7 @@ We've just created a variable called `fred' and said that it points to the numbe
 \begin{listing}
 \begin{verbatim}
 >>> fred = 100
->>> print fred
+>>> print(fred)
 100
 \end{verbatim}
 \end{listing}
@@ -214,7 +212,7 @@ We can also tell Python we want the variable \code{fred} to point at something e
 \begin{listing}
 \begin{verbatim}
 >>> fred = 200
->>> print fred
+>>> print(fred)
 200
 \end{verbatim}
 \end{listing}
@@ -226,7 +224,7 @@ On the first line we say we now want fred to point at the number 200.  Then, in 
 \begin{verbatim}
 >>> fred = 200
 >>> john = fred
->>> print john
+>>> print(john)
 200
 \end{verbatim}
 \end{listing}
@@ -254,7 +252,7 @@ We can do that because variable names can be made up of letters, numbers and (\_
 
 \begin{listing}
 \begin{verbatim}
->>> print number_of_students
+>>> print(number_of_students)
 200
 \end{verbatim}
 \end{listing}
@@ -274,7 +272,7 @@ Now we know how to create a variable, how do we use it?  Remember that equation 
 
 \begin{listing}
 \begin{verbatim}
->>> print (5 + 30 - 10) * 52
+>>> print((5 + 30 - 10) * 52)
 1300
 \end{verbatim}
 \end{listing}
@@ -295,7 +293,7 @@ We've just created variables named `chores', `paper\_round' and `spending'.  We 
 
 \begin{listing}
 \begin{verbatim}
->>> print (chores + paper_round - spending) * 52
+>>> print((chores + paper_round - spending) * 52)
 1300
 \end{verbatim}
 \end{listing}
@@ -305,7 +303,7 @@ Which gives the exact same answer.  What if you get \$2 more per week, for doing
 \begin{listing}
 \begin{verbatim}
 >>> chores = 7
->>> print (chores + paper_round - spending) * 52
+>>> print((chores + paper_round - spending) * 52)
 1404
 \end{verbatim}
 \end{listing}
@@ -316,7 +314,7 @@ That's a lot less typing to find out that you now end up with \$1404 at the end 
 \begin{verbatim}
 If you spend twice as much money per week:
 >>> spending = 20
->>> print (chores + paper_round - spending) * 52
+>>> print((chores + paper_round - spending) * 52)
 884
 \end{verbatim}
 \end{listing}
@@ -344,11 +342,11 @@ In Python, we create a string by putting quotes around the text.  So we can take
 \end{listing}
 
 \noindent
-And we can see what's inside the \code{fred} variable, by typing \code{print fred}:
+And we can see what's inside the \code{fred} variable, by typing \code{print(fred)}:
 
 \begin{listing}
 \begin{verbatim}
->>> print fred
+>>> print(fred)
 this is a string
 \end{verbatim}
 \end{listing}
@@ -359,7 +357,7 @@ We can also use single-quotes to create a string:
 \begin{listing}
 \begin{verbatim}
 >>> fred = 'this is yet another string'
->>> print fred
+>>> print(fred)
 this is yet another string
 \end{verbatim}
 \end{listing}
@@ -372,7 +370,7 @@ However, if you try to type more than one line of text for your string using a s
   File "<stdin>", line 1
     fred = "this is two
                       ^
-SyntaxError: EOL while scanning single-quoted string
+SyntaxError: EOL while scanning string literal
 \end{verbatim}
 \end{listing}
 
@@ -390,7 +388,7 @@ Print out the contents to see if it worked:
 
 \begin{listing}
 \begin{verbatim}
->>> print fred
+>>> print(fred)
 this is two
 lines of text in a single string
 \end{verbatim}
@@ -409,7 +407,7 @@ But what is 10 * 'a' (10 times the letter a)?  It might seem like a nonsensical 
 
 \begin{listing}
 \begin{verbatim}
->>> print 10 * 'a'
+>>> print(10 * 'a')
 aaaaaaaaaa
 \end{verbatim}
 \end{listing}
@@ -418,7 +416,7 @@ This works with more than just single character strings:
 
 \begin{listing}
 \begin{verbatim}
->>> print 20 * 'abcd'
+>>> print(20 * 'abcd')
 abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd
 \end{verbatim}
 \end{listing}
@@ -428,21 +426,21 @@ Another trick with a string, is embedding values.  You can do this by using \%s,
 \begin{listing}
 \begin{verbatim}
 >>> mytext = 'I am %s years old'
->>> print mytext % 12
+>>> print(mytext % 12)
 I am 12 years old
 \end{verbatim}
 \end{listing}
 
-In the first line, the variable mytext is created with a string containing some words and a placeholder (\%s).  The \%s is a little beacon saying ``replace me with something'' to the Python console.  So on the next line, when we call print mytext, we use the \% symbol, to tell Python to replace the marker with the number 12. We can reuse that string and pass in different values:
+In the first line, the variable mytext is created with a string containing some words and a placeholder (\%s).  The \%s is a little beacon saying ``replace me with something'' to the Python console.  So on the next line, when we call \code{print(mytext)}, we use the \% symbol, to tell Python to replace the marker with the number 12. We can reuse that string and pass in different values:
 
 \begin{listing}
 \begin{verbatim}
 >>> mytext = 'Hello %s, how are you today?'
 >>> name1 = 'Joe'
 >>> name2 = 'Jane'
->>> print mytext % name1
+>>> print(mytext % name1)
 Hello Joe, how are you today?
->>> print mytext % name2
+>>> print(mytext % name2)
 Hello Jane, how are you today?
 \end{verbatim}
 \end{listing}
@@ -452,7 +450,7 @@ In the above example, 3 variables (mytext, name1 and name2) are created---the fi
 \begin{listing}
 \begin{verbatim}
 >>> mytext = 'Hello %s and %s, how are you today?'
->>> print mytext % (name1, name2)
+>>> print(mytext % (name1, name2))
 Hello Joe and Jane, how are you today?
 \end{verbatim}
 \end{listing}
@@ -466,7 +464,7 @@ Eggs, milk, cheese, celery, peanut butter, and baking soda.  Which is not quite 
 \begin{listing}
 \begin{verbatim}
 >>> shopping_list = 'eggs, milk, cheese, celery, peanut butter, baking soda'
->>> print shopping_list
+>>> print(shopping_list)
 eggs, milk, cheese, celery, peanut butter, baking soda
 \end{verbatim}
 \end{listing}
@@ -475,8 +473,9 @@ Another way would be to create a `list', which is a special kind of object in Py
 
 \begin{listing}
 \begin{verbatim}
->>> shopping_list = [ 'eggs', 'milk', 'cheese', 'celery', 'peanut butter', 'baking soda' ]
->>> print shopping_list
+>>> shopping_list = [ 'eggs', 'milk', 'cheese', 'celery', 'peanut butter', 
+... 'baking soda' ]
+>>> print(shopping_list)
 ['eggs', 'milk', 'cheese', 'celery', 'peanut butter', 'baking soda']
 \end{verbatim}
 \end{listing}
@@ -485,7 +484,7 @@ This is more typing, but it's also more useful.  We could print the 3rd item in 
 
 \begin{listing}
 \begin{verbatim}
->>> print shopping_list[2]
+>>> print(shopping_list[2])
 cheese
 \end{verbatim}
 \end{listing}
@@ -496,7 +495,7 @@ We can show all the items from the 3rd item up to the 5th in the list, by using 
 
 \begin{listing}
 \begin{verbatim}
->>> print shopping_list[2:5]
+>>> print(shopping_list[2:5])
 ['cheese', 'celery', 'peanut butter']
 \end{verbatim}
 \end{listing}
@@ -524,7 +523,7 @@ And mixtures of numbers and strings:
 \begin{listing}
 \begin{verbatim}
 >>> mylist = [1, 2, 'a', 'bbb']
->>> print mylist
+>>> print(mylist)
 [1, 2, 'a', 'bbb']
 \end{verbatim}
 \end{listing}
@@ -537,7 +536,7 @@ And even lists of lists:
 >>> list1 = [ 'a', 'b', 'c' ]
 >>> list2 = [ 1, 2, 3 ]
 >>> mylist = [ list1, list2 ]
->>> print mylist
+>>> print(mylist)
 [['a', 'b', 'c'], [1, 2, 3]]
 \end{verbatim}
 \end{listing}
@@ -554,7 +553,7 @@ We can replace an item in the list, by setting its value in a similar way to set
 \begin{listing}
 \begin{verbatim}
 >>> shopping_list[3] = 'lettuce'
->>> print shopping_list
+>>> print(shopping_list)
 ['eggs', 'milk', 'cheese', 'lettuce', 'peanut butter', 'baking soda']
 \end{verbatim}
 \end{listing}
@@ -566,8 +565,9 @@ We can add items to a list by using a method called `append'.  A method is an ac
 \begin{listing}
 \begin{verbatim}
 >>> shopping_list.append('chocolate bar')
->>> print shopping_list
-['eggs', 'milk', 'cheese', 'lettuce', 'peanut butter', 'baking soda', 'chocolate bar']
+>>> print(shopping_list)
+['eggs', 'milk', 'cheese', 'lettuce', 'peanut butter', 'baking soda', 
+'chocolate bar']
 \end{verbatim}
 \end{listing}
 
@@ -580,7 +580,7 @@ We can remove items from a list by using the command `del' (short for delete).  
 \begin{listing}
 \begin{verbatim}
 >>> del shopping_list[5]
->>> print shopping_list
+>>> print(shopping_list)
 ['eggs', 'milk', 'cheese', 'lettuce', 'peanut butter', 'chocolate bar']
 \end{verbatim}
 \end{listing}
@@ -595,7 +595,7 @@ We can join lists together by adding them, as if we were adding two numbers:
 \begin{verbatim}
 >>> list1 = [ 1, 2, 3 ]
 >>> list2 = [ 4, 5, 6 ]
->>> print list1 + list2
+>>> print(list1 + list2)
 [1, 2, 3, 4, 5, 6]
 \end{verbatim}
 \end{listing}
@@ -608,7 +608,7 @@ We can also add the two lists and set the result to another variable:
 >>> list1 = [ 1, 2, 3 ]
 >>> list2 = [ 4, 5, 6 ]
 >>> list3 = list1 + list2
->>> print list3
+>>> print(list3)
 [1, 2, 3, 4, 5, 6]
 \end{verbatim}
 \end{listing}
@@ -619,7 +619,7 @@ And you can multiply a list in the same way we multiplied a string:
 \begin{listing}
 \begin{verbatim}
 >>> list1 = [ 1, 2 ]
->>> print list1 * 5
+>>> print(list1 * 5)
 [1, 2, 1, 2, 1, 2, 1, 2, 1, 2]
 \end{verbatim}
 \end{listing}
@@ -658,7 +658,7 @@ A tuple (mentioned earlier) is a little bit like a list, but rather than using s
 \begin{listing}
 \begin{verbatim}
 >>> t = (1, 2, 3)
->>> print t[1]
+>>> print(t[1])
 2
 \end{verbatim}
 \end{listing}

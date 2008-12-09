@@ -17,7 +17,7 @@ This might be written in Python as the following if-statement:
 \begin{listing}
 \begin{verbatim}
 if age > 20:
-    print 'you are too old!'
+    print('you are too old!')
 \end{verbatim}
 \end{listing}
 
@@ -61,7 +61,7 @@ Let's try a few examples:
 \begin{verbatim}
 >>> age = 10
 >>> if age > 10:
-...     print 'got here'
+...     print('got here')
 \end{verbatim}
 \end{listing}
 
@@ -78,7 +78,7 @@ Because the value of the variable \code{age} is not greater than 10, the print c
 \begin{verbatim}
 >>> age = 10
 >>> if age >= 10:
-...     print 'got here'
+...     print('got here')
 \end{verbatim}
 \end{listingignore}
 
@@ -88,22 +88,22 @@ If you try this example, then you should see the message got here printed to the
 \begin{verbatim}
 >>> age = 10
 >>> if age == 10:
-...     print 'got here'
+...     print('got here')
 got here
 \end{verbatim}
 \end{listing}
 
 \section{Do this$\ldots$ or ELSE!!!}
 
-We can also extend an if-statement, so that it does something when a condition is not true.  For example, print `Hello' if your age is 12, but print `Goodbye' if it's not.  To do this, we use an if-then-else-statement\index{if-then-else-statement} (this is another way of saying \emph{``if something is true, then do \textbf{this}, otherwise do \textbf{that}''}):
+We can also extend an if-statement, so that it does something when a condition is not true.  For example, print(`Hello') if your age is 12, but print(`Goodbye') if it's not.  To do this, we use an if-then-else-statement\index{if-then-else-statement} (this is another way of saying \emph{``if something is true, then do \textbf{this}, otherwise do \textbf{that}''}):
 
 \begin{listing}
 \begin{verbatim}
 >>> age = 12
 >>> if age == 12:
-...     print 'Hello'
+...     print('Hello')
 ... else:
-...     print 'Goodbye'
+...     print('Goodbye')
 Hello
 \end{verbatim}
 \end{listing}
@@ -114,9 +114,9 @@ Type in the above example and you should see `Hello' printed to the console.  Ch
 \begin{verbatim}
 >>> age = 8
 >>> if age == 12:
-...     print 'Hello'
+...     print('Hello')
 ... else:
-...     print 'Goodbye'
+...     print('Goodbye')
 
 Goodbye
 \end{verbatim}
@@ -130,15 +130,15 @@ We can extend an if-statement even further using elif (short for else-if). For e
 \begin{verbatim}
  1. >>> age = 12
  2. >>> if age == 10:
- 3. ...     print 'you are 10'
+ 3. ...     print('you are 10')
  4. ... elif age == 11:
- 5. ...     print 'you are 11'
+ 5. ...     print('you are 11')
  6. ... elif age == 12:
- 7. ...     print 'you are 12'
+ 7. ...     print('you are 12')
  8. ... elif age == 13:
- 9. ...     print 'you are 13'
+ 9. ...     print('you are 13')
 10. ... else:
-11. ...     print 'huh?'
+11. ...     print('huh?')
 12. ...
 13. you are 12
 \end{verbatim}
@@ -152,9 +152,9 @@ You can combine conditions together using the keywords `and' and `or'.  We can s
 \begin{listing}
 \begin{verbatim}
 1. >>> if age == 10 or age == 11 or age == 12 or age == 13:
-2. ...     print 'you are %s' % age
+2. ...     print('you are %s' % age)
 3. ... else:
-4. ...     print 'huh?'
+4. ...     print('huh?')
 \end{verbatim}
 \end{listing}
 
@@ -163,9 +163,9 @@ If any of the conditions in line 2 are true (i.e. if age is 10 \textbf{or} age i
 \begin{listing}
 \begin{verbatim}
 1. >>> if age >= 10 and age <= 13:
-2. ...     print 'you are %s' % age
+2. ...     print('you are %s' % age)
 3. ... else:
-4. ...     print 'huh?'
+4. ...     print('huh?')
 \end{verbatim}
 \end{listing}
 
@@ -180,7 +180,7 @@ In the same way that numbers, strings and lists are all values that can be assig
 \begin{listing}
 \begin{verbatim}
 >>> myval = None
->>> print myval
+>>> print(myval)
 None
 \end{verbatim}
 \end{listing}
@@ -202,9 +202,9 @@ We could then use an if-statement, to check these variables, to determine if all
 \begin{listing}
 \begin{verbatim}
 >>> if player1 is None or player2 is None or player3 is None:
-...     print 'Please wait until all players have returned'
+...     print('Please wait until all players have returned')
 ... else:
-...     print 'You have raised %s' % (player1 + player2 + player3)
+...     print('You have raised %s' % (player1 + player2 + player3))
 \end{verbatim}
 \end{listing}
 
@@ -213,9 +213,9 @@ The if-statement checks whether any of the variables have a value of \code{None}
 \begin{listing}
 \begin{verbatim}
 >>> if player1 is None or player2 is None or player3 is None:
-...     print 'Please wait until all players have returned'
+...     print('Please wait until all players have returned')
 ... else:
-...     print 'You have raised %s' % (player1 + player2 + player3)
+...     print('You have raised %s' % (player1 + player2 + player3))
 Please wait until all players have returned
 \end{verbatim}
 \end{listing}
@@ -227,9 +227,9 @@ Even if we set one or two of the variables, we'll still get the message:
 >>> player1 = 100
 >>> player3 = 300
 >>> if player1 is None or player2 is None or player3 is None:
-...     print 'Please wait until all players have returned'
+...     print('Please wait until all players have returned')
 ... else:
-...     print 'You have raised %s' % (player1 + player2 + player3)
+...     print('You have raised %s' % (player1 + player2 + player3))
 Please wait until all players have returned
 \end{verbatim}
 \end{listing}
@@ -243,9 +243,9 @@ Finally, once all variables are set, you'll see the message in the second block:
 >>> player3 = 300
 >>> player2 = 500
 >>> if player1 is None or player2 is None or player3 is None:
-...     print 'Please wait until all players have returned'
+...     print('Please wait until all players have returned')
 ... else:
-...     print 'You have raised %s' % (player1 + player2 + player3)
+...     print('You have raised %s' % (player1 + player2 + player3))
 You have raised 900
 \end{verbatim}
 \end{listing}
@@ -259,7 +259,7 @@ Not much apart from the quotes, you might be thinking.  Well, from reading the e
 \begin{listing}
 \begin{verbatim}
 >>> if age == 10:
-...     print 'you are 10'
+...     print('you are 10')
 \end{verbatim}
 \end{listing}
 
@@ -269,19 +269,19 @@ If you set variable age to 10, the print statement will be called:
 \begin{verbatim}
 >>> age = 10
 >>> if age == 10:
-...     print 'you are 10'
+...     print('you are 10')
 ...
 you are 10
 \end{verbatim}
 \end{listing}
 
-However, if age is set to '10' (note the quotes), then it won't:
+However, if age is set to `10' (note the quotes), then it won't:
 
 \begin{listing}
 \begin{verbatim}
 >>> age = '10'
 >>> if age == 10:
-...     print 'you are 10'
+...     print('you are 10')
 ...
 \end{verbatim}
 \end{listing}
@@ -292,9 +292,9 @@ Why is the code in the block not run?  Because a string is different from a numb
 \begin{verbatim}
 >>> age1 = 10
 >>> age2 = '10'
->>> print age1
+>>> print(age1)
 10
->>> print age2
+>>> print(age2)
 10
 \end{verbatim}
 \end{listing}
@@ -327,7 +327,7 @@ converted\_age now holds the string 10, and not a number. Back to that if-statem
 \begin{verbatim}
 >>> age = '10'
 >>> if age == 10:
-...     print 'you are 10'
+...     print('you are 10')
 ...
 \end{verbatim}
 \end{listing}
@@ -340,7 +340,7 @@ If we convert the variable \emph{before} we check, then we'll get a different re
 >>> age = '10'
 >>> converted_age = int(age)
 >>> if converted_age == 10:
-...     print 'you are 10'
+...     print('you are 10')
 ...
 you are 10
 \end{verbatim}

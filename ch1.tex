@@ -118,7 +118,7 @@ If you put enough Python commands together, you have a program that you can run 
 
 \begin{listing}
 \begin{verbatim}
-print "Hello World"
+print("Hello World")
 \end{verbatim}
 \end{listing}
 
@@ -126,7 +126,7 @@ Make sure you include the quotes (that's these: $"$ $"$), and hit enter at the e
 
 \begin{listing}
 \begin{verbatim}
->>> print "Hello World"
+>>> print("Hello World")
 Hello World
 \end{verbatim}
 \end{listing}
@@ -134,7 +134,7 @@ Hello World
 The prompt reappears, to let you know that the Python console is ready to accept more commands.
 
 \noindent
-Congratulations! You've just created your first Python program.
+Congratulations! You've just created your first Python program.  \code{print} is a function that writes whatever is inside the brackets out to the console--we'll use it more later.
 
 \section{Your Second Python program$\ldots$the same again?}
 
@@ -154,7 +154,7 @@ Open Notepad (Click on Start, All Programs, and it should be in the Accessories 
 
 \begin{listing}
 \begin{verbatim}
-print "Hello World"
+print("Hello World")
 \end{verbatim}
 \end{listing}
 
@@ -173,40 +173,22 @@ Open up the Text Editor by clicking on its icon.  It may be in the Dock at the b
 
 \begin{listing}
 \begin{verbatim}
-print "Hello World"
+print("Hello World")
 \end{verbatim}
 \end{listing}
 
-Click on the File menu, then click on Save, and when you are prompted for a file name, call it hello.py and save it on your Desktop. If you double-click on hello.py on your Desktop, you'll probably get some odd dialog boxes popping up with rather cryptic messages.  The first dialog might look like Figure~\ref{fig6}.
+Click on the File menu, then click on Save, and when you are prompted for a file name, call it hello.py and save it into your home directory (your home directory is on the left under Places--ask Mum or Dad to point it out for you).
 
-\begin{figure}
-\begin{center}
-\includegraphics[width=99mm]{figure6.eps}
-\end{center}
-\caption{The first odd dialog box.}\label{fig6}
-\end{figure}
+Open the `Terminal' application again--it will automatically start up in your home directory--and type the following:
 
-Click the Open button.  You might need to double-click on the hello.py icon again.  In which case you'll get a slightly different dialog (see Figure~\ref{fig7}).
+\begin{listing}
+\begin{verbatim}
+python hello.py
+\end{verbatim}
+\end{listing}
 
-\begin{figure}
-\begin{center}
-\includegraphics[width=99mm]{figure7.eps}
-\end{center}
-\caption{The second odd dialog box.}\label{fig7}
-\end{figure}
+You should see Hello World written to the window exactly as it was when you typed the command in the Python console.
 
-At which point, the `Terminal' application will automatically start, followed by a second window that might look something like Figure~\ref{fig8}.
-
-\begin{figure}
-\begin{center}
-\includegraphics[width=119mm]{figure8.eps}
-\end{center}
-\caption{The final window.}\label{fig8}
-\end{figure}
-
-\emph{What a mess!}
-
-But you can see that the words Hello World were printed in that last window (the fourth line from the bottom of the text).
 \end{MAC}
 
 \begin{LINUX}

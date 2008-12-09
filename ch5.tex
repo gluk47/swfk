@@ -12,15 +12,15 @@ Programmers don't particularly like repeating themselves either. It puts them to
 
 \begin{listing}
 \begin{verbatim}
->>> print "hello"
+>>> print("hello")
 hello
->>> print "hello"
+>>> print("hello")
 hello
->>> print "hello"
+>>> print("hello")
 hello
->>> print "hello"
+>>> print("hello")
 hello
->>> print "hello"
+>>> print("hello")
 hello
 \end{verbatim}
 \end{listing}
@@ -32,7 +32,7 @@ Or you could use a for-loop (note: there's 4 spaces on the second line before th
 \begin{listingignore}
 \begin{verbatim}
 >>> for x in range(0, 5):
-... @@@@print 'hello'
+... @@@@print('hello')
 ... 
 hello
 hello
@@ -46,7 +46,7 @@ hello
 
 \begin{listing}
 \begin{verbatim}
->>> print range(10, 20):
+>>> print(range(10, 20))
 [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 \end{verbatim}
 \end{listing}
@@ -56,7 +56,7 @@ So in the case of the for-loop, what the code `\code{for x in range(0, 5)}' is a
 \begin{listing}
 \begin{verbatim}
 >>> for x in range(0, 5):
-...     print 'hello %s' % x
+...     print('hello %s' % x)
 hello 0
 hello 1
 hello 2
@@ -70,15 +70,15 @@ If we get rid of the for-loop again, it might look something like this:
 \begin{listing}
 \begin{verbatim}
 x = 0
-print 'hello %s' % x
+print('hello %s' % x)
 x = 1
-print 'hello %s' % x
+print('hello %s' % x)
 x = 2
-print 'hello %s' % x
+print('hello %s' % x)
 x = 3
-print 'hello %s' % x
+print('hello %s' % x)
 x = 4
-print 'hello %s' % x
+print('hello %s' % x)
 \end{verbatim}
 \end{listing}
 
@@ -101,9 +101,10 @@ We don't have to stick to using \code{range}, we can also use lists we've alread
 
 \begin{listing}
 \begin{verbatim}
->>> shopping_list = [ 'eggs', 'milk', 'cheese', 'celery', 'peanut butter', 'baking soda' ]
+>>> shopping_list = [ 'eggs', 'milk', 'cheese', 'celery', 'peanut butter', 
+... 'baking soda' ]
 >>> for i in shopping_list:
-...     print i
+...     print(i)
 eggs
 milk
 cheese
@@ -117,18 +118,19 @@ The above code is a way of saying, ``for each item in the list, store the value 
 
 \begin{listing}
 \begin{verbatim}
->>> shopping_list = [ 'eggs', 'milk', 'cheese', 'celery', 'peanut butter', 'baking soda' ]
->>> print shopping_list[0]
+>>> shopping_list = [ 'eggs', 'milk', 'cheese', 'celery', 'peanut butter', 
+... 'baking soda' ]
+>>> print(shopping_list[0])
 eggs
->>> print shopping_list[1]
+>>> print(shopping_list[1])
 milk
->>> print shopping_list[2]
+>>> print(shopping_list[2])
 cheese
->>> print shopping_list[3]
+>>> print(shopping_list[3])
 celery
->>> print shopping_list[4]
+>>> print(shopping_list[4])
 peanut butter
->>> print shopping_list[5]
+>>> print(shopping_list[5])
 baking soda
 \end{verbatim}
 \end{listing}
@@ -148,7 +150,7 @@ A block of code is a set of programming statements you want to group together.  
 \begin{verbatim}
 >>> for i in shopping_list:
 ...     buy(i)
-...     print i
+...     print(i)
 \end{verbatim}
 \end{listing}
 
@@ -157,7 +159,7 @@ Don't bother typing that example into the Python console---because we don't have
 \begin{listing}
 \begin{verbatim}
 buy(i)
-print i
+print(i)
 \end{verbatim}
 \end{listing}
 
@@ -187,17 +189,17 @@ But you must be consistent with your spacing.  For example:
 \begin{verbatim}
 >>> for i in shopping_list:
 ...     buy(i)
-...       print i
+...       print(i)
 \end{verbatim}
 \end{listing}
 
-The second line (\code{function buy(i)}) starts with \textbf{4} spaces.  The third line (print i) starts with \textbf{6} spaces.  Let's take another look at that code with visible spaces (using @ again):
+The second line (\code{function buy(i)}) starts with \textbf{4} spaces.  The third line (print(i)) starts with \textbf{6} spaces.  Let's take another look at that code with visible spaces (using @ again):
 
 \begin{listing}
 \begin{verbatim}
 >>> for i in shopping_list:
 ... @@@@buy(i)
-... @@@@@@print i
+... @@@@@@print(i)
 \end{verbatim}
 \end{listing}
 
@@ -233,8 +235,8 @@ Let's try some real examples.  Open the console and type the following (remember
 \begin{verbatim}
 >>> mylist = [ 'a', 'b', 'c' ]
 >>> for i in mylist:
-...     print i
-...     print i
+...     print(i)
+...     print(i)
 ...
 a
 a
@@ -245,7 +247,7 @@ c
 \end{verbatim}
 \end{listing}
 
-After the second print i, press the Enter key on the blank line---which tells the console you want to end the block. It will then print each item in the list twice.
+After the second print, press the Enter key on the blank line---which tells the console you want to end the block. It will then print each item in the list twice.
 \par
 \noindent
 The next example will cause an error message to be displayed:
@@ -254,13 +256,13 @@ The next example will cause an error message to be displayed:
 \begin{verbatim}
 >>> mylist = [ 'a', 'b', 'c' ]
 >>> for i in mylist:
-...     print i
-...       print i
+...     print(i)
+...       print(i)
 ...
 File “<stdin>”, line 3
-  print i
+  print(i)
   ^
-Syntax Error: invalid syntax
+IndentationError: unexpected indent
 \end{verbatim}
 \end{listing}
 
@@ -280,9 +282,9 @@ Here's a more complicated example with 2 blocks of code:
 \begin{verbatim}
 >>> mylist = [ 'a', 'b', 'c' ]
 >>> for i in mylist:
-...     print i
+...     print(i)
 ...     for j in mylist:
-...         print j
+...         print(j)
 ...
 \end{verbatim}
 \end{listing}
@@ -297,9 +299,9 @@ There are \textbf{two} blocks---number one is part of the first for-loop:
 \begin{verbatim}
 >>> mylist = [ 'a', 'b', 'c' ]
 >>> for i in mylist:
-...     print i	                --
+...     print(i)                --
 ...     for j in mylist:         |-- these lines are the FIRST block
-...         print j             --
+...         print(j)            --
 ...
 \end{verbatim}
 \end{listing}
@@ -310,9 +312,9 @@ Block number two is the single print line in the second for-loop:
 \begin{verbatim}
 >>> mylist = [ 'a', 'b', 'c' ]
 >>> for i in mylist:
-...     print i
+...     print(i)
 ...     for j in mylist:
-...         print j               -- this line is the SECOND block
+...         print(j)               -- this line is the SECOND block
 ...
 \end{verbatim}
 \end{listing}
@@ -325,9 +327,9 @@ It's going to print out the 3 letters from `mylist', but how many times?  If we 
 \begin{verbatim}
 >>> mylist = [ 'a', 'b', 'c' ]
 >>> for i in mylist:
-...     print i
+...     print(i)
 ...     for j in mylist:
-...         print j
+...         print(j)
 ... 
 a
 a
@@ -384,7 +386,7 @@ Or we can see the savings increase over the year, by creating another variable c
 1. >>> savings = 0
 2. >>> for week in range(1, 53):
 3. ...     savings = savings + chores + paper - spending
-4. ...     print 'Week %s = %s' % (week, savings)
+4. ...     print('Week %s = %s' % (week, savings))
 5. ...
 \end{verbatim}
 \end{listing}
@@ -423,7 +425,7 @@ A for-loop isn't the only kind of looping you can do in Python. There's also the
 \begin{listing}
 \begin{verbatim}
 >>> for step in range(0,20):
-...     print step
+...     print(step)
 \end{verbatim}
 \end{listing}
 
@@ -433,7 +435,7 @@ Now imagine a staircase going up a mountainside.  You might run out of energy be
 \begin{verbatim}
 >>> step = 0
 >>> while step < 10000:
-...     print step
+...     print(step)
 ...     if tired == True:
 ...         break
 ...     elif badweather == True:
@@ -464,7 +466,7 @@ More commonly, a while-loop might be created with a couple of conditions:
 >>> while x < 50 and y < 100:
 ...     x = x + 1
 ...     y = y + 1
-...     print x, y
+...     print(x, y)
 \end{verbatim}
 \end{listing}
 
@@ -507,7 +509,7 @@ What do you think will happen with the following code?
 \begin{listing}
 \begin{verbatim}
 >>> for x in range(0, 20):
-...     print 'hello %s' % x
+...     print('hello %s' % x)
 ...     if x < 9:
 ...         break
 \end{verbatim}

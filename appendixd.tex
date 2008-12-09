@@ -17,7 +17,7 @@ Here is where you can find the answers to the questions asked in each chapter in
 >>> toys = [ 'car', 'Nintendo Wii', 'computer', 'bike' ]
 >>> foods = [ 'pancakes', 'chocolate', 'ice cream' ]
 >>> favourites = toys + foods
->>> print favourites
+>>> print(favourites)
 ['car', 'Nintendo Wii', 'computer', 'bike', 'pancakes', 'chocolate', 'ice cream']
 \end{verbatim}
 \end{listing}
@@ -27,7 +27,7 @@ Here is where you can find the answers to the questions asked in each chapter in
 
 \begin{listing}
 \begin{verbatim}
->>> print 3 * 25 + 10 * 32
+>>> print(3 * 25 + 10 * 32)
 395
 \end{verbatim}
 \end{listing}
@@ -37,7 +37,7 @@ However, given that we looked at the use of brackets in Chapter 2, you might hav
 
 \begin{listing}
 \begin{verbatim}
->>> print (3 * 25) + (10 * 32)
+>>> print((3 * 25) + (10 * 32))
 395
 \end{verbatim}
 \end{listing}
@@ -52,7 +52,7 @@ The answer is the same, because multiplication is done before addition.  In eith
 \begin{verbatim}
 >>> first_name = 'Mary'
 >>> second_name = 'Wilson'
->>> print 'My name is %s %s' % (first_name, second_name)
+>>> print('My name is %s %s' % (first_name, second_name))
 My name is Mary Wilson
 \end{verbatim}
 \end{listing}
@@ -127,7 +127,7 @@ For example, the following code will drawing the rectangle in figure\ref{fig46}.
 \begin{listing}
 \begin{verbatim}
 >>> for x in range(0, 20):
-...     print 'hello %s' % x
+...     print('hello %s' % x)
 ...     if x < 9:
 ...         break
 hello 0
@@ -151,7 +151,7 @@ To the amount of interest paid for 1 year would be that amount multiplied by 0.0
 \begin{listing}
 \begin{verbatim}
 >>> amount = 100
->>> print amount * 0.03
+>>> print(amount * 0.03)
 3.0
 \end{verbatim}
 \end{listing}
@@ -163,7 +163,7 @@ That's \$3!  Not bad since we didn't need to do anything to get it.  We need to 
 >>> amount = 100
 >>> for year in range(1, 11):
 ...     interest = amount * 0.03
-...     print 'interest earned for year %s is %s' % (year, interest)
+...     print('interest earned for year %s is %s' % (year, interest))
 ...     amount = amount + interest
 ... 
 interest earned for year 1 is 3.0
@@ -188,7 +188,8 @@ The code might be a bit more helpful if we also add the total saved each year:
 >>> amount = 100
 >>> for year in range(1, 11):
 ...     interest = amount * 0.03
-...     print 'interest earned for savings %s for year %s is %s' % (amount, year, interest)
+...     print('interest earned for savings %s for year %s is %s' % 
+...         (amount, year, interest))
 ...     amount = amount + interest
 ... 
 interest earned for savings 100 for year 1 is 3.0
@@ -214,7 +215,8 @@ interest earned for savings 130.477318383 for year 10 is 3.91431955149
 >>> def calculate_interest(amount, rate):
 ...     for year in range(1, 11):
 ...         interest = amount * rate
-...         print 'interest earned for savings %s for year %s is %s' % (amount, year, interest)
+...         print('interest earned for savings %s for year %s is %s' % 
+...             (amount, year, interest))
 ...         amount = amount + interest
 \end{verbatim}
 \end{listing}
@@ -245,7 +247,8 @@ interest earned for savings 130.477318383 for year 10 is 3.91431955149
 >>> def calculate_interest(amount, rate, years):
 ...     for year in range(1, years):
 ...         interest = amount * rate
-...         print 'interest earned for savings %s for year %s is %s' % (amount, year, interest)
+...         print('interest earned for savings %s for year %s is %s' %
+...             (amount, year, interest))
 ...         amount = amount + interest
 \end{verbatim}
 \end{listing}
@@ -271,15 +274,16 @@ interest earned for savings 1215.50625 for year 5 is 60.7753125
 \begin{verbatim}
 >>> import sys
 >>> def calculate_interest():
-...     print 'Enter the amount you have to save'
+...     print('Enter the amount you have to save')
 ...     amount = float(sys.stdin.readline())
-...     print 'Enter the interest rate'
+...     print('Enter the interest rate')
 ...     rate = float(sys.stdin.readline())
-...     print 'Enter the number of years'
+...     print('Enter the number of years')
 ...     years = int(sys.stdin.readline())
 ...     for year in range(1, years):
 ...         interest = amount * rate
-...         print 'interest earned for savings %s for year %s is %s' % (amount, year, interest)
+...         print('interest earned for savings %s for year %s is %s' % 
+...             (amount, year, interest))
 ...         amount = amount + interest
 \end{verbatim}
 \end{listing}

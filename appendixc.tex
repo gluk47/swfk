@@ -15,11 +15,11 @@ If you've ever played the game where you ask someone to guess a number between 1
 \begin{listingignore}
 \begin{verbatim}
 >>> import random
->>> print random.randint(1, 100)
+>>> print(random.randint(1, 100))
 58
->>> print random.randint(100, 1000)
+>>> print(random.randint(100, 1000))
 861
->>> print random.randint(1000, 5000)
+>>> print(random.randint(1000, 5000))
 3795
 \end{verbatim}
 \end{listingignore}
@@ -32,16 +32,16 @@ import random
 import sys
 num = random.randint(1, 100)
 while True:
-    print 'Guess a number between 1 and 100'
+    print('Guess a number between 1 and 100')
     chk = sys.stdin.readline()
     i = int(chk)
     if i == num:
-        print 'You guessed right'
+        print('You guessed right')
         break
     elif i < num:
-        print 'Try higher'
+        print('Try higher')
     elif i > num:
-        print 'Try lower'
+        print('Try lower')
 \end{verbatim}
 \end{listingignore}
 
@@ -51,10 +51,10 @@ Use \code{choice}\index{modules!random!choice},  if you have a list and want to 
 \begin{verbatim}
 >>> import random
 >>> list1 = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' ]
->>> print random.choice(list1)
+>>> print(random.choice(list1))
 c
 >>> list2 = [ 'ice cream', 'pancakes', 'trifle', 'pavlova', 'sponge' ]
->>> print random.choice(list2)
+>>> print(random.choice(list2))
 trifle
 \end{verbatim}
 \end{listingignore}
@@ -67,10 +67,10 @@ And finally, use \code{shuffle}\index{modules!shuffle} if you want to mix up a l
 >>> list1 = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' ]
 >>> list2 = [ 'ice cream', 'pancakes', 'trifle', 'pavlova', 'sponge' ]
 >>> random.shuffle(list1)
->>> print list1
+>>> print(list1)
 ['h', 'e', 'a', 'b', 'c', 'g', 'f', 'd']
 >>> random.shuffle(list2)
->>> print list2
+>>> print(list2)
 ['pancakes', 'ice cream', 'sponge', 'trifle', 'pavlova']
 \end{verbatim}
 \end{listingignore}
@@ -97,7 +97,7 @@ The Python console will stop. Depending upon whether you're using Windows, Mac o
 >>> import sys
 >>> myvar = sys.stdin.readline()
 this is a test value
->>> print myvar
+>>> print(myvar)
 this is a test value
 \end{verbatim}
 \end{listingignore}
@@ -124,7 +124,7 @@ this is a test
 \end{listingignore}
 
 \noindent
-`\\n' is the \emph{escape} character\index{escape characters} for a newline (what you get when you hit the enter key).  An escape character is a special character that you use in strings when you can't type it directly. For example, if you want to create a string with a newline in the middle, but try to use the enter key, you'll get an error:
+{\textbackslash}n is the \emph{escape} character\index{escape characters} for a newline (what you get when you hit the enter key).  An escape character is a special character that you use in strings when you can't type it directly. For example, if you want to create a string with a newline in the middle, but try to use the enter key, you'll get an error:
 
 \begin{listing}
 \begin{verbatim}
@@ -149,7 +149,7 @@ Finally, \code{version}\index{modules!sys!version} is just a way of displaying t
 \begin{listingignore}
 \begin{verbatim}
 >>> import sys
->>> print sys.version
+>>> print(sys.version)
 2.5.1c1 (release25-maint, Apr 12 2007, 21:00:25) 
 [GCC 4.1.2 (Ubuntu 4.1.2-0ubuntu4)]
 \end{verbatim}
@@ -162,7 +162,7 @@ Python's time module contains functions for displaying$\ldots$ well, the time, o
 \begin{listingignore}
 \begin{verbatim}
 >>> import time
->>> print time.time()
+>>> print(time.time())
 1179918604.34
 \end{verbatim}
 \end{listingignore}
@@ -173,7 +173,7 @@ The number returned by \code{time()} is actually the number of seconds since the
 \begin{verbatim}
 >>> def lots_of_numbers(max):
 ...     for x in range(0, max):
-...         print x
+...         print(x)
 \end{verbatim}
 \end{listing}
 
@@ -194,9 +194,9 @@ But if we want to know how long it took, we can modify the function and use the 
 >>> def lots_of_number(max):
 ...     t1 = time.time()
 ...     for x in range(0, max):
-...         print x
+...         print(x)
 ...     t2 = time.time()
-...     print 'it took %s seconds' % (t2-t1)
+...     print('it took %s seconds' % (t2-t1))
 \end{verbatim}
 \end{listing}
 
@@ -230,7 +230,7 @@ The function \code{asctime}\index{modules!time!asctimes} takes a date as a tuple
 \begin{listingignore}
 \begin{verbatim}
 >>> import time
->>> print time.asctime()
+>>> print(time.asctime())
 Sun May 27 20:11:12 2007
 \end{verbatim}
 \end{listingignore}
@@ -250,7 +250,7 @@ The values in the sequence are year, month, day, hours, minutes, seconds, day of
 \begin{listing}
 \begin{verbatim}
 >>> t = (2007, 5, 27, 10, 30, 48, 6, 0, 0)
->>> print time.asctime(t)
+>>> print(time.asctime(t))
 Sun May 27 10:30:48 2007
 \end{verbatim}
 \end{listing}
@@ -261,7 +261,7 @@ But be careful with the values you put in a tuple. You can end up with a nonsens
 \begin{listing}
 \begin{verbatim}
 >>> t = (2007, 5, 27, 10, 30, 48, 0, 0, 0)
->>> print time.asctime(t)
+>>> print(time.asctime(t))
 Mon May 27 10:30:48 2007
 \end{verbatim}
 \end{listing}
@@ -274,9 +274,9 @@ The function \code{ctime}\index{modules!time!ctime} is used to convert a number 
 \begin{listingignore}
 \begin{verbatim}
 >>> t = time.time()
->>> print t
+>>> print(t)
 1180264952.57
->>> print time.ctime(t)
+>>> print(time.ctime(t))
 Sun May 27 23:22:32 2007
 \end{verbatim}
 \end{listingignore}
@@ -286,7 +286,7 @@ The function \code{localtime}\index{modules!time!localtime} returns the current 
 
 \begin{listing}
 \begin{verbatim}
->>> print time.localtime()
+>>> print(time.localtime())
 (2007, 5, 27, 23, 25, 47, 6, 147, 0)
 \end{verbatim}
 \end{listing}
@@ -297,7 +297,7 @@ This value we can also pass into \code{asctime}:
 \begin{listing}
 \begin{verbatim}
 >>> t = time.localtime()
->>> print time.asctime(t)
+>>> print(time.asctime(t))
 Sun May 27 23:27:22 2007
 \end{verbatim}
 \end{listing}
@@ -308,7 +308,7 @@ The function \code{sleep}\index{modules!time!sleep} is quite useful when you wan
 \begin{listing}
 \begin{verbatim}
 >>> for x in range(1, 61):
-...     print x
+...     print(x)
 ...
 1
 2
@@ -322,7 +322,7 @@ It would instantly print out all the numbers from 1 to 60. However if you tell P
 \begin{listing}
 \begin{verbatim}
 >>> for x in range(1, 61):
-...     print x
+...     print(x)
 ...     time.sleep(1)
 ...
 \end{verbatim}
@@ -336,7 +336,7 @@ The function \code{strftime}\index{modules!time!strftime} is used to change the 
 \begin{listing}
 \begin{verbatim}
 >>> t = (2007, 5, 27, 10, 30, 48, 6, 0, 0)
->>> print time.asctime(t)
+>>> print(time.asctime(t))
 Sun May 27 10:30:48 2007
 \end{verbatim}
 \end{listing}
@@ -346,7 +346,7 @@ That works fine for most situations, but what if you don't like the way that str
 
 \begin{listing}
 \begin{verbatim}
->>> print time.strftime('%d %b %Y', t)
+>>> print(time.strftime('%d %b %Y', t))
 27 May 2007
 \end{verbatim}
 \end{listing}
@@ -355,7 +355,7 @@ As you can see, \code{strftime} takes 2 arguments:  the first is a date/time for
 
 \begin{listing}
 \begin{verbatim}
->>> print time.strftime('%d/%m/%Y', t)
+>>> print(time.strftime('%d/%m/%Y', t))
 27/05/2007
 \end{verbatim}
 \end{listing}
@@ -411,7 +411,7 @@ The function \code{strptime}\index{modules!time!strptime} is almost the reverse 
 \begin{listing}
 \begin{verbatim}
 >>> t = time.strptime('05 Jun 2007', '%d %b %Y')
->>> print t
+>>> print(t)
 (2007, 6, 5, 0, 0, 0, 1, 156, -1)
 \end{verbatim}
 \end{listing}
@@ -422,7 +422,7 @@ If the date in our string is day/month/year (for example, 01/02/2007), we might 
 \begin{listing}
 \begin{verbatim}
 >>> t = time.strptime('01/02/2007', '%d/%m/%Y')
->>> print t
+>>> print(t)
 (2007, 2, 1, 0, 0, 0, 3, 32, -1)
 \end{verbatim}
 \end{listing}
@@ -433,7 +433,7 @@ Or if the date is month/day/year, we might use:
 \begin{listing}
 \begin{verbatim}
 >>> t = time.strptime('03/05/2007', '%m/%d/%Y')
->>> print t
+>>> print(t)
 (2007, 3, 5, 0, 0, 0, 0, 64, -1)
 \end{verbatim}
 \end{listing}
@@ -455,7 +455,7 @@ We can use this function by passing in the date string, the format of that strin
 
 \begin{listing}
 \begin{verbatim}
->>> print convert_date('03/05/2007', '%m/%d/%Y', '%d %B %Y')
+>>> print(convert_date('03/05/2007', '%m/%d/%Y', '%d %B %Y'))
 05 March 2007
 \end{verbatim}
 \end{listing}

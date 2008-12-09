@@ -1,9 +1,9 @@
-#! /usr/bin/python
+#! /usr/bin/env python
 
 import os
 import re
 import sys
-import StringIO
+from io import StringIO
 
 pat = re.compile(r'\\begin{listing}\s*\\begin{verbatim}\s*(.*?)\\end{verbatim}', re.DOTALL | re.MULTILINE)
 
@@ -52,7 +52,7 @@ class Example(object):
 
 
 def run(example):
-    sio = StringIO.StringIO()
+    sio = StringIO()
     if len(example.source.split('\n')) > 1:
         kind = 'exec'
     else:
@@ -61,40 +61,39 @@ def run(example):
     try:
         code = compile(example.source, '<stdin>', kind)
         sys.stdout = sio
-        exec code in globals()
+        exec(code) in globals()
         sys.stdout = stdout
         val = sio.getvalue().rstrip()
         
         if example.want != '' and val.find(example.want) < 0:
             return 'expected: "%s"\nactual:   "%s"' % (example.want, val)
-    except Exception, se:
+    except Exception as se:
         if not example.want.find(str(se)):
             return 'expected: %s\nactual:   %s' % (example.want, val)
             
     return None
     
 
-s = file(sys.argv[1]).read()
+s = open(sys.argv[1]).read()
 
-sys.stdin = StringIO.StringIO()
+sys.stdin = StringIO()
 
 success = 0
 failure = 0
 linenum = 1
 for mat in pat.finditer(s):
     code = mat.group(1)
-    print 'code #%s' % linenum
-    #print code
+    print('code #%s' % linenum)
     linenum = linenum + 1
     examples = parse(code)
     for example in examples:
         response = run(example)
         if response:
-            print 'exec: %s' % example.source
-            print response
+            print('exec: %s' % example.source)
+            print(response)
             failure = failure + 1
         else:
             success = success + 1
 
-print '%s tests succeeded' % success
-print '%s tests failed' % failure
+print('%s tests succeeded' % success)
+print('%s tests failed' % failure)

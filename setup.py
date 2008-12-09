@@ -14,7 +14,7 @@ target_dir = 'target'
 #
 # 'root' tex files for each OS
 #
-sources = 'swfk-win', 'swfk-linux', 'swfk-mac'
+sources = 'swfk-mac', 'swfk-linux', 'swfk-win'
 #sources = 'swfk-linux',
 
 #
@@ -27,7 +27,7 @@ dvipdf = find_executable('dvipdf')
 #
 # Get the book version
 #
-s = file('frontmatter.tex').read()
+s = open('frontmatter.tex').read()
 mat = re.compile(r'Version\s*(.*)').search(s)
 version = mat.group(1)
 
