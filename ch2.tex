@@ -1,0 +1,703 @@
+% ch2.tex
+% This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 New Zealand License.
+% To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/nz
+% or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+
+
+\chapter{8 multiplied by 3.57 equals$\ldots$}\label{ch:8multipliedby3.57}
+
+What is 8 multiplied by 3.57?  You'd have to use a calculator, wouldn't you?  Well perhaps you're extremely smart and can do multiplication of fractions in your head---but that's not the point.  You can also do the same thing with the Python console. Start up the console again (see Chapter~\ref{ch:notallsnakeswillsquishyou} for more information, if you've skipped ahead for some strange reason), and once you see the prompt, type 8$*$3.57 and press the Enter key:
+
+\begin{listing}
+\begin{verbatim}
+Python 3.0 (r30:67503, Dec  6 2008, 23:22:48) 
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 8 * 3.57
+28.559999999999999
+\end{verbatim}
+\end{listing}
+
+The star (*), or asterisk key (shift 8 on some keyboards), is used for multiplication\index{multiplication}, instead of the normal times symbol (\textsf{X}) that you use at school (using the star key is necessary, otherwise how would the computer know whether you meant the letter \emph{x} or the multiplication symbol \textsf{X} ?).  How about an equation that's a bit more useful?
+
+Suppose you do chores once a week, for which you get \$5 pocket money, and you have a paper round which you do 5 times a week and get \$30---how much money would you earn in a year?
+
+\begin{figure}[t]
+\begin{center}
+\fbox{\colorbox{PaleBlue}{\parbox{.75\linewidth} {
+\subsection*{Python is broken!?!?}
+
+If you just picked up a calculator and entered 8 x 3.57 the answer showing on the display will be:\\
+
+\textsf{
+28.56\\
+}
+
+\noindent
+Why is Python different?  Is it broken?\\
+
+\noindent
+Actually, no. The reason can be found in the way floating point\index{floating point} (fractional numbers with a decimal place) numbers are handled by the computer.  It's a complicated and somewhat confusing problem for beginners, so it's best to just remember that when you're working with fractions (i.e. with a decimal place on a number), \emph{sometimes} the result won't be exactly what you were expecting. This is true for multiplication, division, addition or subtraction.
+}}}
+\end{center}
+\end{figure}
+
+If we were writing that on paper, we might write something like:
+\begin{verbatim}
+(5 + 30) x 52
+\end{verbatim}
+
+Which is \$5 + \$30 multiplied by 52 weeks in a year.  \begin{samepage}Of course, we're smart, and we know that 5 + 30 is 35, so the equation is really:
+
+\begin{verbatim}
+35 x 52
+\end{verbatim}
+\end{samepage}
+
+Which is easy enough to do in a calculator, or on paper.  But we can do all of these calculations with the console as well:
+
+\begin{listing}
+\begin{verbatim}
+>>> (5 + 30) * 52
+1820
+>>> 35 * 52
+1820
+\end{verbatim}
+\end{listing}
+
+So, what if you spend \$10 each week?  How much do you have left at the end of the year?  We could write the equation on paper a couple of different ways, but let's just type it into the console:
+
+\begin{listing}
+\begin{verbatim}
+>>> (5 + 30 - 10) * 52
+1300
+\end{verbatim}
+\end{listing}
+
+That's \$5 and \$30 minus \$10 multiplied by 52 weeks in the year.  And you'd have \$1300 left at the end of the year. Okay, so that's not looking all that useful so far.  We can do all of that with a calculator.  But we'll come back to this later and show how to make it much more useful.
+
+You can do multiplication\index{multiplication} and addition\index{addition} (obviously), and subtraction\index{subtraction} and division\index{division} in the Python console, along with a bunch of other maths operations that we won't go into now.  For the moment the basic maths symbols for Python (actually they're called operators\index{operators}) are:
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
++ & Addition \\
+\hline
+- & Subtraction \\
+\hline
+* & Multiplication \\
+\hline
+/ & Division \\
+\hline
+\end{tabular}
+\end{center}
+
+The reason the forward-slash (/) is used for division, is that it would be rather difficult to draw a division line (plus they didn't bother to put a division symbol $\div$ on the computer keyboard) as you're supposed to use for written equations.  For example if you had 100 eggs and 20 boxes, you might want to know how many eggs would go in each box, so you'd show dividing 100 into 20, by writing the following equation:
+
+\begin{displaymath}
+\frac{100}{200}
+\end{displaymath}
+
+Or if you know about long division, you might write it out fully like this:
+
+\begin{displaymath}
+\longdiv{100}{20}
+\end{displaymath}
+
+Or you might even write it like this:
+
+\begin{displaymath}
+100 \div 20
+\end{displaymath}
+
+However, in Python terms you would just type it as ``100 / 20''.
+
+\emph{Which is much easier, I think.  But then, I'm a book---what do I know?}
+
+\section{Use of brackets and ``Order of Operations''}\index{order of operations}
+
+We use brackets in a programming language to control what is called ``Order of Operations''.  An operation is the use of an operator (one of those symbols in the table above).  There are more operators than those basic symbols, but for that simple list (addition, subtraction, multiplication and division), it's enough to know that multiplication and division both have a higher order than addition and subtraction.  Which means you do the multiplication or division part of an equation before you do the addition or subtraction part.  In the following equation, all the operators are addition (+), the numbers are added in order:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(5 + 30 + 20)
+55
+\end{verbatim}
+\end{listing}
+
+\noindent
+Similarly, in this equation, there are only addition and subtraction operators, so again Python considers each number in the order it appears:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(5 + 30 - 20)
+15
+\end{verbatim}
+\end{listing}
+
+\noindent
+But in the following equation, there is a multiplication operator, so the numbers 30 and 20 are considered first.  The equation is another way of saying, ``multiply 30 by 20, then add 5 to the result'' (multiplication first, because it has a higher order than addition):
+
+\begin{listing}
+\begin{verbatim}
+>>> print(5 + 30 * 20)
+605
+\end{verbatim}
+\end{listing}
+
+\noindent
+So what happens when we add brackets?  The following equation shows the result:
+
+\begin{listing}
+\begin{verbatim}
+>>> print((5 + 30) * 20)
+700
+\end{verbatim}
+\end{listing}
+
+\noindent
+Why is the number different?  Because brackets control the order of operations.  With brackets, Python knows to calculate using the operators in the brackets first, then do the operators outside.  So that equation is another way of saying, ``add 5 and 30, then multiply the result by 20''.
+The use of brackets can become more complicated.  There can be brackets inside brackets:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(((5 + 30) * 20) / 10)
+70
+\end{verbatim}
+\end{listing}
+
+\noindent
+In this case, Python evaluates the \textbf{inner} most brackets first, then the outer brackets, and then the other operator.  So this equation is a way of saying, ``add 5 and 30, then multiply the result by 20, finally divide that result by 10''.  The result without brackets is again slightly different:
+
+\begin{listing}
+\begin{verbatim}
+>>> 5 + 30 * 20 / 10
+65
+\end{verbatim}
+\end{listing}
+
+In this case 30 is multiplied by 20 first, then the result is divided by 10, finally 5 is added to the final result.
+
+\emph{Remember that multiplication and division always go before addition and subtraction, unless brackets are used to control the order of operations.}
+
+\section{There's nothing so fickle as a variable}\index{variable}
+
+A `variable' is a programming term used to describe a place to store things.  The `things' can be numbers, or text, or lists of numbers and text---and all sorts of other items too numerous to go into here.  For the moment, let's just think of a variable as something a bit like a mailbox.
+
+\begin{center}
+\includegraphics*[width=76mm]{girlbubble.eps}
+\end{center}
+
+You can put things (such as a letter or a package) in a mailbox, just as you can put things (numbers, text, lists of numbers and text, etc, etc, etc) in a variable.  This mailbox idea is the way many programming languages work.  But not all.
+
+In Python, variables are slightly different.  Rather than being a mailbox with things in it, a variable is more like a label which is stuck on the on the outside of the mailbox.  We can pull that label off and stick it on something else, or even tie the label (perhaps with a piece of string) to more than one thing. We create a variable by giving it a name, using an equals sign (=), then telling Python what we want that name to point to.  For example:
+
+\begin{listing}
+\begin{verbatim}
+>>> fred = 100
+\end{verbatim}
+\end{listing}
+
+We've just created a variable called `fred' and said that it points to the number 100.  It's a bit like telling Python to remember that number because we want to use it later.  To find out what a variable is pointing at, we can just type `print' in the console, followed by the variable name, and hit the Enter key.  For example:
+
+\begin{listing}
+\begin{verbatim}
+>>> fred = 100
+>>> print(fred)
+100
+\end{verbatim}
+\end{listing}
+
+We can also tell Python we want the variable \code{fred} to point at something else:
+
+\begin{listing}
+\begin{verbatim}
+>>> fred = 200
+>>> print(fred)
+200
+\end{verbatim}
+\end{listing}
+
+\noindent
+On the first line we say we now want fred to point at the number 200.  Then, in the second line, we ask what fred is pointing at just to prove it changed. We can also point more than one name at the same item:
+
+\begin{listing}
+\begin{verbatim}
+>>> fred = 200
+>>> john = fred
+>>> print(john)
+200
+\end{verbatim}
+\end{listing}
+
+In the code above, we're saying that we want the name (or label) \code{john} to point at the same thing \code{fred} is pointing to.
+Of course, `fred' isn't a very useful name for a variable.  It doesn't tell us anything about what it's used for.  A mailbox is easy---you use a mailbox for mail.  But a variable can have a number of different uses, and can point at a whole bunch of different things, so we usually want something more informative as its name.
+\par
+Suppose you started up the Python console, typed `fred = 200', then went away---spent 10 years climbing Mount Everest, crossing the Sahara desert, bungy-jumping off a bridge in New Zealand, and finally, sailing down the Amazon river---when you came back to your computer, would you remember what that number 200 meant (and what it was for)?
+
+\noindent
+\emph{I don't think I would.}
+
+\noindent
+I just made it up now, and I have no idea what `fred = 200' means (other than a \emph{name} pointing at the number \emph{200}).  So after 10 years, you'll have absolutely no chance of remembering.
+\par
+Aha!  But, what if we called our variable: \emph{number\_of\_students}.
+
+\begin{listing}
+\begin{verbatim}
+>>> number_of_students = 200
+\end{verbatim}
+\end{listing}
+
+We can do that because variable names can be made up of letters, numbers and (\_) underscores---although they cannot start with a number.  If you come back after 10 years, `number\_of\_students' still makes sense.  You can type:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(number_of_students)
+200
+\end{verbatim}
+\end{listing}
+
+\noindent
+And you'll immediately know that we're talking about 200 students.  It's not always important to come up with meaningful names for variables.  You can use anything from single letters (such as `a') to large sentences; and sometimes, if you're doing something quick, a simple and short variable name is just as useful.  It depends very much upon whether you want to be able to look at that variable name later and figure out what on earth you were thinking at the time you typed it in.
+
+\begin{listing}
+\begin{verbatim}
+this_is_also_a_valid_variable_name_but_perhaps_not_very_useful
+\end{verbatim}
+\end{listing}
+
+\section{Using Variable}\index{Variables}
+
+Now we know how to create a variable, how do we use it?  Remember that equation we came up with earlier?  The one to work out how much money you'd have left at the end of the year, if you earned \$5 a week doing chores, \$30 a week on a paper round, and spent \$10 per week.  So far we have:
+
+\begin{listing}
+\begin{verbatim}
+>>> print((5 + 30 - 10) * 52)
+1300
+\end{verbatim}
+\end{listing}
+
+\noindent
+What if we turn the first 3 numbers into variables?  Try typing the following:
+
+\begin{listing}
+\begin{verbatim}
+>>> chores = 5
+>>> paper_round = 30
+>>> spending = 10
+\end{verbatim}
+\end{listing}
+
+\noindent
+We've just created variables named `chores', `paper\_round' and `spending'.  We can then re-type the equation to get:
+
+\begin{listing}
+\begin{verbatim}
+>>> print((chores + paper_round - spending) * 52)
+1300
+\end{verbatim}
+\end{listing}
+
+Which gives the exact same answer.  What if you get \$2 more per week, for doing extra chores.  Change the `chores' variable to 7, then hit the up-arrow key ($\uparrow$) on your keyboard a couple of times, until the equation re-appears, and hit the Enter key:
+
+\begin{listing}
+\begin{verbatim}
+>>> chores = 7
+>>> print((chores + paper_round - spending) * 52)
+1404
+\end{verbatim}
+\end{listing}
+
+That's a lot less typing to find out that you now end up with \$1404 at the end of the year.  You can try changing the other variables, then hit the up-arrow to perform the calculation again, and see what effect it has.
+
+\begin{listing}
+\begin{verbatim}
+If you spend twice as much money per week:
+>>> spending = 20
+>>> print((chores + paper_round - spending) * 52)
+884
+\end{verbatim}
+\end{listing}
+
+You're only left with \$884 savings at the end of the year. This is still only slightly useful.  We haven't hit really useful yet.  But for the moment, it's enough to understand that variables are used to store things.
+
+\noindent
+\emph{Think of a mailbox with a label on it!}
+
+\section{A Piece of String?}\index{strings}
+
+If you're paying attention, and not just skimming through looking for the good bits, you might remember I mentioned that variables can be used for all sorts of things---not just numbers. In programming, most of the time we call text a `string'. Which might seem a bit weird; but if you think that text is just `stringing together' (or joining together) a bunch of letters, perhaps it might make a little more sense.
+
+\noindent
+\emph{Then again, perhaps it doesn't.}
+
+In which case, all you need to know, is that a string is just a bunch of letters and numbers and other symbols put together in some meaningful way. All the letters, and numbers, and symbols in this book could make up a string.  Your name could be a string.  So could your home address.  The first Python program we created in Chapter \ref{ch:notallsnakeswillsquishyou}, used a string: `Hello World'.
+\par
+In Python, we create a string by putting quotes around the text.  So we can take our useless \code{fred} variable, and put a string inside it like this:
+
+\begin{listing}
+\begin{verbatim}
+>>> fred = "this is a string"
+\end{verbatim}
+\end{listing}
+
+\noindent
+And we can see what's inside the \code{fred} variable, by typing \code{print(fred)}:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(fred)
+this is a string
+\end{verbatim}
+\end{listing}
+
+\noindent
+We can also use single-quotes to create a string:
+
+\begin{listing}
+\begin{verbatim}
+>>> fred = 'this is yet another string'
+>>> print(fred)
+this is yet another string
+\end{verbatim}
+\end{listing}
+
+However, if you try to type more than one line of text for your string using a single quote (') or double quote ("), you'll get an error message in the console. For example, type the following line and hit Enter, and you'll get a fairly scary error message similar to the following:
+
+\begin{listing}
+\begin{verbatim}
+>>> fred = "this is two
+  File "<stdin>", line 1
+    fred = "this is two
+                      ^
+SyntaxError: EOL while scanning string literal
+\end{verbatim}
+\end{listing}
+
+\index{multi-line string}We'll talk more about errors later, but for the moment, if you want more than one line of text, you can use 3 single quotes:
+
+\begin{listing}
+\begin{verbatim}
+>>> fred = '''this is two
+... lines of text in a single string'''
+\end{verbatim}
+\end{listing}
+
+\noindent
+Print out the contents to see if it worked:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(fred)
+this is two
+lines of text in a single string
+\end{verbatim}
+\end{listing}
+
+By the way, you'll see those 3 dots (...) quite a few times when you're typing something that continues onto another line (like a multi line string).  In fact, you'll see it a lot more as we continue.
+
+\section{Tricks with Strings}\label{trickswithstrings}
+
+Here's an interesting question:  what's 10 * 5 (10 times 5)?  The answer is, of course, 50.
+
+\noindent
+\emph{All right, that's not an interesting question at all.}
+
+But what is 10 * 'a' (10 times the letter a)?  It might seem like a nonsensical question, but here's the answer from the World of Python:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(10 * 'a')
+aaaaaaaaaa
+\end{verbatim}
+\end{listing}
+
+This works with more than just single character strings:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(20 * 'abcd')
+abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd
+\end{verbatim}
+\end{listing}
+
+Another trick with a string, is embedding values.  You can do this by using \%s, which is like a marker (or a placeholder) for a value you want to include in a string.  It's easier to explain with an example:
+
+\begin{listing}
+\begin{verbatim}
+>>> mytext = 'I am %s years old'
+>>> print(mytext % 12)
+I am 12 years old
+\end{verbatim}
+\end{listing}
+
+In the first line, the variable mytext is created with a string containing some words and a placeholder (\%s).  The \%s is a little beacon saying ``replace me with something'' to the Python console.  So on the next line, when we call \code{print(mytext)}, we use the \% symbol, to tell Python to replace the marker with the number 12. We can reuse that string and pass in different values:
+
+\begin{listing}
+\begin{verbatim}
+>>> mytext = 'Hello %s, how are you today?'
+>>> name1 = 'Joe'
+>>> name2 = 'Jane'
+>>> print(mytext % name1)
+Hello Joe, how are you today?
+>>> print(mytext % name2)
+Hello Jane, how are you today?
+\end{verbatim}
+\end{listing}
+
+In the above example, 3 variables (mytext, name1 and name2) are created---the first includes the string with the marker.  Then we can print the variable `mytext', and again use the \% operator to pass in variables `name1' and `name2'.  You can use more than one placeholder:
+
+\begin{listing}
+\begin{verbatim}
+>>> mytext = 'Hello %s and %s, how are you today?'
+>>> print(mytext % (name1, name2))
+Hello Joe and Jane, how are you today?
+\end{verbatim}
+\end{listing}
+
+When using more than one marker, you need to wrap the replacement values with brackets---so (name1, name2) is the proper way to pass 2 variables. A set of values surrounded by brackets (the round ones, not the square ones) is called a \emph{tuple}, and is a little bit like a list, which we'll talk about next.
+
+\section{Not quite a shopping list}\index{lists}
+
+Eggs, milk, cheese, celery, peanut butter, and baking soda.  Which is not quite a full shopping list, but good enough for our purposes. If you wanted to store this in a variable you could create a string:
+
+\begin{listing}
+\begin{verbatim}
+>>> shopping_list = 'eggs, milk, cheese, celery, peanut butter, baking soda'
+>>> print(shopping_list)
+eggs, milk, cheese, celery, peanut butter, baking soda
+\end{verbatim}
+\end{listing}
+
+Another way would be to create a `list', which is a special kind of object in Python:
+
+\begin{listing}
+\begin{verbatim}
+>>> shopping_list = [ 'eggs', 'milk', 'cheese', 'celery', 'peanut butter', 
+... 'baking soda' ]
+>>> print(shopping_list)
+['eggs', 'milk', 'cheese', 'celery', 'peanut butter', 'baking soda']
+\end{verbatim}
+\end{listing}
+
+This is more typing, but it's also more useful.  We could print the 3rd item in the list by using its position (called its index position), inside square brackets []:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(shopping_list[2])
+cheese
+\end{verbatim}
+\end{listing}
+
+Lists start at index position 0---so the first item in a list is 0, the second is 1, the third is 2.  That doesn't make a lot of sense to most people, but it does to programmers.  Pretty soon, when you walk up some stairs you'll start counting with zero rather than one.  That will really confuse your little brother or sister.
+\par
+We can show all the items from the 3rd item up to the 5th in the list, by using a colon inside the square brackets:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(shopping_list[2:5])
+['cheese', 'celery', 'peanut butter']
+\end{verbatim}
+\end{listing}
+
+[2:5] is the same as saying that we are interested in items from index position 2 up to (but not including) index position 5.  And, of course, because we start counting with 0, the 3rd item in the list is actually number 2, and the 5th item is actually number 4. Lists can be used to store all sorts of items.  They can store numbers:
+
+\begin{listing}
+\begin{verbatim}
+>>> mylist = [ 1, 2, 5, 10, 20 ]
+\end{verbatim}
+\end{listing}
+
+\noindent
+And strings:
+
+\begin{listing}
+\begin{verbatim}
+>>> mylist = [ 'a', 'bbb', 'ccccccc', 'ddddddddd' ]
+\end{verbatim}
+\end{listing}
+
+\noindent
+And mixtures of numbers and strings:
+
+\begin{listing}
+\begin{verbatim}
+>>> mylist = [1, 2, 'a', 'bbb']
+>>> print(mylist)
+[1, 2, 'a', 'bbb']
+\end{verbatim}
+\end{listing}
+
+\noindent
+And even lists of lists:
+
+\begin{listing}
+\begin{verbatim}
+>>> list1 = [ 'a', 'b', 'c' ]
+>>> list2 = [ 1, 2, 3 ]
+>>> mylist = [ list1, list2 ]
+>>> print(mylist)
+[['a', 'b', 'c'], [1, 2, 3]]
+\end{verbatim}
+\end{listing}
+
+In the above example, a variable called `list1' is created with 3 letters, `list2' is created with a 3 numbers, and `mylist' is created using list1 and list2. Things can get rather confusing, rather quickly, if you start creating lists of lists of lists of lists$\ldots$ but luckily there's not usually much need for making things that complicated in Python. Still it is handy to know that you can store all sorts of items in a Python list.
+
+\noindent
+\emph{And not just your shopping.}
+
+\subsection*{\color{BrickRed}Replacing items}\index{lists!replacing}
+
+We can replace an item in the list, by setting its value in a similar way to setting the value of a normal variable. For example, we could change celery to lettuce by setting the value in index position 3:
+
+\begin{listing}
+\begin{verbatim}
+>>> shopping_list[3] = 'lettuce'
+>>> print(shopping_list)
+['eggs', 'milk', 'cheese', 'lettuce', 'peanut butter', 'baking soda']
+\end{verbatim}
+\end{listing}
+
+\subsection*{\color{BrickRed}Adding more items...}\index{lists!appending}
+
+We can add items to a list by using a method called `append'.  A method is an action or command that tells Python that we want to do something.  We'll talk more about methods later, but for the moment, to add an item to our shopping list, we can do the following:
+
+\begin{listing}
+\begin{verbatim}
+>>> shopping_list.append('chocolate bar')
+>>> print(shopping_list)
+['eggs', 'milk', 'cheese', 'lettuce', 'peanut butter', 'baking soda', 
+'chocolate bar']
+\end{verbatim}
+\end{listing}
+
+Which, if nothing else, is certainly an improved shopping list.
+
+\subsection*{\color{BrickRed}$\ldots$and removing items}\index{lists!removing}
+
+We can remove items from a list by using the command `del' (short for delete).  For example, to remove the 6th item in the list (baking soda):
+
+\begin{listing}
+\begin{verbatim}
+>>> del shopping_list[5]
+>>> print(shopping_list)
+['eggs', 'milk', 'cheese', 'lettuce', 'peanut butter', 'chocolate bar']
+\end{verbatim}
+\end{listing}
+
+Remember that positions start at zero, so shopping\_list[5] actually refers to the 6th item.
+
+\subsection*{\color{BrickRed}2 lists are better than 1}\index{lists!joining}
+
+We can join lists together by adding them, as if we were adding two numbers:
+
+\begin{listing}
+\begin{verbatim}
+>>> list1 = [ 1, 2, 3 ]
+>>> list2 = [ 4, 5, 6 ]
+>>> print(list1 + list2)
+[1, 2, 3, 4, 5, 6]
+\end{verbatim}
+\end{listing}
+
+\noindent
+We can also add the two lists and set the result to another variable:
+
+\begin{listing}
+\begin{verbatim}
+>>> list1 = [ 1, 2, 3 ]
+>>> list2 = [ 4, 5, 6 ]
+>>> list3 = list1 + list2
+>>> print(list3)
+[1, 2, 3, 4, 5, 6]
+\end{verbatim}
+\end{listing}
+
+\noindent
+And you can multiply a list in the same way we multiplied a string:
+
+\begin{listing}
+\begin{verbatim}
+>>> list1 = [ 1, 2 ]
+>>> print(list1 * 5)
+[1, 2, 1, 2, 1, 2, 1, 2, 1, 2]
+\end{verbatim}
+\end{listing}
+
+\noindent
+In the above example, multiplying list1 by five is another way of saying ``repeat list1 five times''. However, division (/) and subtraction (-) don't make sense when working with lists, so you'll get errors when trying the following examples:
+
+\begin{listing}
+\begin{verbatim}
+>>> list1 / 20
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for /: 'list' and 'int'
+\end{verbatim}
+\end{listing}
+
+\noindent
+or:
+
+\begin{listing}
+\begin{verbatim}
+>>> list1 - 20
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for -: 'type' and 'int'
+\end{verbatim}
+\end{listing}
+
+\noindent
+You'll get a rather nasty error message.
+
+\section{Tuples and Lists}\label{tuplesandlists}\index{tuples}
+
+A tuple (mentioned earlier) is a little bit like a list, but rather than using square brackets, you use round brackets---e.g. `(' and `)'.  You can use tuples in a similar way to a list:
+
+\begin{listing}
+\begin{verbatim}
+>>> t = (1, 2, 3)
+>>> print(t[1])
+2
+\end{verbatim}
+\end{listing}
+
+The main difference is that, unlike lists, tuples can't change, once you've created them.  So if you try to replace a value like we did earlier with the list, you'll get another error message:
+
+\begin{listing}
+\begin{verbatim}
+>>> t[0] = 4
+Traceback (most recent call last):
+  File "<stdin>", line 1, in ?
+TypeError: 'tuple' object does not support item assignment
+\end{verbatim}
+\end{listing}
+
+That doesn't mean you can't change the variable containing the tuple to something else.  For example, this code will work fine:
+
+\begin{listing}
+\begin{verbatim}
+>>> myvar = (1, 2, 3)
+>>> myvar = [ 'a', 'list', 'of', 'strings' ]
+\end{verbatim}
+\end{listing}
+
+First we create the variable \code{myvar} pointing to a tuple of 3 numbers.  Then we change \code{myvar} to point at a list of strings. This might be a bit confusing at first.  But think of it like lockers in a school.  Each locker has a name tag on it. You put something in the locker, close the door, lock it, then throw away the key.  You then peel the name tag off, wander over to another empty locker, and stick something else in that (but this time you keep the key).  A tuple is like the locked locker.  You can't change what's inside it.  But you can take the label off and stick it on an unlocked locker, and then put stuff inside that locker and take stuff out---that's the list.
+
+\section{Things to try}
+
+\emph{In this chapter we saw how to calculate simple mathematical equations using the Python console.  We also saw how brackets can change the result of an equation, by controlling the order that operators are used.  We found out how to tell Python to remember values for later use---using variables---plus how Python uses `strings' for storing text, and lists and tuples, for handling more than one item.}
+\par
+
+\subsection*{Exercise 1}
+Make a list of your favourite toys and name it \code{toys}.  Make a list of your favourite foods and name it \code{foods}.  Join these two lists and name the result \code{favourites}.  Finally print the variable \code{favourites}.
+
+\subsection*{Exercise 2}
+If you have 3 boxes containing 25 chocolates, and 10 bags containing 32 sweets, how many sweets and chocolates do you have in total?  (Note: you can do this with one equation with the Python console)
+
+\subsection*{Exercise 3}
+Create variables for your first and last name. Now create a string and use placeholders to add your name.
+
+
+\newpage
