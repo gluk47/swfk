@@ -17,8 +17,8 @@ We've already created a file object, using Python, in the previous chapter.  The
 
 \begin{listing}
 \begin{verbatim}
->>> f = file('c:\\test.txt')
->>> print f.read()
+>>> f = open('c:\\test.txt')
+>>> print(f.read())
 \end{verbatim}
 \end{listing}
 
@@ -28,8 +28,8 @@ We've already created a file object, using Python, in the previous chapter.  The
 
 \begin{listing}
 \begin{verbatim}
->>> f = file('Desktop/test.txt')
->>> print f.read()
+>>> f = open('Desktop/test.txt')
+>>> print(f.read())
 \end{verbatim}
 \end{listing}
 
@@ -39,8 +39,8 @@ We've already created a file object, using Python, in the previous chapter.  The
 
 \begin{listing}
 \begin{verbatim}
->>> f = file('Desktop/test.txt')
->>> print f.read()
+>>> f = open('Desktop/test.txt')
+>>> print(f.read())
 \end{verbatim}
 \end{listing}
  
@@ -50,7 +50,7 @@ A file object doesn't just have the function \code{read}\index{functions!file!re
 
 \begin{listing}
 \begin{verbatim}
->>> f = file('myfile.txt', 'w')
+>>> f = open('myfile.txt', 'w')
 \end{verbatim}
 \end{listing}
 
@@ -58,6 +58,7 @@ A file object doesn't just have the function \code{read}\index{functions!file!re
 
 \begin{listing}
 \begin{verbatim}
+>>> f = open('myfile.txt', 'w')
 >>> f.write('this is a test file')
 \end{verbatim}
 \end{listing}
@@ -66,6 +67,8 @@ Then we need to tell Python when we're finished with the file, and don't want to
 
 \begin{listing}
 \begin{verbatim}
+>>> f = open('myfile.txt', 'w')
+>>> f.write('this is a test file')
 >>> f.close()
 \end{verbatim}
 \end{listing}
@@ -74,8 +77,8 @@ If you open the file using your favourite editor, you will see it contains the t
 
 \begin{listing}
 \begin{verbatim}
->>> f = file('myfile.txt')
->>> print f.read()
+>>> f = open('myfile.txt')
+>>> print(f.read())
 this is a test file
 \end{verbatim}
 \end{listing}

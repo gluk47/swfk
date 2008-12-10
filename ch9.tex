@@ -67,7 +67,7 @@ The button doesn't do much but you can, at least, click it. We can make it do so
 \begin{listing}
 \begin{verbatim}
 >>> def hello():
-...     print 'hello there'
+...     print('hello there')
 ...
 \end{verbatim}
 \end{listing}
@@ -283,7 +283,7 @@ Calling hexcolor with 100\% for red, 85\% for green and 0\% for blue, results in
 
 \begin{listing}
 \begin{verbatim}
->>> print hexcolor(100, 85, 0)
+>>> print(hexcolor(100, 85, 0))
 #ffd800
 \end{verbatim}
 \end{listing}
@@ -293,7 +293,7 @@ You can create a bright purple colour using 98\% of red, 1\% of green, and 77\% 
 
 \begin{listing}
 \begin{verbatim}
->>> print hexcolor(98, 1, 77)
+>>> print(hexcolor(98, 1, 77))
 #f902c4
 \end{verbatim}
 \end{listing}
@@ -460,20 +460,20 @@ In lines 1 to 4 we set up the canvas the same as we have in previous examples. I
 \begin{listing}
 \begin{verbatim}
 >>> import os
->>> print os.getcwd()
+>>> print(os.getcwd())
 \end{verbatim}
 \end{listing}
 
 \begin{WINDOWS}
-This will probably print out something like `c:\\Python25'.
+This will probably print out something like `c:\\Python30'.
 \end{WINDOWS}
 
 \begin{MAC}
-This will probably print out something like `/Users/yourname'$ldots$, so if your name is Jane Matthews, \code{getcwd()} might return `/Users/janematthews'.
+This will probably print out something like `/Users/yourname'$\ldots$, so if your name is Jane Matthews, \code{getcwd()} might return `/Users/janematthews'.
 \end{MAC}
 
 \begin{LINUX}
-This will probably print out something like `/home/yourname'$ldots$, so if your name is Jane Matthews, \code{getcwd()} might return `/home/jane' or `/home/janematthews', depending upon how your computer has been setup.
+This will probably print out something like `/home/yourname'$\ldots$, so if your name is Jane Matthews, \code{getcwd()} might return `/home/jane' or `/home/janematthews', depending upon how your computer has been setup.
 \end{LINUX}
 
 Copy your image into that directory and then load it using the PhotoImage function (same as line 5). You then use the \code{create\_image} function on the canvas to display your image (line 6). If you've done all this correctly, you'll see something like figure~\ref{fig43}.

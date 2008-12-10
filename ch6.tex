@@ -23,7 +23,7 @@ There are a number of different ways to reuse code in Python (and in programming
 \begin{listing}
 \begin{verbatim}
 >>> def myfunction(myname):
-...     print 'hello %s' % myname
+...     print('hello %s' % myname)
 ...
 \end{verbatim}
 \end{listing}
@@ -43,7 +43,7 @@ We could change the function to take 2 parameters:
 \begin{listing}
 \begin{verbatim}
 >>> def myfunction(firstname, lastname):
-...     print 'Hello %s %s' % (firstname, lastname)
+...     print('Hello %s %s' % (firstname, lastname))
 ...
 \end{verbatim}
 \end{listing}
@@ -78,7 +78,7 @@ We can return values from a function using the \code{return}\index{return} state
 >>> def savings(chores, paper, spending):
 ...     return chores + paper - spending
 ...
->>> print savings(10, 10, 5)
+>>> print(savings(10, 10, 5))
 15
 \end{verbatim}
 \end{listing}
@@ -88,7 +88,7 @@ This function takes 3 parameters, and then adds the first two (\code{chores} and
 \begin{listing}
 \begin{verbatim}
 >>> my_savings = savings(20, 10, 5)
->>> print my_savings
+>>> print(my_savings)
 25
 \end{verbatim}
 \end{listing}
@@ -103,9 +103,9 @@ However, a variable that we use inside the body of a function will not be access
 ...     b = 20
 ...     return a * b
 ...
->>> print variable_test()
+>>> print(variable_test())
 200
->>> print a
+>>> print(a)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 NameError: name 'a' is not defined
@@ -124,7 +124,7 @@ Think of a function as a little island floating in the ocean---and it's too far 
 ...     b = 20
 ...     return a * b * x
 ... 
->>> print variable_test2()
+>>> print(variable_test2())
 20000
 \end{verbatim}
 \end{listing}
@@ -143,7 +143,7 @@ The for-loop we created earlier to display savings over a year, could easily be 
 ...     savings = 0
 ...     for week in range(1, 53):
 ...         savings = savings + chores + paper - spending
-...         print 'Week %s = %s' % (week, savings)
+...         print('Week %s = %s' % (week, savings))
 ...
 \end{verbatim}
 \end{listing}
@@ -208,8 +208,8 @@ Open the Python console again, and try the following:
 
 \begin{listing}
 \begin{verbatim}
->>> f = file('c:\\test.txt')
->>> print f.read()
+>>> f = open('c:\\test.txt')
+>>> print(f.read())
 \end{verbatim}
 \end{listing}
 
@@ -231,7 +231,7 @@ Open the Python console again, and try the following:
 \begin{listing}
 \begin{verbatim}
 >>> f = file('Desktop/test.txt')
->>> print f.read()
+>>> print(f.read())
 \end{verbatim}
 \end{listing}
 
@@ -253,7 +253,7 @@ Open the Python console again, and try the following:
 \begin{listing}
 \begin{verbatim}
 >>> f = file('Desktop/test.txt')
->>> print f.read()
+>>> print(f.read())
 \end{verbatim}
 \end{listing}
 
@@ -283,7 +283,7 @@ The import command is used to tell Python we want to access a module.  In the ab
 
 \begin{listingignore}
 \begin{verbatim}
->>> print time.localtime()
+>>> print(time.localtime())
 (2006, 11, 10, 23, 49, 1, 4, 314, 1)
 \end{verbatim}
 \end{listingignore}
@@ -293,7 +293,7 @@ localtime\index{modules!time!localtime} is a function \emph{inside} the module t
 \begin{listingignore}
 \begin{verbatim}
 >>> t = time.localtime()
->>> print time.asctime(t)
+>>> print(time.asctime(t))
 Sat Nov 18 22:37:15 2006
 \end{verbatim}
 \end{listingignore}
@@ -303,7 +303,7 @@ We can do that all in a single line if we wanted to:
 
 \begin{listingignore}
 \begin{verbatim}
->>> print time.asctime(time.localtime())
+>>> print(time.asctime(time.localtime()))
 Sat Nov 18 22:37:15 2006
 \end{verbatim}
 \end{listingignore}
@@ -320,7 +320,7 @@ Inside the sys module is an object called `stdin'\index{modules!sys!stdin} (shor
 
 \begin{listing}
 \begin{verbatim}
->>> print sys.stdin.readline()
+>>> print(sys.stdin.readline())
 \end{verbatim}
 \end{listing}
 
@@ -329,9 +329,9 @@ If you then type some words, and press the Enter key, what you've typed will be 
 \begin{listing}
 \begin{verbatim}
 if age >= 10 and age <= 13:
-    print 'you are %s' % age
+    print('you are %s' % age)
 else:
-    print 'huh?'
+    print('huh?')
 \end{verbatim}
 \end{listing}
 
@@ -341,9 +341,9 @@ Rather than creating the variable \code{age} beforehand, we can now ask someone 
 \begin{verbatim}
 >>> def your_age(age):
 ...     if age >= 10 and age <= 13:
-...         print 'you are %s' % age
+...         print('you are %s' % age)
 ...     else:
-...         print 'huh?'
+...         print('huh?')
 ... 
 \end{verbatim}
 \end{listing}
@@ -364,12 +364,12 @@ Now we know there are no problems with our function, we can change the function 
 \begin{listing}
 \begin{verbatim}
 >>> def your_age():
-...     print 'Please enter your age'
+...     print('Please enter your age')
 ...     age = int(sys.stdin.readline())
 ...     if age >= 10 and age <= 13:
-...         print 'you are %s' % age
+...         print('you are %s' % age)
 ...     else:
-...         print 'huh?'
+...         print('huh?')
 ... 
 \end{verbatim}
 \end{listing}

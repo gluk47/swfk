@@ -14,9 +14,9 @@ The \textbf{abs} function returns the absolute value of a number.  An absolute v
 
 \begin{listing}
 \begin{verbatim}
->>> print abs(10)
+>>> print(abs(10))
 10
->>> print abs(-20.5)
+>>> print(abs(-20.5))
 20.5
 \end{verbatim}
 \end{listing}
@@ -27,13 +27,13 @@ The \textbf{bool} function returns either True or False based on the value passe
 
 \begin{listing}
 \begin{verbatim}
->>> print bool(0)
+>>> print(bool(0))
 False
->>> print bool(1)
+>>> print(bool(1))
 True
->>> print bool(1123.23)
+>>> print(bool(1123.23))
 True
->>> print bool(-500)
+>>> print(bool(-500))
 True
 \end{verbatim}
 \end{listing}
@@ -42,9 +42,9 @@ For other values, None returns False while anything else returns True:
 
 \begin{listing}
 \begin{verbatim}
->>> print bool(None)
+>>> print(bool(None))
 False
->>> print bool('a')
+>>> print(bool('a'))
 True 
 \end{verbatim}
 \end{listing}
@@ -56,7 +56,7 @@ The \textbf{callable} function returns either True or False based on whether the
 \begin{listing}
 \begin{verbatim}
 >>> x = 'test string'
->>> print callable(x)
+>>> print(callable(x))
 False
 \end{verbatim}
 \end{listing}
@@ -67,9 +67,9 @@ Where as a function is callable:
 \begin{listing}
 \begin{verbatim}
 >>> def testfunc():
-...     print 'this is a test function'
+...     print('this is a test function')
 ...
->>> print callable(testfunc)
+>>> print(callable(testfunc))
 True
 \end{verbatim}
 \end{listing}
@@ -80,7 +80,7 @@ The \textbf{cmp} function compares two values and returns a negative number if t
 
 \begin{listing}
 \begin{verbatim}
->>> print cmp(1,2)
+>>> print(cmp(1,2))
 -1
 \end{verbatim}
 \end{listing}
@@ -90,7 +90,7 @@ And 2 is equal to 2:
 
 \begin{listing}
 \begin{verbatim}
->>> print cmp(2,2)
+>>> print(cmp(2,2))
 0
 \end{verbatim}
 \end{listing}
@@ -100,7 +100,7 @@ But 2 is greater than 1:
 
 \begin{listing}
 \begin{verbatim}
->>> print cmp(2,1)
+>>> print(cmp(2,1))
 1
 \end{verbatim}
 \end{listing}
@@ -110,11 +110,11 @@ Compare doesn't only work with numbers. You can use other values, such as string
 
 \begin{listing}
 \begin{verbatim}
->>> print cmp('a','b')
+>>> print(cmp('a','b'))
 -1
->>> print cmp('a','a')
+>>> print(cmp('a','a'))
 0
->>> print cmp('b','a')
+>>> print(cmp('b','a'))
 1
 \end{verbatim}
 \end{listing}
@@ -124,9 +124,9 @@ But do be careful with strings; the return value may not be exactly what you exp
 
 \begin{listing}
 \begin{verbatim}
->>> print cmp('a','A')
+>>> print(cmp('a','A'))
 1
->>> print cmp('A','a')
+>>> print(cmp('A','a'))
 -1
 \end{verbatim}
 \end{listing}
@@ -135,9 +135,9 @@ A lower-case 'a' is actually greater than an upper-case 'A'. Of course$\ldots$
 
 \begin{listing}
 \begin{verbatim}
->>> print cmp('aaa','aaaa')
+>>> print(cmp('aaa','aaaa'))
 -1
->>> print cmp('aaaa','aaa')
+>>> print(cmp('aaaa','aaa'))
 1
 \end{verbatim}
 \end{listing}
@@ -185,7 +185,7 @@ Which shows you there are functions such as \code{capitalize} (change the first 
 
 \begin{listing}
 \begin{verbatim}
->>> print 'aaaaa'.capitalize()
+>>> print('aaaaa'.capitalize())
 Aaaaa
 \end{verbatim}
 \end{listing}
@@ -295,10 +295,10 @@ For a list or a tuple, it returns the number of items:
 \begin{listing}
 \begin{verbatim}
 >>> mylist = [ 'a', 'b', 'c', 'd' ]
->>> print len(mylist)
+>>> print(len(mylist))
 4
 >>> mytuple = (1,2,3,4,5,6)
->>> print len(mytuple)
+>>> print(len(mytuple))
 6
 \end{verbatim}
 \end{listing}
@@ -309,7 +309,7 @@ For a map, it also returns the number of items:
 \begin{listing}
 \begin{verbatim}
 >>> mymap = { 'a' : 100, 'b' : 200, 'c' : 300 }
->>> print len(mymap)
+>>> print(len(mymap))
 3
 \end{verbatim}
 \end{listing}
@@ -321,7 +321,7 @@ You might find the len function useful with loops, if you want to count through 
 \begin{verbatim}
 >>> mylist = [ 'a', 'b', 'c', 'd' ]
 >>> for item in mylist:
-...     print item
+...     print(item)
 \end{verbatim}
 \end{listing}
 
@@ -334,7 +334,7 @@ Which would print out all the items in the list (a,b,c,d)---but what if you want
 >>> length = len(mylist)
 
 >>> for x in range(0, length):
-...     print 'the item at index %s is %s' % (x, mylist[x])
+...     print('the item at index %s is %s' % (x, mylist[x]))
 ... 
 the item at index 0 is a
 the item at index 1 is b
@@ -353,7 +353,7 @@ The \textbf{max} function returns the largest item in a list, tuple or even a st
 \begin{listing}
 \begin{verbatim}
 >>> mylist = [ 5, 4, 10, 30, 22 ]
->>> print max(mylist)
+>>> print(max(mylist))
 30
 \end{verbatim}
 \end{listing}
@@ -364,7 +364,7 @@ A string with the items are separated by commas or spaces will also work:
 \begin{listing}
 \begin{verbatim}
 >>> s = 'a,b,d,h,g'
->>> print max(s)
+>>> print(max(s))
 h
 \end{verbatim}
 \end{listing}
@@ -374,7 +374,7 @@ And you don't have to use lists, or tuples or strings. You can also call the max
 
 \begin{listing}
 \begin{verbatim}
->>> print max(10, 300, 450, 50, 90)
+>>> print(max(10, 300, 450, 50, 90))
 450
 \end{verbatim}
 \end{listing}
@@ -386,7 +386,7 @@ The \textbf{min} function works in the same way as max, except it returns the sm
 \begin{listing}
 \begin{verbatim}
 >>> mylist = [ 5, 4, 10, 30, 22 ]
->>> print min(mylist)
+>>> print(min(mylist))
 4
 \end{verbatim}
 \end{listing}
@@ -398,7 +398,7 @@ The \textbf{range} function is mainly used in for-loops, when you want to loop t
 \begin{listing}
 \begin{verbatim}
 >>> for x in range(0, 5):
-...     print x
+...     print(x)
 ... 
 0
 1
@@ -409,11 +409,11 @@ The \textbf{range} function is mainly used in for-loops, when you want to loop t
 \end{listing}
 
 \noindent
-What you might not have realised, is that the \code{range} function actually just returns a list of numbers which the for-loop then works through. So if you print the return value when calling range, you'll see the list:
+What you might not have realised, is that the \code{range} function actually just returns a special object (called an iterator) which the for-loop then works through. You can convert the iterator into a list (oddly enough, using the function \code{list}), so if you print the return value when calling range, you'll see the numbers it contains:
 
 \begin{listing}
 \begin{verbatim}
->>> print range(0, 5)
+>>> print(list(range(0, 5)))
 [0, 1, 2, 3, 4]
 \end{verbatim}
 \end{listing}
@@ -423,8 +423,8 @@ You get a list of numbers that can be assigned to variables and used elsewhere i
 
 \begin{listingignore}
 \begin{verbatim}
->>> my_list_of_numbers = range(0, 30)
->>> print my_list_of_numbers
+>>> my_list_of_numbers = list(range(0, 30))
+>>> print(my_list_of_numbers)
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 
 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
 \end{verbatim}
@@ -435,8 +435,8 @@ Range also takes a third argument, called a `step' (the first two arguments are 
 
 \begin{listing}
 \begin{verbatim}
->>> my_list_of_numbers = range(0, 30, 2)
->>> print my_list_of_numbers
+>>> my_list_of_numbers = list(range(0, 30, 2))
+>>> print(my_list_of_numbers)
 [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28]
 \end{verbatim}
 \end{listing}
@@ -446,8 +446,8 @@ Each number in the list increases by 2 from the previous number. We can use larg
 
 \begin{listing}
 \begin{verbatim}
->>> mylist = range(0, 500, 50)
->>> print mylist
+>>> mylist = list(range(0, 500, 50))
+>>> print(mylist)
 [0, 50, 100, 150, 200, 250, 300, 350, 400, 450]
 \end{verbatim}
 \end{listing}
@@ -460,11 +460,11 @@ The \textbf{sum} function adds up items in a list and returns the total number. 
 
 \begin{listing}
 \begin{verbatim}
->>> mylist = range(0, 500, 50)
->>> print mylist
+>>> mylist = list(range(0, 500, 50))
+>>> print(mylist)
 [0, 50, 100, 150, 200, 250, 300, 350, 400, 450]
 
->>> print sum(mylist)
+>>> print(sum(mylist))
 2250
 \end{verbatim}
 \end{listing}
