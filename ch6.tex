@@ -230,7 +230,7 @@ Open the Python console again, and try the following:
 
 \begin{listing}
 \begin{verbatim}
->>> f = file('Desktop/test.txt')
+>>> f = open('Desktop/test.txt')
 >>> print(f.read())
 \end{verbatim}
 \end{listing}
@@ -252,7 +252,7 @@ Open the Python console again, and try the following:
 
 \begin{listing}
 \begin{verbatim}
->>> f = file('Desktop/test.txt')
+>>> f = open('Desktop/test.txt')
 >>> print(f.read())
 \end{verbatim}
 \end{listing}
@@ -376,7 +376,7 @@ Now we know there are no problems with our function, we can change the function 
 
 Because \code{readline()} returns what a person typed as text (in other words, a string), we need to use the function \code{int} to convert it to a number (this so it will work correctly in the if-statement---check \emph{What's the difference} on page~\pageref{whatsthedifference} for more information about this).  To try it for yourself, call the your\_age function without any parameters, then type some text when `Please enter your age' appears:
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
 >>> your_age()
 Please enter your age
@@ -387,7 +387,7 @@ Please enter your age
 15
 huh?
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 \noindent
 \emph{The important thing to note here is that even though you're typing in a number (in the above case 10 or 15), readline always returns a string.}

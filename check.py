@@ -6,6 +6,8 @@ import sys
 from io import StringIO
 
 pat = re.compile(r'\\begin{listing}\s*\\begin{verbatim}\s*(.*?)\\end{verbatim}', re.DOTALL | re.MULTILINE)
+split_re = re.compile(r'\s*')
+line_re = re.compile(r'^\s*[0-9]+\.\s*')
 
 stdout = sys.stdout
 
@@ -25,6 +27,7 @@ def parse(source):
     parsing_src = False
     parsing_want = False
     for line in source.split('\n'):
+        line = line_re.sub('', line)
         if line.startswith('>>> ') or line.startswith('...'):
             if parsing_want:
                 examples.append(build_example(src, want))
@@ -50,6 +53,13 @@ class Example(object):
     def __str__(self):
         return 'src=\n%s\nwant=\n%s' % (self.source, self.want)
 
+def percent_match(tokenlist, str):
+    count = 0
+    for token in tokenlist:
+        if str.find(token) >= 0: 
+            count += 1
+    return (count / len(tokenlist))
+
 
 def run(example):
     sio = StringIO()
@@ -58,19 +68,24 @@ def run(example):
     else:
         kind = 'single'
     
+    l = []
+    sys.stdout = sio
     try:
         code = compile(example.source, '<stdin>', kind)
-        sys.stdout = sio
-        exec(code) in globals()
-        sys.stdout = stdout
+        exec(code, globals())
         val = sio.getvalue().rstrip()
-        
         if example.want != '' and val.find(example.want) < 0:
             return 'expected: "%s"\nactual:   "%s"' % (example.want, val)
     except Exception as se:
-        if not example.want.find(str(se)):
-            return 'expected: %s\nactual:   %s' % (example.want, val)
-            
+        sys.stdout = stdout
+        err = str(se)
+        tokens = split_re.split(err[0:err.find('(')])
+        match = percent_match(tokens, example.want)
+        if match < 0.7:
+            return 'expected: %s\nactual:   %s\n(%% match = %s)' % (example.want, str(se), match)
+    finally:
+        sys.stdout = stdout
+
     return None
     
 
@@ -83,13 +98,13 @@ failure = 0
 linenum = 1
 for mat in pat.finditer(s):
     code = mat.group(1)
-    print('code #%s' % linenum)
+    print('\n\ncode #%s' % linenum)
     linenum = linenum + 1
     examples = parse(code)
     for example in examples:
         response = run(example)
         if response:
-            print('exec: %s' % example.source)
+            print('exec:\n%s' % example.source)
             print(response)
             failure = failure + 1
         else:

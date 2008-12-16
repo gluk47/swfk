@@ -133,7 +133,7 @@ You don't have to just draw stars and simple geometric shapes, using a combinati
 \begin{listing}
 \begin{verbatim}
 t.color(1,0,0)
-t.fill(1)
+t.begin_fill()
 t.forward(100)
 t.left(90)
 t.forward(20)
@@ -149,24 +149,24 @@ t.right(90)
 t.forward(20)
 t.left(90)
 t.forward(20)
-t.fill(0)
+t.end_fill()
 t.color(0,0,0)
 t.up()
 t.forward(10)
 t.down()
-t.fill(1)
+t.begin_fill()
 t.circle(10)
-t.fill(0)
+t.end_fill()
 t.setheading(0)
 t.up()
 t.forward(90)
 t.right(90)
 t.forward(10)
 t.setheading(0)
-t.fill(1)
+t.begin_fill()
 t.down()
 t.circle(10)
-t.fill(0)
+t.end_fill()
 \end{verbatim}
 \end{listing}
 
@@ -193,9 +193,9 @@ Even though we're not using paint, for a moment, think about 3 large pots of pai
 \begin{listing}
 \begin{verbatim}
 >>> t.color(1,1,0)
->>> t.fill(1)
+>>> t.begin_fill()
 >>> t.circle(50)
->>> t.fill(0)
+>>> t.end_fill()
 \end{verbatim}
 \end{listing}
 
@@ -205,9 +205,9 @@ So in the above example, we call the color function with 100\% for red, 100\% fo
 \begin{verbatim}
 >>> def mycircle(red, green, blue):
 ...     t.color(red, green, blue)
-...     t.fill(1)
+...     t.begin_fill()
 ...     t.circle(50)
-...     t.fill(0)
+...     t.end_fill()
 ...
 \end{verbatim}
 \end{listing}
@@ -391,7 +391,7 @@ Then, turn on filling, and call the square function again:
 
 \begin{listing}
 \begin{verbatim}
->>> t.fill(1)
+>>> t.begin_fill()
 >>> mysquare(50)
 \end{verbatim}
 \end{listing}
@@ -401,7 +401,7 @@ You'll still see an empty square until you turn filling off:
 
 \begin{listing}
 \begin{verbatim}
->>> t.fill(0)
+>>> t.end_fill()
 \end{verbatim}
 \end{listing}
 
@@ -421,12 +421,12 @@ How about changing the function so that we can either draw a filled or an unfill
 \begin{verbatim}
 >>> def mysquare(size, filled):
 ...    if filled == True:
-...        t.fill(1)
+...        t.begin_fill()
 ...    for x in range(0,4):
 ...        t.forward(size)
 ...        t.left(90)
 ...    if filled == True:
-...        t.fill(0)
+...        t.end_fill()
 ...
 \end{verbatim}
 \end{listing}
@@ -478,7 +478,7 @@ We can use the same if-statements from the mysquare function, and use the size p
 \begin{verbatim}
 1.  >>> def mystar(size, filled):
 2.  ...     if filled:
-3.  ...         t.fill(1)
+3.  ...         t.begin_fill()
 4.  ...     for x in range(1,19):
 5.  ...         t.forward(size)
 6.  ...         if x % 2 == 0:
@@ -486,7 +486,7 @@ We can use the same if-statements from the mysquare function, and use the size p
 8.  ...         else:
 9.  ...             t.left(225)
 10. ...     if filled:
-11. ...         t.fill(0)
+11. ...         t.end_fill()
 \end{verbatim}
 \end{listing}
 

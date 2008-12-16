@@ -46,7 +46,7 @@ hello
 
 \begin{listing}
 \begin{verbatim}
->>> print(range(10, 20))
+>>> print(list(range(10, 20)))
 [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 \end{verbatim}
 \end{listing}
@@ -146,22 +146,22 @@ So what's a `block of code' then?
 \par
 A block of code is a set of programming statements you want to group together.  For example, in the for-loop example above, you might want to do more than just print out the items.  Perhaps you'd want to buy each item and then print out what it was.  Supposing we had a function called `buy', you might write code like this:
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
 >>> for i in shopping_list:
 ...     buy(i)
 ...     print(i)
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 Don't bother typing that example into the Python console---because we don't have a buy function and you'll get an error message if you do try to run it---but it does demonstrate a simple Python block made up of 2 commands:
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
 buy(i)
 print(i)
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 In Python, white space\index{white space} such as tab (when you press the tab key) and space (when you press the space bar) is \emph{very} important.  Code that is at the same position is grouped together into blocks.
 
@@ -185,23 +185,23 @@ In Python, white space\index{white space} such as tab (when you press the tab ke
 
 But you must be consistent with your spacing.  For example:
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
 >>> for i in shopping_list:
 ...     buy(i)
 ...       print(i)
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 The second line (\code{function buy(i)}) starts with \textbf{4} spaces.  The third line (print(i)) starts with \textbf{6} spaces.  Let's take another look at that code with visible spaces (using @ again):
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
 >>> for i in shopping_list:
 ... @@@@buy(i)
 ... @@@@@@print(i)
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 This would cause an error.  Once you start using 4 spaces, you need to continue using 4 spaces.  And if you want to put a block \emph{inside} another block, you'll need 8 spaces (2 x 4) at the beginning of the lines for that inner block.
 \par
@@ -299,9 +299,9 @@ There are \textbf{two} blocks---number one is part of the first for-loop:
 \begin{verbatim}
 >>> mylist = [ 'a', 'b', 'c' ]
 >>> for i in mylist:
-...     print(i)                --
-...     for j in mylist:         |-- these lines are the FIRST block
-...         print(j)            --
+...     print(i)                #
+...     for j in mylist:        #-- these lines are the FIRST block
+...         print(j)            #
 ...
 \end{verbatim}
 \end{listing}
@@ -314,7 +314,7 @@ Block number two is the single print line in the second for-loop:
 >>> for i in mylist:
 ...     print(i)
 ...     for j in mylist:
-...         print(j)               -- this line is the SECOND block
+...         print(j)               # this line is the SECOND block
 ...
 \end{verbatim}
 \end{listing}
@@ -431,7 +431,7 @@ A for-loop isn't the only kind of looping you can do in Python. There's also the
 
 Now imagine a staircase going up a mountainside.  You might run out of energy before you reach the top.  Or the weather might turn bad forcing you to stop climbing.  This is a while-loop.
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
 >>> step = 0
 >>> while step < 10000:
@@ -443,7 +443,7 @@ Now imagine a staircase going up a mountainside.  You might run out of energy be
 ...     else:
 ...         step = step + 1
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 Don't bother running the code sample above, because we haven't bothered to create the variables \code{tired} and \code{badweather}.  But it demonstrates the basics of a while-loop.  \emph{While} the value of variable \code{step} is less than 10000 (step $<$ 10000) the code in the block is executed.  In the block, we print the value of \code{step}, then check whether \code{tired} or \code{badweather} is true.  If \code{tired} is true, then the \code{break} statement stops the code in the loop executing (basically we jump out of the loop to the next line of code immediately following the block).  If \code{badweather} is true, we also break out of the loop.  If not, then \textbf{1} is added to the value of \code{step}, and the condition of the while loop (step $<$ 10000) is checked again.
 \par
@@ -486,7 +486,7 @@ Maybe you can figure out why these numbers are printed?\footnote{We start counti
 
 Another common usage of a while-loop, is to create a semi-eternal loop. This is a loop that basically goes forever, or at least until something happens in the code to break out of it. For example:
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
 >>> while True:
 ...     lots of code here
@@ -495,7 +495,7 @@ Another common usage of a while-loop, is to create a semi-eternal loop. This is 
 ...     if some_condition == True:
 ...         break
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 The condition for the while loop is just `True'.  So it will always run the code in the block (thus the loop is eternal or infinite). Only if the variable some\_condition is true will the code break out of the loop.  You can see a better example of this in Appendix~\ref{app:afewpythonmodules} (the section about the \code{random} module), but you might want to wait until you've read the next chapter before taking a look at it.
 

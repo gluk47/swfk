@@ -366,11 +366,11 @@ You can see from that code that we tell the turtle to move forward 50 pixels, th
 \begin{verbatim}
 >>> def octagon(red, green, blue):
 ...     t.color(red, green, blue)
-...     t.fill(1)
+...     t.begin_fill()
 ...     for x in range(0,8):
 ...         t.forward(50)
 ...         t.right(45)
-...     t.fill(0)
+...     t.end_fill()
 \end{verbatim}
 \end{listing}
 

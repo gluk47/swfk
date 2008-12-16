@@ -107,21 +107,24 @@ this is a test value
 \begin{listingignore}
 \begin{verbatim}
 >>> import sys
->>> sys.stdout.write('this is a test')
+>>> l = sys.stdout.write('this is a test')
 this is a test>>>
 \end{verbatim}
 \end{listingignore}
 
-Notice where the prompt ($>>>$) reappears?  It's not a mistake in this book that it's at the end of the message.  That's because, unlike \code{print}, when you call \code{write}, it doesn't automatically move to the next line. To do the same with \code{write} we can do the following:
+Notice where the prompt ($>>>$) reappears?  It's not an error, that it's at the end of the message.  That's because, unlike \code{print}, when you call \code{write}, it doesn't automatically move to the next line. To do the same with \code{write} we can do the following:
 
 \begin{listingignore}
 \begin{verbatim}
 >>> import sys
->>> sys.stdout.write('this is a test\n')
+>>> l = sys.stdout.write('this is a test\n')
 this is a test
 >>>
 \end{verbatim}
 \end{listingignore}
+
+\noindent
+(Note that \code{stdout.write} returns the number of characters written--try \code{print(l)} to see the result).
 
 \noindent
 {\textbackslash}n is the \emph{escape} character\index{escape characters} for a newline (what you get when you hit the enter key).  An escape character is a special character that you use in strings when you can't type it directly. For example, if you want to create a string with a newline in the middle, but try to use the enter key, you'll get an error:
@@ -249,6 +252,7 @@ The values in the sequence are year, month, day, hours, minutes, seconds, day of
 
 \begin{listing}
 \begin{verbatim}
+>>> import time
 >>> t = (2007, 5, 27, 10, 30, 48, 6, 0, 0)
 >>> print(time.asctime(t))
 Sun May 27 10:30:48 2007
@@ -260,6 +264,7 @@ But be careful with the values you put in a tuple. You can end up with a nonsens
 
 \begin{listing}
 \begin{verbatim}
+>>> import time
 >>> t = (2007, 5, 27, 10, 30, 48, 0, 0, 0)
 >>> print(time.asctime(t))
 Mon May 27 10:30:48 2007
@@ -273,6 +278,7 @@ The function \code{ctime}\index{modules!time!ctime} is used to convert a number 
 
 \begin{listingignore}
 \begin{verbatim}
+>>> import time
 >>> t = time.time()
 >>> print(t)
 1180264952.57
@@ -284,23 +290,25 @@ Sun May 27 23:22:32 2007
 \noindent
 The function \code{localtime}\index{modules!time!localtime} returns the current date and time as a tuple in the same sequence of values we've just used:
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
+>>> import time
 >>> print(time.localtime())
 (2007, 5, 27, 23, 25, 47, 6, 147, 0)
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 \noindent
 This value we can also pass into \code{asctime}:
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
+>>> import time
 >>> t = time.localtime()
 >>> print(time.asctime(t))
 Sun May 27 23:27:22 2007
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 \noindent
 The function \code{sleep}\index{modules!time!sleep} is quite useful when you want to delay your program for a certain period of time.  For example, if you wanted to print out one number every second, the following loop wouldn't be very successful:
@@ -408,41 +416,45 @@ This format is a way of saying, `display the day, then a forward-slash, then dis
 
 The function \code{strptime}\index{modules!time!strptime} is almost the reverse of \code{strftime}---it takes a string and converts it into a tuple containing the date and time values. It also takes the same values in the format string. An example of using this function is:
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
+>>> import time
 >>> t = time.strptime('05 Jun 2007', '%d %b %Y')
 >>> print(t)
 (2007, 6, 5, 0, 0, 0, 1, 156, -1)
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 \noindent
 If the date in our string is day/month/year (for example, 01/02/2007), we might use:
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
+>>> import time
 >>> t = time.strptime('01/02/2007', '%d/%m/%Y')
 >>> print(t)
 (2007, 2, 1, 0, 0, 0, 3, 32, -1)
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 \noindent
 Or if the date is month/day/year, we might use:
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
+>>> import time
 >>> t = time.strptime('03/05/2007', '%m/%d/%Y')
 >>> print(t)
 (2007, 3, 5, 0, 0, 0, 0, 64, -1)
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 \noindent
 We can combine the 2 functions to convert a string in one format to another. Let's do it in a function:
 
 \begin{listing}
 \begin{verbatim}
+>>> import time
 >>> def convert_date(datestring, format1, format2):
 ...     t = time.strptime(datestring, format1)
 ...     return time.strftime(format2, t)

@@ -49,31 +49,6 @@ True
 \end{verbatim}
 \end{listing}
 
-\subsection*{callable}\index{functions!callable}
-
-The \textbf{callable} function returns either True or False based on whether the parameter passed can be `called'---such as a function. For example, a string is not callable:
-
-\begin{listing}
-\begin{verbatim}
->>> x = 'test string'
->>> print(callable(x))
-False
-\end{verbatim}
-\end{listing}
-
-\noindent
-Where as a function is callable:
-
-\begin{listing}
-\begin{verbatim}
->>> def testfunc():
-...     print('this is a test function')
-...
->>> print(callable(testfunc))
-True
-\end{verbatim}
-\end{listing}
-
 \subsection*{cmp}\index{functions!cmp}
 
 The \textbf{cmp} function compares two values and returns a negative number if the first value is less than the second; returns 0 if the first value is equal to the second; and returns a positive number if the first value is greater than the second. For example, 1 is less than 2:
@@ -332,7 +307,6 @@ Which would print out all the items in the list (a,b,c,d)---but what if you want
 \begin{verbatim}
 >>> mylist = [ 'a', 'b', 'c', 'd' ]
 >>> length = len(mylist)
-
 >>> for x in range(0, length):
 ...     print('the item at index %s is %s' % (x, mylist[x]))
 ... 
