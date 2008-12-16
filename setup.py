@@ -72,7 +72,7 @@ class LatexCommand(Command):
             pdf = '%s/%s-%s.pdf' % (target_dir, src, version)
             spawn([dvipdf, '%s/%s.dvi' % (target_dir, src), pdf])
 
-            zf = ZipFile('%s/%s.zip' % (target_dir, src), 'w')
+            zf = ZipFile('%s/%s-%s.zip' % (target_dir, src, version), 'w')
             zf.write(pdf)
             zf.close()
 

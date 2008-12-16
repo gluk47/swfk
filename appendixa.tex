@@ -11,11 +11,11 @@ Keywords in Python (indeed, in most programming languages) are important words t
 
 The keyword \textbf{and} is used to join two expressions together in a statement (like an if-statement), to say that both expressions must be true.  For example:
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
 if age > 10 and age < 20
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 \noindent
 This means that age must be greater than 10 and less than 20.
@@ -24,16 +24,16 @@ This means that age must be greater than 10 and less than 20.
 
 The keyword \textbf{as} is used to give another name to an imported module. For example, if you had a module with a name like:
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
 i_am_a_python_module_that_is_not_very_useful
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 \noindent
 It would be enormously annoying to have to type that module name every time you want to use it:
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
 >>> import i_am_a_python_module_that_is_not_very_useful
 >>>
@@ -42,12 +42,12 @@ I have done something
 >>>  i_am_a_python_module_that_is_not_very_useful.do_something_else()
 I have done something else!
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 \noindent
 Instead you can give it a new name when you import it, then just use that new name (kind of like a nickname):
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
 >>> import i_am_a_python_module_that_is_not_very_useful as notuseful
 >>>
@@ -57,7 +57,7 @@ I have done something
 >>> notuseful.do_something_else()
 I have done something else!
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 \noindent
 You probably won't use the keyword `as' that much, though.
@@ -72,6 +72,7 @@ The \textbf{break} keyword is used to stop some code from running. You might use
 
 \begin{listing}
 \begin{verbatim}
+>>> age = 25
 >>> for x in range(1, 100):
 ...     print('counting %s' % x)
 ...     if x == age:
@@ -119,7 +120,7 @@ If we had the same list in python:
 
 \begin{listing}
 \begin{verbatim}
->>> what_i_want = ['remote controlled car','new bike','computer game']
+>>> what_i_want = ['remote controlled car', 'new bike', 'computer game']
 \end{verbatim}
 \end{listing}
 
@@ -160,7 +161,7 @@ Another keyword used for catching problems in code. Again this is used in more c
 
 \subsection*{exec}\index{keywords!exec}
 
-The \textbf{exec} keyword is a special function to look at a string as though it was a piece of Python code. For example, you can create a variable with a string value as follows:
+\textbf{exec} is a special function used to look at a string as though it was a piece of Python code. For example, you can create a variable with a string value as follows:
 
 \begin{listing}
 \begin{verbatim}
@@ -192,7 +193,7 @@ And then you could use exec to turn that string into a mini Python program and r
 
 \begin{listing}
 \begin{verbatim}
->>> exec myvar
+>>> exec(myvar)
 hello there
 \end{verbatim}
 \end{listing}
@@ -457,14 +458,14 @@ Which, you've probably already realised, is just another way of saying, ``if age
 
 The \textbf{or} keyword is used to join two expressions together in a statement (such as an if-statement), to say that at least one of the expressions should be true.  For example:
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
 >>> if friend == 'Rachel' or friend == 'Rob':
 ...     print('The Robinsons')
 ... elif friend == 'Bill' or friend == 'Bob':
 ...     print('The Baxters')
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 In this case, if the variable \code{friend} contains `Rachel' or `Rob' then it prints `The Robinsons'.  If the variable friend contains `Bill' or `Bob' then it prints `The Baxters'.
 
@@ -482,23 +483,23 @@ Sometimes when you're writing a program you only want to write bits of it, to tr
 \noindent
 The above code will work, but if you type:
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
 >>> if age > 10:
 ...
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 \noindent
 You'll get an error message in the console that looks something like this:
 
-\begin{listing}
+\begin{listingignore}
 \begin{verbatim}
   File "<stdin>", line 2
     ^
 IndentationError: expected an indented block
 \end{verbatim}
-\end{listing}
+\end{listingignore}
 
 This is the error message Python displays, when you should have a block of code after a statement of some kind.
 \par

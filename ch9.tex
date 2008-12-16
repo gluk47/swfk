@@ -30,11 +30,11 @@ Luckily, there is a module, which comes with Python, that we can use to do basic
 \includegraphics*[width=100mm]{turtle2.eps}
 \end{center}
 
-The module is called \code{Tkinter}\index{modules!Tkinter} (a strange name, which stands for `Tk interface') and it can be used to create full applications (you could even create a simple Word Processor program if you wanted to) as well as simple drawing. We could create a simple application with a button using the following code:
+The module is called \code{tkinter}\index{modules!tkinter} (a strange name, which stands for `Tk interface') and it can be used to create full applications (you could even create a simple Word Processor program if you wanted to) as well as simple drawing. We could create a simple application with a button using the following code:
 
 \begin{listing}
 \begin{verbatim}
-1. >>> from Tkinter import *
+1. >>> from tkinter import *
 2. >>> tk = Tk()
 3. >>> btn = Button(tk, text="click me")
 4. >>> btn.pack()
@@ -68,7 +68,6 @@ The button doesn't do much but you can, at least, click it. We can make it do so
 \begin{verbatim}
 >>> def hello():
 ...     print('hello there')
-...
 \end{verbatim}
 \end{listing}
 
@@ -77,7 +76,7 @@ Then modify the example to use this function:
 
 \begin{listing}
 \begin{verbatim}
->>> from Tkinter import *
+>>> from tkinter import *
 >>> tk = Tk()
 >>> btn = Button(tk, text="click me", command=hello)
 >>> btn.pack()
@@ -88,11 +87,11 @@ The named parameter `command' says that we want to use the \code{hello} function
 
 \section{Simple Drawing}
 
-Buttons aren't very useful when you want to draw things on the screen---so we need to create and add a different sort of component: a \code{Canvas}\index{modules!Tkinter!Canvas}. When creating a canvas, unlike a button (which takes text and command parameters), we need to pass the width and height (in pixels) of the canvas. Apart from that, the code is similar to the button code:
+Buttons aren't very useful when you want to draw things on the screen---so we need to create and add a different sort of component: a \code{Canvas}\index{modules!tkinter!Canvas}. When creating a canvas, unlike a button (which takes text and command parameters), we need to pass the width and height (in pixels) of the canvas. Apart from that, the code is similar to the button code:
 
 \begin{listing}
 \begin{verbatim}
->>> from Tkinter import *
+>>> from tkinter import *
 >>> tk = Tk()
 >>> canvas = Canvas(tk, width=500, height=500)
 >>> canvas.pack()
@@ -108,11 +107,11 @@ Similar to the button example, a window will appear when you type line 2.  When 
 \caption{Canvas x and y axis.}\label{fig32}
 \end{figure}
 
-Since the canvas is 500 pixels wide, and 500 pixels high, the coordinates of the bottom-right corner of the screen are 500,500. So the line in figure~\ref{fig32} can be drawn by using start coordinates of 0,0 and end coordinates of 500,500\index{modules!Tkinter!create\_line}:
+Since the canvas is 500 pixels wide, and 500 pixels high, the coordinates of the bottom-right corner of the screen are 500,500. So the line in figure~\ref{fig32} can be drawn by using start coordinates of 0,0 and end coordinates of 500,500\index{modules!tkinter!create\_line}:
 
 \begin{listing}
 \begin{verbatim}
->>> from Tkinter import *
+>>> from tkinter import *
 >>> tk = Tk()
 >>> canvas = Canvas(tk, width=500, height=500)
 >>> canvas.pack()
@@ -135,15 +134,15 @@ Now, to do the same thing with turtle, would have required the following code:
 \end{verbatim}
 \end{listing}
 
-So the \code{Tkinter} code is already an improvement, being shorter and less complicated. There are a large number of methods available on the canvas object, some of which aren't very useful to us, but let's take a look at some examples of the interesting functions.
+So the \code{tkinter} code is already an improvement, being shorter and less complicated. There are a large number of methods available on the canvas object, some of which aren't very useful to us, but let's take a look at some examples of the interesting functions.
 
 \section{Drawing Boxes}
 
-In turtle, we drew a box by moving forward, turning, moving forward, turning again and so on. Eventually you can draw a rectangular or square box, just by changing how far you move forward. With Tkinter, drawing a square or rectangle is considerably easier---you just need to know the coordinates for the corners.
+In turtle, we drew a box by moving forward, turning, moving forward, turning again and so on. Eventually you can draw a rectangular or square box, just by changing how far you move forward. With tkinter, drawing a square or rectangle is considerably easier---you just need to know the coordinates for the corners.
 
 \begin{listingignore}
 \begin{verbatim}
->>> from Tkinter import *
+>>> from tkinter import *
 >>> tk = Tk()
 >>> canvas = Canvas(tk, width=400,height=400)
 >>> canvas.pack()
@@ -152,7 +151,7 @@ In turtle, we drew a box by moving forward, turning, moving forward, turning aga
 \end{verbatim}
 \end{listingignore}
 
-In the above example, we create a canvas that is 400 pixels wide, and 400 pixels high, and then we draw a square in the top left corner (the top left corner is 10 pixels in from the top left, and and the bottom right corner is 50 pixels in from the bottom right). You might be wondering what the number is that appeared when you typed \code{create\_rectangle}\index{modules!Tkinter!create\_rectange} and earlier when calling \code{create\_line}?  That's an identifying number for the shape you've just drawn (whether a line or a square or a circle). We'll come back to that number later.
+In the above example, we create a canvas that is 400 pixels wide, and 400 pixels high, and then we draw a square in the top left corner (the top left corner is 10 pixels in from the top left, and and the bottom right corner is 50 pixels in from the bottom right). You might be wondering what the number is that appeared when you typed \code{create\_rectangle}\index{modules!tkinter!create\_rectange} and earlier when calling \code{create\_line}?  That's an identifying number for the shape you've just drawn (whether a line or a square or a circle). We'll come back to that number later.
 
 The parameters that are passed to \code{create\_rectangle} are therefore: top left x position, top left y position, bottom right x position and bottom right y position. To save all that typing, we'll just refer to those as x1, y1 and x2, y2. We can draw a rectangle by making x2 a larger number:
 
@@ -177,7 +176,7 @@ That last rectangle is basically saying: go 100 pixels across the canvas (from t
 \begin{center}
 \includegraphics[width=80mm]{figure33.eps}
 \end{center}
-\caption{Tkinter boxes.}\label{fig33}
+\caption{tkinter boxes.}\label{fig33}
 \end{figure}
 
 Let's try filling the canvas with different sized rectangles. We can do this using a module called \code{random}\index{modules!random}. First import the random module:
@@ -229,7 +228,7 @@ Which produces a bit of a mess (figure~\ref{fig34}, but is interesting nonethele
 \caption{A mess of rectangles.}\label{fig34}
 \end{figure}
 
-Remember, back in the last chapter, we set the colour the turtle drew with using percentages of the 3 colours: red, green and blue? With \code{Tkinter} you can set the colour using similar ideas, but unfortunately, it's slightly more complicated than with \code{turtle}.  First of all, let's change the random rectangle function to pass in a colour to fill the rectangle with:
+Remember, back in the last chapter, we set the colour the turtle drew with using percentages of the 3 colours: red, green and blue? With \code{tkinter} you can set the colour using similar ideas, but unfortunately, it's slightly more complicated than with \code{turtle}.  First of all, let's change the random rectangle function to pass in a colour to fill the rectangle with:
 
 \begin{listing}
 \begin{verbatim}
@@ -259,7 +258,7 @@ The canvas \code{create\_rectangle} function can take a parameter `fill' which s
 \end{verbatim}
 \end{listing}
 
-Some, and maybe all, of those named colours will work.  But some of them might result in an error message (it depends on whether you're using Windows, Mac OS X or Linux). So far, that's pretty easy.  But what about a colour like gold?  In the \code{turtle} module, we created gold using 100\% of red, 85\% of green and no blue.  In \code{Tkinter} we can create gold using:
+Some, and maybe all, of those named colours will work.  But some of them might result in an error message (it depends on whether you're using Windows, Mac OS X or Linux). So far, that's pretty easy.  But what about a colour like gold?  In the \code{turtle} module, we created gold using 100\% of red, 85\% of green and no blue.  In \code{tkinter} we can create gold using:
 
 \begin{listing}
 \begin{verbatim}
@@ -316,7 +315,7 @@ You can use that with the random\_rectangle function we created earlier:
 
 \section{Drawing Arcs}
 
-An arc is a part of a circle, but to draw one with Tkinter you need to draw a rectangle. Which doesn't make a lot of sense until you try to draw a rectangle and then draw an arc inside it (see figure~\ref{fig36}). The code to draw this arc might look something like this\index{modules!Tkinter!create\_arc}:
+An arc is a part of a circle, but to draw one with tkinter you need to draw a rectangle. Which doesn't make a lot of sense until you try to draw a rectangle and then draw an arc inside it (see figure~\ref{fig36}). The code to draw this arc might look something like this\index{modules!tkinter!create\_arc}:
 
 \begin{listing}
 \begin{verbatim}
@@ -352,7 +351,7 @@ This places the top left corner of the rectangle at the coordinates 10, 10 (that
 
 \section{Drawing Ovals}
 
-While the last statement in the above example draws an oval, you can also draw ovals using the \code{create\_oval}\index{modules!Tkinter!create\_oval} function.  Similar to drawing arcs, an oval is drawn inside the boundaries of a rectangle. For example, the following code:
+While the last statement in the above example draws an oval, you can also draw ovals using the \code{create\_oval}\index{modules!tkinter!create\_oval} function.  Similar to drawing arcs, an oval is drawn inside the boundaries of a rectangle. For example, the following code:
 
 \begin{listing}
 \begin{verbatim}
@@ -404,17 +403,17 @@ To draw a circle, rather than an elliptical oval, the imaginary rectangle should
 \caption{A simple circle.}\label{fig40}
 \end{figure}
 
-\section{Drawing Polygons}\index{modules!Tkinter!create\_polygon}
+\section{Drawing Polygons}\index{modules!tkinter!create\_polygon}
 
 A polygon is any shape with 3 or more sides. Triangles, squares, rectangles, pentagons, hexagons, and so on are all examples of polygons. As well as these more regular shapes, you can also create irregular shaped polygons. For example, to draw a triangle, you need to provide 3 sets of coordinates (that's a position across plus a position down) for each point of the triangle (creating the triangle in figure~\ref{fig41}):
 
 \begin{listing}
 \begin{verbatim}
->>> from Tkinter import *
+>>> from tkinter import *
 >>> tk = Tk()
 >>> canvas = Canvas(tk, width=400,height=400)
 >>> canvas.pack()
->>> canvas.create_polygon(10, 10, 100, 10, 100, 50, fill="", outline="black"
+>>> canvas.create_polygon(10, 10, 100, 10, 100, 50, fill="", outline="black")
 \end{verbatim}
 \end{listing}
 
@@ -442,11 +441,11 @@ We can add an irregular polygon using the following code. Figure~\ref{fig42} sho
 
 \section{Drawing Images}
 
-You can draw an image on a canvas using \code{Tkinter} by first loading the image, then using the \code{create\_image}\index{modules!Tkinter!create\_image} function on the canvas object. This sounds a bit illogical, but it works as follows:
+You can draw an image on a canvas using \code{tkinter} by first loading the image, then using the \code{create\_image}\index{modules!tkinter!create\_image} function on the canvas object. This sounds a bit illogical, but it works as follows:
 
 \begin{listing}
 \begin{verbatim}
-1. >>> from Tkinter import *
+1. >>> from tkinter import *
 2. >>> tk = Tk()
 3. >>> canvas = Canvas(tk, width=400, height=400)
 4. >>> canvas.pack()
@@ -487,14 +486,14 @@ Copy your image into that directory and then load it using the PhotoImage functi
 
 PhotoImage can load image files with the extensions .gif, .ppm and .pgm. If you want to load other types of images (there are lots of different ways you can create image files---for example, digital cameras usually store images with the extension .jpg), then you'll need to use an extension which adds that capability to Python. The Python Imaging Library (PIL)\footnote{The Python Imaging Library can be found at \href{http://www.pythonware.com/products/pil/index.htm}{http://www.pythonware.com/products/pil/index.htm}} adds the ability to load all kinds of images, as well as do things like expand and shrink, change image colours, reverse images and so on. However, installing and using the Python Imaging Library, is a bit beyond the scope of this book.
 
-\section{Basic Animation}\index{modules!Tkinter!basic animation}
+\section{Basic Animation}\index{modules!tkinter!basic animation}
 
 So far, we've seen how to do static drawing---that's pictures that don't move. What about animation? Animation is not necessarily \code{Tk}'s strong suit, but you can do the basics. For example, we can create a filled triangle and then make it move across the screen using the following code:
 
 \begin{listingignore}
 \begin{verbatim}
 1.  >>> import time
-2.  >>> from Tkinter import *
+2.  >>> from tkinter import *
 3.  >>> tk = Tk()
 4.  >>> canvas = Canvas(tk, width=400, height=400)
 5.  >>> canvas.pack()
@@ -521,12 +520,13 @@ The moment you press the Enter key after typing the last line, the triangle will
 \par
 Lines 1 to 5 we've seen before---it's just the basic setup to display a canvas---and in line 6, we create the triangle (using the \code{create\_polygon} function), and in line 7 you can see the identifier (the number 1) that is returned by this function. In line 8, we setup a simple for-loop to count from 0 to 59.
 
-The block of lines (9 to 11) is the code to move the triangle. The \code{move} function on the canvas object will move any drawn object by adding values to the object's x and y coordinates. For example, in line 9 we move the object with id 1 (the identifier for the triangle) 5 pixels across and 0 pixels down. If we wanted to move the back again we might use canvas.move(1, -5, 0)\index{modules!Tkinter!move}.
+The block of lines (9 to 11) is the code to move the triangle. The \code{move} function on the canvas object will move any drawn object by adding values to the object's x and y coordinates. For example, in line 9 we move the object with id 1 (the identifier for the triangle) 5 pixels across and 0 pixels down. If we wanted to move the back again we might use canvas.move(1, -5, 0)\index{modules!tkinter!move}.
  
-The function \code{update} on the \code{tk} object forces it to update (if we didn't use \code{update}, Tkinter would wait until the loop had finished before moving the triangle, which means you wouldn't see it move). Finally line 11 tells Python to sleep for 1/20th of a second (0.05), before continuing. We can change this code, so the triangle moves diagonally down the screen, by calling \code{move(1, 5, 5)}.  First, close the canvas (by clicking on the X button on the window), then try this code:
+The function \code{update} on the \code{tk} object forces it to update (if we didn't use \code{update}, tkinter would wait until the loop had finished before moving the triangle, which means you wouldn't see it move). Finally line 11 tells Python to sleep for 1/20th of a second (0.05), before continuing. We can change this code, so the triangle moves diagonally down the screen, by calling \code{move(1, 5, 5)}.  First, close the canvas (by clicking on the X button on the window), then try this code:
 
 \begin{listingignore}
 \begin{verbatim}
+>>> import time
 >>> tk = Tk()
 >>> canvas = Canvas(tk, width=400, height=400)
 >>> canvas.pack()
@@ -544,6 +544,7 @@ Figure~\ref{fig45} shows the triangle part way down the screen. Move the triangl
 
 \begin{listing}
 \begin{verbatim}
+>>> import time
 >>> for x in range(0, 60):
 ...     canvas.move(1, -5, -5)
 ...     tk.update()
@@ -558,7 +559,7 @@ Figure~\ref{fig45} shows the triangle part way down the screen. Move the triangl
 \caption{The triangle moving down the screen.}\label{fig45}
 \end{figure}
 
-\section{Reacting to events$\ldots$}\index{modules!Tkinter!events}
+\section{Reacting to events$\ldots$}\index{modules!tkinter!events}
 
 We can also make the triangle react when someone hits a key, by using what are called \emph{event bindings}.  Events are things that occur while a program is running, such as someone moving the mouse, hitting a key, or even closing a window. You can setup \code{Tk} to look out for these events, and then do something in response. To begin handling events we need to start by creating a function. Suppose we want the triangle to move when the enter key is pressed? We can define a function to move the triangle:
 
@@ -569,11 +570,11 @@ We can also make the triangle react when someone hits a key, by using what are c
 \end{verbatim}
 \end{listing}
 
-The function needs to have a single parameter (event), which is used by Tk to send information to the function about what has happened.  We then tell Tk that this function should be used for a particular event, using the \code{bind\_all}\index{modules!Tkinter!bind\_all} function on the canvas. The full code looks like this:
+The function needs to have a single parameter (event), which is used by Tk to send information to the function about what has happened.  We then tell Tk that this function should be used for a particular event, using the \code{bind\_all}\index{modules!tkinter!bind\_all} function on the canvas. The full code looks like this:
 
 \begin{listing}
 \begin{verbatim}
->>> from Tkinter import *
+>>> from tkinter import *
 >>> tk = Tk()
 >>> canvas = Canvas(tk, width=400, height=400)
 >>> canvas.pack()
@@ -607,7 +608,7 @@ The event object that is passed to \code{movetriangle}, contains a number of \em
 
 \begin{listingignore}
 \begin{verbatim}
->>> from Tkinter import *
+>>> from tkinter import *
 >>> tk = Tk()
 >>> canvas = Canvas(tk, width=400, height=400)
 >>> canvas.pack()
