@@ -3,3 +3,5 @@ syntax: glob
 target
 target/*
 *.eps
+swfk.tex
+swfk.tmproj

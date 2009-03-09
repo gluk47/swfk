@@ -12,10 +12,10 @@ import re
 target_dir = 'target'
 
 #
-# 'root' tex files for each OS
+# 
 #
-sources = 'swfk-mac', 'swfk-linux', 'swfk-win'
-#sources = 'swfk-linux',
+platforms = 'win', 'mac', 'linux'
+#platforms = 'win',
 
 #
 # find the executables to use in compiling the books
@@ -31,6 +31,8 @@ s = open('frontmatter.tex').read()
 mat = re.compile(r'Version\s*(.*)').search(s)
 version = mat.group(1)
 
+if not os.path.exists(target_dir):
+    os.mkdir(target_dir)
 
 class CleanCommand(Command):
     user_options = [ ]
@@ -53,26 +55,53 @@ class CleanCommand(Command):
 
 
 class LatexCommand(Command):
-    user_options = [ ]
+    user_options = [ ('cover=', 'c', 'include the cover in the output') ]
 
     def initialize_options(self):
-        pass
+        self.cover = 'include'
 
     def finalize_options(self):
         pass
 
     def run(self):
-        for src in sources:
-            tex = '%s.tex' % src
+        for platform in platforms:
+            s = open('swfk.tex.pre').read()
+            if self.cover == 'include':
+                s = s.replace('@FRONTCOVER_INC@', 'include')
+                fname_suffix = ''
+            else:
+                s = s.replace('@FRONTCOVER_INC@', 'exclude')
+                fname_suffix = '-nc'
+                
+            if platform == 'win':
+                s = s.replace('@WINDOWS_INC@', 'include')
+                s = s.replace('@MAC_INC@', 'exclude')
+                s = s.replace('@LINUX_INC@', 'exclude')
+            elif platform == 'mac':
+                s = s.replace('@WINDOWS_INC@', 'exclude')
+                s = s.replace('@MAC_INC@', 'include')
+                s = s.replace('@LINUX_INC@', 'exclude')
+            elif platform == 'linux':
+                s = s.replace('@WINDOWS_INC@', 'exclude')
+                s = s.replace('@MAC_INC@', 'exclude')
+                s = s.replace('@LINUX_INC@', 'include')
+            else:
+                raise RuntimeError('unrecognised platform %s' % platform)
+
+            swfk_tex = open('swfk.tex', 'w')
+            swfk_tex.write(s)
+            swfk_tex.close()
+        
+            tex = 'swfk.tex'
             spawn([latex, '--output-directory=%s' % target_dir, tex])
 
-            spawn([makeindex, '%s/%s.idx' % (target_dir, src)])
+            spawn([makeindex, '%s/swfk.idx' % target_dir])
             spawn([latex, '--output-directory=%s' % target_dir, tex])
 
-            pdf = '%s/%s-%s.pdf' % (target_dir, src, version)
-            spawn([dvipdf, '%s/%s.dvi' % (target_dir, src), pdf])
+            pdf = '%s/swfk-%s-%s%s.pdf' % (target_dir, platform, version, fname_suffix)
+            spawn([dvipdf, '%s/swfk.dvi' % target_dir, pdf])
 
-            zf = ZipFile('%s/%s-%s.zip' % (target_dir, src, version), 'w')
+            zf = ZipFile('%s/swfk-%s-%s%s.zip' % (target_dir, platform, version, fname_suffix), 'w')
             zf.write(pdf)
             zf.close()
 
