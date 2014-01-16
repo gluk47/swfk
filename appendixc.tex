@@ -1,0 +1,475 @@
+% appendixc.tex
+% This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 New Zealand License.
+% To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/nz
+% or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+
+
+\chapter{A Few Python Modules}\label{app:afewpythonmodules}\index{modules}
+
+Python has a large number of modules available for doing all sorts of things.  If you want to read about them, you can look at the Python documentation at the following address: \href{http://docs.python.org/modindex.html}{docs.python.org/modindex.html}, however, a few of the more useful modules are explained below.  A warning if you do decide to look at the Python documentation---the list of modules is very long, and some of them are quite complicated.
+
+\subsection*{The `random' module}\index{modules!random}
+
+If you've ever played the game where you ask someone to guess a number between 1 and 100, you'll know what to do with the random module.  Random contains a number of functions useful for coming up with$\ldots$ random numbers. It's kind of like asking the computer to pick a number. The random module contains a number of functions, but the most useful are \code{randint}\index{modules!random!randint}, \code{choice} and \code{shuffle}. The first function, \code{random},  picks a random number between a start and end number (in other words, between 1 and 100, or between 100 and 1000, or between 1000 and 5000, and so on).  For example:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import random
+>>> print(random.randint(1, 100))
+58
+>>> print(random.randint(100, 1000))
+861
+>>> print(random.randint(1000, 5000))
+3795
+\end{verbatim}
+\end{listingignore}
+
+We could use this to create a simple (and annoying) guessing game, using a while loop:
+
+\begin{listingignore}
+\begin{verbatim}
+import random
+import sys
+num = random.randint(1, 100)
+while True:
+    print('Guess a number between 1 and 100')
+    chk = sys.stdin.readline()
+    i = int(chk)
+    if i == num:
+        print('You guessed right')
+        break
+    elif i < num:
+        print('Try higher')
+    elif i > num:
+        print('Try lower')
+\end{verbatim}
+\end{listingignore}
+
+Use \code{choice}\index{modules!random!choice},  if you have a list and want to pick a random item from that list. For example:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import random
+>>> list1 = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' ]
+>>> print(random.choice(list1))
+c
+>>> list2 = [ 'ice cream', 'pancakes', 'trifle', 'pavlova', 'sponge' ]
+>>> print(random.choice(list2))
+trifle
+\end{verbatim}
+\end{listingignore}
+
+And finally, use \code{shuffle}\index{modules!shuffle} if you want to mix up a list (like shuffling cards):
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import random
+>>> list1 = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' ]
+>>> list2 = [ 'ice cream', 'pancakes', 'trifle', 'pavlova', 'sponge' ]
+>>> random.shuffle(list1)
+>>> print(list1)
+['h', 'e', 'a', 'b', 'c', 'g', 'f', 'd']
+>>> random.shuffle(list2)
+>>> print(list2)
+['pancakes', 'ice cream', 'sponge', 'trifle', 'pavlova']
+\end{verbatim}
+\end{listingignore}
+
+\subsection*{The `sys' module}\index{modules!sys}
+
+The \code{sys} module contains useful `system' functions. This is just an odd way of saying that they are very important within Python. Some of the most useful functions and values available in \code{sys} are: \code{exit}, \code{stdin}, \code{stdout}, and \code{version}.
+\par
+The \code{exit}\index{modules!sys!exit} function is another way of stopping the Python console. For example if you type:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import sys
+>>> sys.exit()
+\end{verbatim}
+\end{listingignore}
+
+The Python console will stop. Depending upon whether you're using Windows, Mac or Linux, a number of different things might happen---but the end result is that the Python console stops running.
+
+\code{Stdin}\index{modules!sys!stdin} has been used elsewhere in this book (see Chapter~\ref{ch:sortoflikerecycling}), to prompt someone using a program to enter some values. For example:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import sys
+>>> myvar = sys.stdin.readline()
+this is a test value
+>>> print(myvar)
+this is a test value
+\end{verbatim}
+\end{listingignore}
+
+\code{Stdout}\index{modules!sys!stdout} is the opposite---used to write messages to the console. In some ways, it's the same as \code{print}, but works more like a file, so sometimes it's more useful to use \code{stdout} than \code{print}:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import sys
+>>> l = sys.stdout.write('this is a test')
+this is a test>>>
+\end{verbatim}
+\end{listingignore}
+
+Notice where the prompt ($>>>$) reappears?  It's not an error, that it's at the end of the message.  That's because, unlike \code{print}, when you call \code{write}, it doesn't automatically move to the next line. To do the same with \code{write} we can do the following:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import sys
+>>> l = sys.stdout.write('this is a test\n')
+this is a test
+>>>
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+(Note that \code{stdout.write} returns the number of characters written--try \code{print(l)} to see the result).
+
+\noindent
+{\textbackslash}n is the \emph{escape} character\index{escape characters} for a newline (what you get when you hit the enter key).  An escape character is a special character that you use in strings when you can't type it directly. For example, if you want to create a string with a newline in the middle, but try to use the enter key, you'll get an error:
+
+\begin{listing}
+\begin{verbatim}
+>>> s = 'test test 
+  File "<stdin>", line 1
+    s = 'test test 
+                  ^
+SyntaxError: EOL while scanning single-quoted string
+\end{verbatim}
+\end{listing}
+
+Instead you can use the newline escape character:
+\begin{listing}
+\begin{verbatim}
+>>> s = 'test test\ntest'
+\end{verbatim}
+\end{listing}
+
+\noindent
+Finally, \code{version}\index{modules!sys!version} is just a way of displaying the version of Python you are running:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import sys
+>>> print(sys.version)
+2.5.1c1 (release25-maint, Apr 12 2007, 21:00:25) 
+[GCC 4.1.2 (Ubuntu 4.1.2-0ubuntu4)]
+\end{verbatim}
+\end{listingignore}
+
+\subsection*{The `time' module}\index{modules!time}
+
+Python's time module contains functions for displaying$\ldots$ well, the time, obviously. However, if you try to call the most obvious function (\code{time})\index{modules!time!time (function)}, the result won't quite be what you were expecting:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import time
+>>> print(time.time())
+1179918604.34
+\end{verbatim}
+\end{listingignore}
+
+The number returned by \code{time()} is actually the number of seconds since the 1st of January, 1970 (at 00:00:00am to be exact). You might not think this is enormously useful, however it does, occasionally, have its purpose. For example, if you create a program and want to know how fast bits of it run, you can record the time at the beginning, the time at the end, and then compare the values. For example, how long would it take to print all the numbers from 0 to 100,000?  We can easily create a function to print them out:
+
+\begin{listing}
+\begin{verbatim}
+>>> def lots_of_numbers(max):
+...     for x in range(0, max):
+...         print(x)
+\end{verbatim}
+\end{listing}
+
+\noindent
+Then call the function:
+
+\begin{listing}
+\begin{verbatim}
+>>> lots_of_numbers(100000)
+\end{verbatim}
+\end{listing}
+
+\noindent
+But if we want to know how long it took, we can modify the function and use the \code{time} module:
+
+\begin{listing}
+\begin{verbatim}
+>>> def lots_of_number(max):
+...     t1 = time.time()
+...     for x in range(0, max):
+...         print(x)
+...     t2 = time.time()
+...     print('it took %s seconds' % (t2-t1))
+\end{verbatim}
+\end{listing}
+
+\noindent
+If we call it again:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> lots_of_numbers(100000)
+0
+1
+2
+3
+.
+.
+.
+99997
+99998
+99999
+it took 6.92557406425 seconds
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+How does it work?  The first time we call the \code{time()} function, we assign the value to the variable \code{t1}. We then loop and print out all the numbers. Again we call the \code{time()} function and this time assign the value to the variable \code{t2}. Since it took a few seconds for the loop to complete, the value in \code{t2} will be higher (or later to be exact) than \code{t1} (the number of seconds since 1st of Jan, 1970 will have increased). So if you subtract \code{t2} from \code{t1}, you have the number of seconds it took to print all those numbers.
+
+Other functions available on the time module include: \code{asctime}, \code{ctime}, \code{localtime}, \code{sleep}, \code{strftime}, and \code{strptime}.
+
+The function \code{asctime}\index{modules!time!asctimes} takes a date as a tuple (remember: a tuple is a list of values that cannot be changed) and converts it into a readable form. You can also call it without any argument and it will display the current date and time in a readable form:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import time
+>>> print(time.asctime())
+Sun May 27 20:11:12 2007
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+To call it with an argument, we first need to make a tuple with the correct values for date and time.  Let's assign the tuple to the variable \code{t}:
+
+\begin{listing}
+\begin{verbatim}
+>>> t = (2007, 5, 27, 10, 30, 48, 6, 0, 0)
+\end{verbatim}
+\end{listing}
+
+\noindent
+The values in the sequence are year, month, day, hours, minutes, seconds, day of the week (0 is Monday, 1 is Tuesday, and so on, up till Sunday which is 6) and finally the day of the year and whether or not it is daylight savings (0 is isn't, 1 it is). Calling \code{asctime} with the above tuple, we get:
+
+\begin{listing}
+\begin{verbatim}
+>>> import time
+>>> t = (2007, 5, 27, 10, 30, 48, 6, 0, 0)
+>>> print(time.asctime(t))
+Sun May 27 10:30:48 2007
+\end{verbatim}
+\end{listing}
+
+\noindent
+But be careful with the values you put in a tuple. You can end up with a nonsensical date if you put in the wrong values:
+
+\begin{listing}
+\begin{verbatim}
+>>> import time
+>>> t = (2007, 5, 27, 10, 30, 48, 0, 0, 0)
+>>> print(time.asctime(t))
+Mon May 27 10:30:48 2007
+\end{verbatim}
+\end{listing}
+
+\noindent
+Because the value for `day of the week' was set to 0 (rather than 6), asctime now thinks that May the 27th is a Monday, rather than what it actually is---a Sunday.
+
+The function \code{ctime}\index{modules!time!ctime} is used to convert a number of seconds into a readable form.  For example, we can use the \code{time()} function explained in the beginning of this section:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import time
+>>> t = time.time()
+>>> print(t)
+1180264952.57
+>>> print(time.ctime(t))
+Sun May 27 23:22:32 2007
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+The function \code{localtime}\index{modules!time!localtime} returns the current date and time as a tuple in the same sequence of values we've just used:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import time
+>>> print(time.localtime())
+(2007, 5, 27, 23, 25, 47, 6, 147, 0)
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+This value we can also pass into \code{asctime}:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import time
+>>> t = time.localtime()
+>>> print(time.asctime(t))
+Sun May 27 23:27:22 2007
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+The function \code{sleep}\index{modules!time!sleep} is quite useful when you want to delay your program for a certain period of time.  For example, if you wanted to print out one number every second, the following loop wouldn't be very successful:
+
+\begin{listing}
+\begin{verbatim}
+>>> for x in range(1, 61):
+...     print(x)
+...
+1
+2
+3
+4
+\end{verbatim}
+\end{listing}
+
+It would instantly print out all the numbers from 1 to 60. However if you tell Python to go to sleep for a second between each print statement:
+
+\begin{listing}
+\begin{verbatim}
+>>> for x in range(1, 61):
+...     print(x)
+...     time.sleep(1)
+...
+\end{verbatim}
+\end{listing}
+
+\noindent
+There will be a short (1 second) delay between the display of each number. Telling a computer to sleep might not seem all that useful, but there are times when it can be.  Think about your alarm clock that wakes you up in the morning.  When you hit the sleep button, it stops buzzing for a few minutes, giving you an extra few moments of sleep (at least until someone calls you for breakfast).  The \code{sleep} function is just as useful in certain situations.
+
+The function \code{strftime}\index{modules!time!strftime} is used to change the way a date and time value is displayed, and \code{strptime} is used to take a string and convert it into a date/time tuple. Let's look at strftime first.  Just before we saw how to change a tuple into a string using \code{asctime}:
+
+\begin{listing}
+\begin{verbatim}
+>>> t = (2007, 5, 27, 10, 30, 48, 6, 0, 0)
+>>> print(time.asctime(t))
+Sun May 27 10:30:48 2007
+\end{verbatim}
+\end{listing}
+
+\noindent
+That works fine for most situations, but what if you don't like the way that string is displayed---what if you only want to display the date and not the time?  We can do that with \code{strftime}:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(time.strftime('%d %b %Y', t))
+27 May 2007
+\end{verbatim}
+\end{listing}
+
+As you can see, \code{strftime} takes 2 arguments:  the first is a date/time format (which describes how the date/time should be displayed), and the second is the tuple containing the time values.  The format, \%d \%b \%Y is another way of saying: `show the day, the month and then the year'.  We could also display the month as a number, for example:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(time.strftime('%d/%m/%Y', t))
+27/05/2007
+\end{verbatim}
+\end{listing}
+
+This format is a way of saying, `display the day, then a forward-slash, then display the month as a number, then a forward-slash, then display the year'.  There are a number of different values you can use in a format\index{date/time formats}:
+
+\begin{center}
+\begin{tabular}{|l|p{12cm}|}
+\hline
+\%a & a shortened version of a week day (for example, Mon, Tues, Wed, Thurs, Fri, Sat, and Sun) \\
+\hline
+\%A & the full weekday name (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) \\
+\hline
+\%b & a shortened version of a month name (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct , Nov, Dec) \\
+\hline
+\%B & the full version of a month name (January, February, March, April, May, and so on) \\
+\hline
+\%c & the full date and time, in the same format the asctime uses \\
+\hline
+\%d & the day of the month as a number (from 01 to 31) \\
+\hline
+\%H & the hour of the day, in 24 hour format (from 00 to 23) \\
+\hline
+\%I & the hour of the day, in 12 hour format (from 01 to 12) \\
+\hline
+\%j & the day of the year as a number (from 001 to 366) \\
+\hline
+\%m & the month as a number (from 01 to 12) \\
+\hline
+\%M & the minute as a number (from 00 to 59) \\
+\hline
+\%p & morning or afternoon as either AM or PM \\
+\hline
+\%S & the seconds as a number \\
+\hline
+\%U & the week number of the year as a number (from 00 to 53) \\
+\hline
+\%w & the day of the week as a number.  Sunday is 0, Monday is 1, up to Saturday, which is 6 \\
+\hline
+\%x & a simple date format (usually month/day/year---for example, 03/25/07) \\
+\hline
+\%X & a simple time format (usually hour:minutes:seconds---for example 10:30:53) \\
+\hline
+\%y & the year in 2 digits (for example, 2007 would be 07) \\
+\hline
+\%Y & the year in 4 digits (e.g. 2007) \\
+\hline
+\end{tabular}
+\end{center}
+
+The function \code{strptime}\index{modules!time!strptime} is almost the reverse of \code{strftime}---it takes a string and converts it into a tuple containing the date and time values. It also takes the same values in the format string. An example of using this function is:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import time
+>>> t = time.strptime('05 Jun 2007', '%d %b %Y')
+>>> print(t)
+(2007, 6, 5, 0, 0, 0, 1, 156, -1)
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+If the date in our string is day/month/year (for example, 01/02/2007), we might use:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import time
+>>> t = time.strptime('01/02/2007', '%d/%m/%Y')
+>>> print(t)
+(2007, 2, 1, 0, 0, 0, 3, 32, -1)
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+Or if the date is month/day/year, we might use:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import time
+>>> t = time.strptime('03/05/2007', '%m/%d/%Y')
+>>> print(t)
+(2007, 3, 5, 0, 0, 0, 0, 64, -1)
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+We can combine the 2 functions to convert a string in one format to another. Let's do it in a function:
+
+\begin{listing}
+\begin{verbatim}
+>>> import time
+>>> def convert_date(datestring, format1, format2):
+...     t = time.strptime(datestring, format1)
+...     return time.strftime(format2, t)
+...
+\end{verbatim}
+\end{listing}
+
+\noindent
+We can use this function by passing in the date string, the format of that string, and then the format that we want the returned date in:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(convert_date('03/05/2007', '%m/%d/%Y', '%d %B %Y'))
+05 March 2007
+\end{verbatim}
+\end{listing}
+
+\newpage

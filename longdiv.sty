@@ -1,0 +1,48 @@
+%
+% longdiv[ision].sty
+%
+\newcount\gpten % (global) power-of-ten -- tells which digit we are doing
+\newcount\rtot % running total -- remainder so far
+\newcount\scratch
+
+\def\longdiv#1#2{% long division: #1/#2;  integers only, gives integer quotient and remainder
+ \vtop{\offinterlineskip
+   \setbox\strutbox\hbox{\vrule height 2.1ex depth .5ex width0ex}%
+   \def\showdig{$\underline{\the\scratch\strut}$\cr\the\rtot\strut\cr
+       \noalign{\kern-.2ex}}%
+   \global\rtot=#1\relax
+   \count0=\rtot\divide\count0by#2\edef\quotient{\the\count0}%\show\quotient
+   % make list macro out of digits in quotient:
+   \def\temp##1{\ifx##1\temp\else \noexpand\dodig ##1\expandafter\temp\fi}%
+   \edef\routine{\expandafter\temp\quotient\temp}%
+   % process list to give power-of-ten:
+   \def\dodig##1{\global\multiply\gpten by10\relax}\global\gpten=1\relax\routine
+   % to display effect of one digit in quotient (zero ignored):
+   \def\dodig##1{\global\divide\gpten by10\relax
+      \scratch =\gpten
+      \multiply\scratch  by##1\relax
+      \multiply\scratch  by#2\relax
+      \global\advance\rtot-\scratch \relax
+      \ifnum\scratch>0 \showdig \fi % must hide \cr in a macro to skip it
+   }%
+   \tabskip=0pt
+   \halign{\hfil##\cr % \halign for entire division problem
+     $\quotient$\strut\cr
+     #2\kern.25em\smash{\raise.33ex\hbox{$\big)$}}$\mkern-8mu
+        \overline{\enspace\the\rtot\strut}$\cr\noalign{\kern-.2ex}
+     \routine \cr % do each digit in quotient
+}}}
+\endinput
+%
+%                TeX sample
+%
+\noindent Here are some long division problems
+
+\indent
+\longdiv{12345}{13}
+\longdiv{123}{1234}
+\longdiv{31415926}{2}
+\longdiv{81}{3}
+\longdiv{1132}{99}
+\bye
+%
