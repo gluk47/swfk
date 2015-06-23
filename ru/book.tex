@@ -1,0 +1,53 @@
+% !TeX encoding = UTF-8
+% Use XeLaTeX to compile it
+
+\documentclass[a4paper,12pt]{book}
+
+\RequirePackage{polyglossia}
+ \setdefaultlanguage{russian}
+ \setotherlanguage{english}
+
+\RequirePackage{fontspec}
+ \setmainfont{CMU Serif}
+ \setsansfont{CMU Sans Serif}
+ \setmonofont{CMU Typewriter Text}
+
+\RequirePackage{hyperref}
+\hypersetup{
+	colorlinks
+}
+
+\RequirePackage[usenames,dvipsnames]{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{wrapfig}
+\RequirePackage{textpos}
+\RequirePackage{perpage}
+\MakePerPage{footnote}
+
+\RequirePackage{geometry}
+\geometry{
+	a4paper,
+	left=35mm,
+	right=25mm,
+	top=30mm,
+	bottom=30mm,
+}
+
+\renewcommand{\baselinestretch}{1.15}
+\newcommand*{\btw}[1]{\vspace{10pt}\emph{#1}\vspace{10pt}}
+\newcommand*{\note}[1]{\vspace{10pt}
+\textcolor{Mahogany}{\textbf{\large#1}}
+\vspace{10pt}
+}
+\newcommand{\code}[1]{\verb|#1|}
+
+\title{Snake Wrangling for Kids - Learning to Program with Python}
+\author{Jason R Briggs}
+
+\makeindex
+
+\begin{document}
+\input{frontmatter}
+\input{preface.tex}
+\input{chapter1.tex}
+\end{document}
