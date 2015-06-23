@@ -35,19 +35,28 @@
 
 \renewcommand{\baselinestretch}{1.15}
 \newcommand*{\btw}[1]{\vspace{10pt}\emph{#1}\vspace{10pt}}
-\newcommand*{\note}[1]{\vspace{10pt}
-\textcolor{Mahogany}{\textbf{\large#1}}
-\vspace{10pt}
+\newcommand*{\note}[1]{
+	\vspace{12pt}
+	\textcolor{Mahogany}{\textbf{\large#1}}
 }
-\newcommand{\code}[1]{\verb|#1|}
 
 \title{Snake Wrangling for Kids - Learning to Program with Python}
 \author{Jason R Briggs}
 
 \makeindex
+\newcommand{\code}{\textcolor{OliveGreen}\bfseries}
+\newenvironment{listing}
+{\begin{list}{}{\setlength{\leftmargin}{1em}}\item\footnotesize\samepage}
+{\end{list}}
+\definecolor{PaleBlue}{rgb}{0.95,0.95,1}
+
 
 \begin{document}
 \input{frontmatter}
 \input{preface.tex}
+
+\pagenumbering{arabic}
+\pagestyle{headings}
 \input{chapter1.tex}
+\input{chapter2.tex}
 \end{document}
