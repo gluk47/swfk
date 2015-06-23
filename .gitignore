@@ -1,0 +1,7 @@
+*
+!*.tex
+!*.pdf
+!*.gitignore
+!*.eps
+!*.svg
+!*.sty
