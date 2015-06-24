@@ -1,7 +1,7 @@
-*
-!*.tex
-!*.pdf
-!*.gitignore
-!*.eps
-!*.svg
-!*.sty
+*.log
+*.synctex*
+*.idx
+*.log
+*.out
+*.toc
+*.aux
