@@ -6,7 +6,7 @@
 
 \chapter{8 умножить на 3.57 равняется…}\label{ch:8multipliedby3.57}
 
-Чему равно 8 умножить на 3.57? Пришлось бы использовать калькулятор, чтобы посчитать? Ладно, этот пример можно вычислить и в уме, но не в том дело. То же самое можно сделать в консоли Питона. Запусти её опять (как описано тут: \ref{ch:notallsnakeswillsquishyou}), если она ещё не запущена, и введи туда такую команду: \texttt{8*3.57}. Потом нажми Enter.
+Чему равно 8 умножить на 3.57? Пришлось бы использовать калькулятор, чтобы посчитать? Ладно, этот пример можно вычислить и в уме, но не в том дело. То же самое можно сделать в консоли Питона. Запусти её опять (как описано в предыдущей главе), если она ещё не запущена, и введи туда такую команду: \texttt{8*3.57}. Потом нажми Enter.
 
 \begin{verbatim}
 Python 3.4.0 (default, Apr 11 2014, 13:05:11) 
@@ -16,7 +16,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 28.56
 \end{verbatim}
 
-Звёздочка (\texttt{*}) (обычно это shift + 8) используется для умножения вместо привычного символа $×$ (или $\cdot$), потому что не везде их можно просто так ввести с клавиатуры, а буква X путалась бы с собственно буквой, если бы её использовали как знак умножения. Ладно, как насчёт чего-нибудь более полезного?
+Звёздочка (\code{*}) (обычно это shift + 8) используется для умножения\index{умножение} вместо привычного символа $×$ (или $\cdot$), потому что не везде их можно просто так ввести с клавиатуры, а буква X путалась бы с собственно буквой, если бы её использовали как знак умножения. Ладно, как насчёт чего-нибудь более полезного?
 
 Представь, что тебе приходится заниматься делами по хозяйству раз в неделю, за что каждый раз ты получаешь по 5 рублей и ещё у тебя есть курьерская подработка по доставке газет за 30 рублей в неделю. Сколько денег такими темпами накопится за год?
 
@@ -39,8 +39,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 Чем Питон отличается? Уж не поломан ли он??
 
-Да нет, вообще-то. Просто так дробные числа (числа с десятичной точкой) представляются в компьютере:  приближённо. Результаты всегда почти точные, далеко справа после точки могут набегать небольшие ошибки вычисления после выполнения последовательности действий. Дробные числа представляются в компьютере не очень просто, мы не будем сейчас на этом останавливаться. Я хочу сказать, не удивляйся, что \emph{иногда} результаты вычислений не в точности равны тому, что ты ожидаешь, это верно для умножения, деления, сложения и вычитания.
+Да нет, вообще-то. Просто так дробные числа (числа с десятичной запятой, или \emph{числа с плавающей запятой}\index{числа с плавающей запятой}) представляются в компьютере:  приближённо. Результаты всегда почти точные, далеко справа после точки могут набегать небольшие ошибки вычисления после выполнения последовательности действий. Дробные числа представляются в компьютере не очень просто, мы не будем сейчас на этом останавливаться. Я хочу сказать, не удивляйся, что \emph{иногда} результаты вычислений не в точности равны тому, что ты ожидаешь, это верно для умножения, деления, сложения и вычитания.
 
+Целые числа в компьютере представляются точно и всегда вычисляются без ошибок в Питоне (в других языках программирования есть свои хитрости).
 }}}
 \end{center}
 \end{figure}
@@ -53,7 +54,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 Что значит: (5 руб + 30 руб), умноженное на 52 недели в году.
 \begin{samepage}
-Можно, конечно и сразу сократить эту запись до такой:
+Можно, конечно, и сразу сократить эту запись до такой:
 
 \begin{verbatim}
 35 × 52
@@ -80,9 +81,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 \end{verbatim}
 \end{listing}
 
-Это значит 5 рублей и ещё 30 рублей минус 10 потраченных рублей и всё умножается на 52 недели в году. В конце года будет 1300 накопленных рублей. Ладно, я понимаю, что выглядит это всё не слишком полезно, и без Питона тут было бы легко обойтись. Мы потом опять вспомним про этот пример, и я покажу, как сделать из него куда более полезный.
+Это значит: 5 рублей и ещё 30 рублей минус 10 потраченных рублей, и всё умножается на 52 недели в году. В конце года будет 1300 накопленных рублей. Ладно, я понимаю, что выглядит это всё не слишком полезно, и без Питона тут было бы легко обойтись. Мы потом опять вспомним про этот пример, и я покажу, как сделать из него куда более полезный.
 
-В питоньей консоли можно умножать, складывать, вычитать и делить. Можно выполнять и другие арифметические действия, но мы пока их пропустим. Вот так выглядят символы математических операций:
+В питоньей консоли можно умножать\index{умножение}, складывать\index{сложение}, вычитать\index{вычитание} и делить\index{деление}. Можно выполнять и другие арифметические действия, но мы пока их пропустим. Вот так выглядят символы математических операций\index{математические операции}:
 
 \begin{center}
 \begin{tabular}{|c|c|}
@@ -100,7 +101,7 @@ $/$ & Деление \\
 
 Для деления используется косая черта («прямой слэш» или просто «слэш», как его ещё называют), потому что рисовать дроби с клавиатуры не так-то просто, а символа деления ($\div$) обычно тоже нет.
 
-Поэтому если бы тебя попросили сказать, сколько коробок, в которые влезает по 20 яиц, нужно для 100 яиц, ты мог бы написать что-то такое:
+Если бы тебя попросили сказать, сколько коробок, в которые влезает по 20 яиц, нужно для 100 яиц, ты мог бы написать что-то такое:
 
 \begin{displaymath}
 \frac{100}{20}
@@ -124,11 +125,11 @@ $/$ & Деление \\
 100 \div 20
 \end{displaymath}
 
-Так вот, в Питоне надо написать вот так: «100 / 20».
+Так вот, в Питоне надо написать вот так: \code{100 / 20}.
 
 \btw{Что, на мой взгляд, гораздо проще. Впрочем, что я в этом понимаю, я всего лишь книга.}
 
-\section{Использование скобок и «приоритет операций»}
+\section{Использование скобок и «приоритет операций»}\index{приоритет операций}
 
 В языках программирования (да и просто в математике) мы используем скобки, чтобы управлять тем, что называется «приоритет операций». Операции не ограничиваются четырьмя арифметическими, бывают и другие, но смысл одинаковый. Из этих четырёх операций умножение и деление, как обычно, выполняются перед сложением и вычитанием, то есть у них выше приоритет. В примере ниже у всех операций одинаковый приоритет, поэтому они все выполняются слева направо:
 
@@ -148,7 +149,7 @@ $/$ & Деление \\
 \end{verbatim}
 \end{listing}
 
-А вот в следующей примере есть умножение. Тут сначала умножаются числа 20 и 30, а потом к ним прибавляется 5: у умножения выше приоритет.
+А вот в следующем примере есть умножение. Тут сначала умножаются числа 20 и 30, а потом к ним прибавляется 5: у умножения выше приоритет.
 
 \begin{listing}
 \begin{verbatim}
@@ -190,68 +191,66 @@ $/$ & Деление \\
 
 \btw{Помни, что умножение и деление всегда выполняются перед сложением и вычитанием, если только скобки не указывают делать иначе.}
 
-\section{There's nothing so fickle as a variable}\index{variable}
+\section{Нет ничего столь же непостоянного, как переменная}\index{переменные}
 
-A `variable' is a programming term used to describe a place to store things.  The `things' can be numbers, or text, or lists of numbers and text---and all sorts of other items too numerous to go into here.  For the moment, let's just think of a variable as something a bit like a mailbox.
+«Переменная» в программировании — название места для хранения разных штук. «Разные штуки» могут быть числами, текстом, списками чисел или строк и множеством других вещей, о которых обо всех сейчас пока рассказать сложно. Давай пока считать, что переменная — это что-то вроде почтового ящика.
 
 \begin{center}
 \includegraphics*[width=76mm]{../en/girlbubble.eps}
 \end{center}
 
-You can put things (such as a letter or a package) in a mailbox, just as you can put things (numbers, text, lists of numbers and text, etc, etc, etc) in a variable.  This mailbox idea is the way many programming languages work.  But not all.
+В почтовый ящик можно положить что-нибудь — письмо, газету — и в переменную можно точно так же положить что-нибудь — число, строку, список чисел. Именно таким образом работают переменные в большинстве языков программирования: в них что-нибудь кладут. Правда, не во всех языках так.
 
-In Python, variables are slightly different.  Rather than being a mailbox with things in it, a variable is more like a label which is stuck on the outside of the mailbox.  We can pull that label off and stick it on something else, or even tie the label (perhaps with a piece of string) to more than one thing. We create a variable by giving it a name, using an equals sign (=), then telling Python what we want that name to point to.  For example:
+В Питоне переменные используются немножко иначе. Они не хранят что-то внутри себя, а, скорее работают наклейкой на почтовом ящике. Эту наклейку можно снять и переклеить на другой ящик, например. А можно прилепить сразу на несколько каких-нибудь коробок (обмотав их предварительно скотчем). В питоне эта операция прилепливания выглядит как знак равенства. Чтобы создать переменную, нужно написать её имя слева от этого знака, а справа — то, на что эта переменная указывает. Например, вот так:
 
 \begin{listing}
 \begin{verbatim}
->>> fred = 100
+>>> Фёдор = 100
 \end{verbatim}
 \end{listing}
 
-We've just created a variable called `fred' and said that it points to the number 100.  It's a bit like telling Python to remember that number because we want to use it later.  To find out what a variable is pointing at, we can just type `print' in the console, followed by the variable name, and hit the Enter key.  For example:
+Мы сейчас создали переменную, называющуюся \code{Фёдор}, и сказали, что она указывает на число 100. Тут мы ещё говорим Питону запомнить это число, потому что собираемся его потом использовать. Чтобы узнать, на что переменная указывает, можно вывести её значение функцией \code{print}, как-то так:
 
 \begin{listing}
 \begin{verbatim}
->>> fred = 100
->>> print(fred)
+>>> Фёдор = 100
+>>> print(Фёдор)
 100
 \end{verbatim}
 \end{listing}
 
-We can also tell Python we want the variable \code{fred} to point at something else:
+Можно сказать Питону, что \code{Фёдор} теперь должен указывать на другое число:
 
 \begin{listing}
 \begin{verbatim}
->>> fred = 200
->>> print(fred)
+>>> Фёдор = 200
+>>> print(Фёдор)
 200
 \end{verbatim}
 \end{listing}
 
-\noindent
-On the first line we say we now want fred to point at the number 200.  Then, in the second line, we ask what fred is pointing at just to prove it changed. We can also point more than one name at the same item:
+Теперь \code{Фёдор} указывает на число 200 (а число 100, которое больше не нужно, Питон потом забудет, когда оно будет мешать). И \code{print} подтвердил нам, что Фёдор теперь указывает на 200.
+Можно наклеить на это же самое 200 и ещё одну наклейку, то есть создать ещё одну переменную, указывающую на него:
 
 \begin{listing}
 \begin{verbatim}
->>> fred = 200
->>> john = fred
->>> print(john)
+>>> Фёдор = 200
+>>> Василий = Фёдор
+>>> print(Василий)
 200
 \end{verbatim}
 \end{listing}
 
-In the code above, we're saying that we want the name (or label) \code{john} to point at the same thing \code{fred} is pointing to.
-Of course, `fred' isn't a very useful name for a variable.  It doesn't tell us anything about what it's used for.  A mailbox is easy---you use a mailbox for mail.  But a variable can have a number of different uses, and can point at a whole bunch of different things, so we usually want something more informative as its name.
-\par
-Suppose you started up the Python console, typed `fred = 200', then went away---spent 10 years climbing Mount Everest, crossing the Sahara desert, bungy-jumping off a bridge in New Zealand, and finally, sailing down the Amazon river---when you came back to your computer, would you remember what that number 200 meant (and what it was for)?
+В этом кусочке кода мы создаём переменную \code{Василий}, которая указывает туда же, куда и \code{Фёдор}. Если Фёдор поменяет своё значение, Василия это не коснётся.
 
-\noindent
-\emph{I don't think I would.}
+Вообще, конечно, «Фёдор» — не самое подходящее имя для переменной. Обычно имена переменных записывают английскими буквами — так программистам со всего мира гораздо проще читать и дополнять программы друг друга. Ну и кроме того, имя переменной должно бы говорить, зачем она нужна. Вот с почтовым ящиком всё понятно, он нужен, чтобы разную почту хранить. А переменная может хранить совершенно разные вещи, совсем по-разному устроенные, и переменных в программе обычно очень много. Поэтому называть переменную нужно так, чтобы сразу было понятно, для чего она используется\footnote{Некоторые даже считают, что придумывать хорошие имена переменным — самое сложное в работе программиста.}.
 
-\noindent
-I just made it up now, and I have no idea what `fred = 200' means (other than a \emph{name} pointing at the number \emph{200}).  So after 10 years, you'll have absolutely no chance of remembering.
-\par
-Aha!  But, what if we called our variable: \emph{number\_of\_students}.
+
+Представь себе, что ты открыл консоль Питона, напечатал \code{Фёдор = 200}, а потом отошёл от компьютера. На 10 лет. Чтобы залезть на Эверест, потом пересечь пустыню Сахару, попрыгать с моста на резинке в Новой Зеландии и спуститься на лодках по реке Амазонке. И потом обратно вернулся к консоли. Самое сложное будет понять: почему Фёдор и почему 200?!
+
+Обычно, чтобы всё забыть, хватает гораздо меньшего времени, чем 10 лет. А часто программу пишут сразу несколько людей, каждый из которых не знает мысли остальных. Так что лучше с самого начала называть все переменные понятно и не рассчитывать на свою память.
+
+Так-то! Смотри, например, мы можем назвать переменную так:\\\code{number\_of\_students}.
 
 \begin{listing}
 \begin{verbatim}
@@ -259,7 +258,7 @@ Aha!  But, what if we called our variable: \emph{number\_of\_students}.
 \end{verbatim}
 \end{listing}
 
-We can do that because variable names can be made up of letters, numbers and (\_) underscores---although they cannot start with a number.  If you come back after 10 years, `number\_of\_students' still makes sense.  You can type:
+Так сделать получится, потому что имена переменных можно составлять из букв, цифр и знаков подчёркивания (главное, чтобы имя не начиналось с цифры). Если ты вернёшься к своему коду через 10 лет, то «number\_of\_students» всё ещё будет иметь смысл.  Можно будет напечатать вот так:
 
 \begin{listing}
 \begin{verbatim}
@@ -268,18 +267,19 @@ We can do that because variable names can be made up of letters, numbers and (\_
 \end{verbatim}
 \end{listing}
 
-\noindent
-And you'll immediately know that we're talking about 200 students.  It's not always important to come up with meaningful names for variables.  You can use anything from single letters (such as `a') to large sentences; and sometimes, if you're doing something quick, a simple and short variable name is just as useful.  It depends very much upon whether you want to be able to look at that variable name later and figure out what on earth you were thinking at the time you typed it in.
+И сразу будет понятно, что количество студентов (где-то) — 200. Не всегда есть смысл придумывать длинные осмысленные имена переменных: иногда переменная используется всего в паре строк, иногда можно использовать вообще одну букву в качестве имени, и есть такие случаи, когда всем это будет привычно и понятно. В основном, это зависит от того, захочется ли потом понять по имени переменной, зачем она вообще нужна, или это будет почему-нибудь понятно и без этого.
 
 \begin{listing}
 \begin{verbatim}
-this_is_also_a_valid_variable_name_but_perhaps_not_very_useful
+это_тоже_допустимое_имя_переменной_но_наверное_не_слишком_полезное
 \end{verbatim}
 \end{listing}
 
-\section{Using Variable}\index{Variables}
+\section{Используем переменные}\index{переменные}
 
-Now we know how to create a variable, how do we use it?  Remember that equation we came up with earlier?  The one to work out how much money you'd have left at the end of the year, if you earned \$5 a week doing chores, \$30 a week on a paper round, and spent \$10 per week.  So far we have:
+Ладно, как создавать переменные мы разобрались. Но что с ними делать?
+
+А вот что. Помнишь тот пример, который мы считали выше? Сколько денег заработается за год? Вот этот:
 
 \begin{listing}
 \begin{verbatim}
@@ -288,8 +288,7 @@ Now we know how to create a variable, how do we use it?  Remember that equation 
 \end{verbatim}
 \end{listing}
 
-\noindent
-What if we turn the first 3 numbers into variables?  Try typing the following:
+Что если нам сюда добавить три переменных? Вот так:
 
 \begin{listing}
 \begin{verbatim}
@@ -299,8 +298,7 @@ What if we turn the first 3 numbers into variables?  Try typing the following:
 \end{verbatim}
 \end{listing}
 
-\noindent
-We've just created variables named `chores', `paper\_round' and `spending'.  We can then re-type the equation to get:
+В переменных записано, сколько денег получается за неделю: 5 руб. за домашние дела и 30 — за курьерство — и сколько денег тратится в неделю: 10 рублей. Можно теперь перепечатать тот же пример вот так:
 
 \begin{listing}
 \begin{verbatim}
@@ -309,7 +307,7 @@ We've just created variables named `chores', `paper\_round' and `spending'.  We 
 \end{verbatim}
 \end{listing}
 
-Which gives the exact same answer.  What if you get \$2 more per week, for doing extra chores.  Change the `chores' variable to 7, then hit the up-arrow key ($\uparrow$) on your keyboard a couple of times, until the equation re-appears, and hit the Enter key:
+Ответ такой же. А что если теперь за домашние дела ты будешь получать семь рублей вместо пяти? Надо записать в переменную \code{chores} значение 7, а потом нажать пару раз кнопку вверх на клавиатуре, чтобы появился опять пример на экране, и Enter, вот так:
 
 \begin{listing}
 \begin{verbatim}
@@ -319,102 +317,96 @@ Which gives the exact same answer.  What if you get \$2 more per week, for doing
 \end{verbatim}
 \end{listing}
 
-That's a lot less typing to find out that you now end up with \$1404 at the end of the year.  You can try changing the other variables, then hit the up-arrow to perform the calculation again, and see what effect it has.
+Так пришлось гораздо меньше печатать, чтобы получить новый ответ, чем без использования переменных. Можно попробовать поменять другие переменные и опять нажимать клавишу вверх, чтобы получать новые ответы:
 
 \begin{listing}
 \begin{verbatim}
-If you spend twice as much money per week:
+Что будет если тратить вдвое больше:
 >>> spending = 20
 >>> print((chores + paper_round - spending) * 52)
 884
 \end{verbatim}
 \end{listing}
 
-You're only left with \$884 savings at the end of the year. This is still only slightly useful.  We haven't hit really useful yet.  But for the moment, it's enough to understand that variables are used to store things.
+Если тратить 20 рублей в неделю, то к концу года получится накопить только 884 рубля. Пока переменные не сильно много пользы нам принесли, но уже понятно, что с ними проще и что они могут что-нибудь хранить.
 
-\noindent
-\emph{Think of a mailbox with a label on it!}
+\btw{Вспоминай почтовый ящик с наклейкой на нём!}
 
-\section{A Piece of String?}\index{strings}
+\section{Кусочек строки}\index{строки}
 
-If you're paying attention, and not just skimming through looking for the good bits, you might remember I mentioned that variables can be used for all sorts of things---not just numbers. In programming, most of the time we call text a `string'. Which might seem a bit weird; but if you think that text is just `stringing together' (or joining together) a bunch of letters, perhaps it might make a little more sense.
+Если ты уделяешь внимание моим словам, а не просто бегло проглядываешь книжку в поисках интересных картинок, то можешь вспомнить, что я говорила, что в переменных можно хранить разного сорта вещи, а не только числа. Например, можно хранить текст, или, как его обычно называют в программировании, строки (по-английски: \emph{string}). Такое название может поначалу показаться странным, но, если подумать, текст — это просто буквы, составленные в слова, составленные в строки, и ничего больше. Может быть, так понятнее.
 
-\noindent
-\emph{Then again, perhaps it doesn't.}
+\btw{А может, и не понятнее...}
 
-In which case, all you need to know, is that a string is just a bunch of letters and numbers and other symbols put together in some meaningful way. All the letters, and numbers, and symbols in this book could make up a string.  Your name could be a string.  So could your home address.  The first Python program we created in Chapter \ref{ch:notallsnakeswillsquishyou}, used a string: `Hello World'.
-\par
-In Python, we create a string by putting quotes around the text.  So we can take our useless \code{fred} variable, and put a string inside it like this:
+В таком случае, всё, что тебе необходимо знать, — это что строка — не более чем составленные вместе буквы, цифры и любые другие символы. Ну и обычно они что-то значат все вместе. Всё содержимое этой книги можно записать в строку. Твоё имя можно записать строкой. Твой домашний адрес тоже. Мы, кстати, уже использовали строку в первой программе, вот эту: "Всем привет!".
+
+В Питоне строка создаётся просто: нужно поставить кавычки (такие: " или такие: ') вокруг текста. Можно вспомнить про нашу бесполезную переменную Фёдора и записать в неё строку, вот так:
 
 \begin{listing}
 \begin{verbatim}
->>> fred = "this is a string"
+>>> Фёдор = "я маленькая строка"
 \end{verbatim}
 \end{listing}
 
-\noindent
-And we can see what's inside the \code{fred} variable, by typing \code{print(fred)}:
+И как всегда, можно узнать, что хранит Фёдор:
 
 \begin{listing}
 \begin{verbatim}
->>> print(fred)
-this is a string
+>>> print(Фёдор)
+я маленькая строка
 \end{verbatim}
 \end{listing}
 
-\noindent
-We can also use single-quotes to create a string:
+Или вот пример с одинарными кавычками:
 
 \begin{listing}
 \begin{verbatim}
->>> fred = 'this is yet another string'
->>> print(fred)
-this is yet another string
+>>> Фёдор = 'и я строка'
+>>> print(Фёдор)
+и я строка
 \end{verbatim}
 \end{listing}
 
-However, if you try to type more than one line of text for your string using a single quote (') or double quote ("), you'll get an error message in the console. For example, type the following line and hit Enter, and you'll get a fairly scary error message similar to the following:
+\index{многострочная строка}Но если ты попытаешься сохранить в переменную сразу несколько строк текста\footnote{По-английски это называется \emph{multilne string}, то есть «многострочная строка». Строка с переносами строк внутри, иначе говоря.}, используя просто кавычки, то ничего не выйдет. Например, попробуй напечатать команду, написанную ниже, и получишь пугающе непонятное сообщение об ошибке, что-то вроде такого:
 
 \begin{listing}
 \begin{verbatim}
->>> fred = "this is two
+>>> Фёдор = "первая строка
   File "<stdin>", line 1
-    fred = "this is two
-                      ^
+    Фёдор = "первая строка
+                          ^
 SyntaxError: EOL while scanning string literal
 \end{verbatim}
 \end{listing}
 
-\index{multi-line string}We'll talk more about errors later, but for the moment, if you want more than one line of text, you can use 3 single quotes:
+Про эту ошибку мы поговорим позже, а пока можешь просто запомнить, что чтобы сохранить в переменную сразу несколько строк текста, нужно использовать три одинарных кавычки\footnote{Обычно одинарную кавычку можно ввести только в английской раскладке и она находится на той же клавише, где русская «Э», справа→ на клавиатуре.}:
 
 \begin{listing}
 \begin{verbatim}
->>> fred = '''this is two
-... lines of text in a single string'''
+>>> Фёдор = '''вот строка
+... с переносом строки внутри'''
 \end{verbatim}
 \end{listing}
 
-\noindent
-Print out the contents to see if it worked:
+Напечатай эту переменную, чтобы проверить, что всё получилось:
 
 \begin{listing}
 \begin{verbatim}
->>> print(fred)
-this is two
-lines of text in a single string
+>>> print (Фёдор)
+вот строка
+с переносом строки внутри
 \end{verbatim}
 \end{listing}
 
-By the way, you'll see those 3 dots (...) quite a few times when you're typing something that continues onto another line (like a multi line string).  In fact, you'll see it a lot more as we continue.
+Пока ты печатал эту строчку с переносом, то мог обратить внимание, что Питон вместо приглашения на второй строке напечатал три точки (...). Он это делает в тех случаях, когда что-то, начатое на первой строке, продолжается на следующей — вот как строка. Пока кавычки не закроются, Питон так и будет печатать «...», показывая, что ждёт завершения строки. Потом мы и в других случаях увидим эти три точки.
 
-\section{Tricks with Strings}\label{trickswithstrings}
+\section{Развлечения со строками}
 
-Here's an interesting question:  what's 10 * 5 (10 times 5)?  The answer is, of course, 50.
+Вот есть интересный вопрос: чему равно 10 * 5 (10 умножить на 5)? Ответ, конечно: 50.
 
-\noindent
-\emph{All right, that's not an interesting question at all.}
+\btw{Ладно, это был неинтересный вопрос.}
 
-But what is 10 * 'a' (10 times the letter a)?  It might seem like a nonsensical question, but here's the answer from the World of Python:
+А чему равно 10 * 'а' (10 умножить на букву а)? Вопрос может показаться бессмысленным, но вот ответ от Питона:
 
 \begin{listing}
 \begin{verbatim}
@@ -423,7 +415,7 @@ aaaaaaaaaa
 \end{verbatim}
 \end{listing}
 
-This works with more than just single character strings:
+Это работает не только с отдельными символами, но и со строками подлиннее:
 
 \begin{listing}
 \begin{verbatim}
@@ -432,86 +424,90 @@ abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd
 \end{verbatim}
 \end{listing}
 
-Another trick with a string, is embedding values.  You can do this by using \%s, which is like a marker (or a placeholder) for a value you want to include in a string.  It's easier to explain with an example:
+Есть ещё один трюк со строками. В них можно вставлять значения. Для этого в строку нужно добавить «\%s» как маркер, куда вставлять значение. Проще всего это показать на примере:
 
 \begin{listing}
 \begin{verbatim}
->>> mytext = 'I am %s years old'
+>>> mytext = 'Мне %s лет'
 >>> print(mytext % 12)
-I am 12 years old
+Мне 12 лет
 \end{verbatim}
 \end{listing}
 
-In the first line, the variable mytext is created with a string containing some words and a placeholder (\%s).  The \%s is a little beacon saying ``replace me with something'' to the Python console.  So on the next line, when we call \code{print(mytext)}, we use the \% symbol, to tell Python to replace the marker with the number 12. We can reuse that string and pass in different values:
+%todo уточнить перевод placeholder
+В первой строке создаётся переменная \code{mytext}, содержащая некоторые слова и шаблон подстановки (в английских инструкциях он называется \emph{placeholder}) \code{\%s}. Этот шаблон — это такая инструкция Питону: «замени меня чем-нибудь». На следующей строке, когда мы печатаем значение переменной \code{mytext}, мы используем символ \code{\%}, чтобы указать Питону, на что именно заменять шаблон подстановки: на число 12. Можно использовать одну и ту же строку и подставлять внутрь неё разные значения:
 
 \begin{listing}
 \begin{verbatim}
->>> mytext = 'Hello %s, how are you today?'
->>> name1 = 'Joe'
->>> name2 = 'Jane'
+>>> mytext = 'Привет, %s, как твои дела?'
+>>> name1 = 'Иннокентий'
+>>> name2 = 'Саша'
 >>> print(mytext % name1)
-Hello Joe, how are you today?
+Привет, Иннокентий, как твои дела?
 >>> print(mytext % name2)
-Hello Jane, how are you today?
+Привет, Саша, как твои дела?
 \end{verbatim}
 \end{listing}
 
-In the above example, 3 variables (mytext, name1 and name2) are created---the first includes the string with the marker.  Then we can print the variable `mytext', and again use the \% operator to pass in variables `name1' and `name2'.  You can use more than one placeholder:
+В примере выше создаются три переменных (\code{mytext}, \code{name1} и \code{name2}), первая из которых содержит маркер «\code{\%s}». Потом мы печатаем значение этой строки, подставляя внуть неё значения строк \code{name1} и \code{name2}, используя операцию «\code{\%}».
+
+Можно вставить в строку больше, чем один шаблон для подстановки, вот так:
 
 \begin{listing}
 \begin{verbatim}
->>> mytext = 'Hello %s and %s, how are you today?'
+>>> mytext = 'Привет, %s и %s, как обстоят ваши дела?'
 >>> print(mytext % (name1, name2))
-Hello Joe and Jane, how are you today?
+Привет, Иннокентий и Саша, как обстоят ваши дела?
 \end{verbatim}
 \end{listing}
 
-When using more than one marker, you need to wrap the replacement values with brackets---so (name1, name2) is the proper way to pass 2 variables. A set of values surrounded by brackets (the round ones, not the square ones) is called a \emph{tuple}, and is a little bit like a list, which we'll talk about next.
+Когда используется несколько маркеров, нужно подставляемые переменные окружать скобками, как в примере выше. Несколько переменных, окружённых скобками, называются \emph{кортеж} (по английски — \emph{tuple}). Это слово потом ещё будет использоваться.
 
-\section{Not quite a shopping list}\index{lists}
+\section{Не совсем список для покупок}\index{списки}
 
-Eggs, milk, cheese, celery, peanut butter, and baking soda.  Which is not quite a full shopping list, but good enough for our purposes. If you wanted to store this in a variable you could create a string:
+Яйца, молоко, мыр, сельдерей, масло и сода. Не вполне полный список для покупок, но сойдёт для наших целей. Если бы тебе захотелось сохранить это в переменной, можно было бы это сделать так, в строку:
 
 \begin{listing}
 \begin{verbatim}
->>> shopping_list = 'eggs, milk, cheese, celery, peanut butter, baking soda'
+>>> shopping_list = 'яйца, молоко, сыр, сельдерей, масло, сода'
 >>> print(shopping_list)
-eggs, milk, cheese, celery, peanut butter, baking soda
+яйца, молоко, сыр, сельдерей, масло, сода
 \end{verbatim}
 \end{listing}
 
-Another way would be to create a `list', which is a special kind of object in Python:
+Другой способ — создать «список», особый сорт объектов в Питоне:
 
 \begin{listing}
 \begin{verbatim}
->>> shopping_list = [ 'eggs', 'milk', 'cheese', 'celery', 'peanut butter', 
-... 'baking soda' ]
+>>> shopping_list = [ 'яйца', 'молоко', 'сыр', 'сельдерей', 'масло', 'сода' ]
 >>> print(shopping_list)
-['eggs', 'milk', 'cheese', 'celery', 'peanut butter', 'baking soda']
+[ 'яйца', 'молоко', 'сыр', 'сельдерей', 'масло', 'сода' ]
 \end{verbatim}
 \end{listing}
 
-This is more typing, but it's also more useful.  We could print the 3rd item in the list by using its position (called its index position), inside square brackets []:
+Чтобы сделать список, приходится больше печатать (все эти кавычки), но результат сильно полезнее строки. Например, мы можем просто напечатать третий элемент списка, указав его \emph{индекс в списке} (позицию) в квадратных скобках:
 
 \begin{listing}
 \begin{verbatim}
 >>> print(shopping_list[2])
-cheese
+сыр
 \end{verbatim}
 \end{listing}
 
-Lists start at index position 0---so the first item in a list is 0, the second is 1, the third is 2.  That doesn't make a lot of sense to most people, but it does to programmers.  Pretty soon, when you walk up some stairs you'll start counting with zero rather than one.  That will really confuse your little brother or sister.
-\par
-We can show all the items from the 3rd item up to the 5th in the list, by using a colon inside the square brackets:
+Да, здесь нет опечатки. Мы напечатали третий элемент, хотя в квадратных скобках стоит цифра 2. Всё потому, что номера элементов в списке считаются с нуля. Это достаточно непривычно и кажется бессмысленным большинству людей — но не программистам\footnote{Индекс элемента в списке просто показывает, сколько элементов надо пропустить от начала списка, чтобы добраться до нужного. Индекс 0 значит, что пропускать не надо ни одного, индекс 2 — что надо пропустить 2 элемента, и получить как раз третий.}. Скоро ты тоже привыкнешь считать с нуля вместо одного, чем тоже будешь удивлять многих людей.
+
+Можно ещё напечатать все элементы с третьего по пятый, используя двоеточие внутри квадратных скобок:
 
 \begin{listing}
 \begin{verbatim}
 >>> print(shopping_list[2:5])
-['cheese', 'celery', 'peanut butter']
+['сыр', 'сельдерей', 'масло']
 \end{verbatim}
 \end{listing}
 
-[2:5] is the same as saying that we are interested in items from index position 2 up to (but not including) index position 5.  And, of course, because we start counting with 0, the 3rd item in the list is actually number 2, and the 5th item is actually number 4. Lists can be used to store all sorts of items.  They can store numbers:
+\code{[2:5]} — значит: нужны все элементы с индексами от 2 до 5 (не включая 5). Поскольку индексы считаются с нуля, то получатся как раз третий, четвёртый и пятый элементы, а шестой (который с индексом 5) не будет включён в результат.
+
+В списках можно хранить (как и в переменных) что угодно. Можно хранить числа:
 
 \begin{listing}
 \begin{verbatim}
@@ -519,8 +515,7 @@ We can show all the items from the 3rd item up to the 5th in the list, by using 
 \end{verbatim}
 \end{listing}
 
-\noindent
-And strings:
+…и строки:
 
 \begin{listing}
 \begin{verbatim}
@@ -528,8 +523,7 @@ And strings:
 \end{verbatim}
 \end{listing}
 
-\noindent
-And mixtures of numbers and strings:
+…и всё вместе:
 
 \begin{listing}
 \begin{verbatim}
@@ -539,8 +533,7 @@ And mixtures of numbers and strings:
 \end{verbatim}
 \end{listing}
 
-\noindent
-And even lists of lists:
+…и другие списки:
 
 \begin{listing}
 \begin{verbatim}
@@ -552,55 +545,63 @@ And even lists of lists:
 \end{verbatim}
 \end{listing}
 
-In the above example, a variable called `list1' is created with 3 letters, `list2' is created with a 3 numbers, and `mylist' is created using list1 and list2. Things can get rather confusing, rather quickly, if you start creating lists of lists of lists of lists$\ldots$ but luckily there's not usually much need for making things that complicated in Python. Still it is handy to know that you can store all sorts of items in a Python list.
+В примере выше создаётся перменная \code{list1}, содержащая список из трёх букв, и \code{list2}, содержащая список из трёх цифр; а потом создаётся переменная \code{mylist}, которая содержит оба эти списка. Дальше можно сходить с ума, создавая списки списков списков списков… но обычно никому не нужно делать такие сложные вещи в Питоне. С другой стороны, полезно знать, что так вообще можно и что список может хранить всё что угодно.
 
-\noindent
-\emph{And not just your shopping.}
+\btw{А не только какие продукты надо купить.}
 
-\subsection*{\color{BrickRed}Replacing items}\index{lists!replacing}
+\subsection*{\color{BrickRed}Изменяем элементы}\index{списки!изменение элементов}
 
-We can replace an item in the list, by setting its value in a similar way to setting the value of a normal variable. For example, we could change celery to lettuce by setting the value in index position 3:
-
-\begin{listing}
-\begin{verbatim}
->>> shopping_list[3] = 'lettuce'
->>> print(shopping_list)
-['eggs', 'milk', 'cheese', 'lettuce', 'peanut butter', 'baking soda']
-\end{verbatim}
-\end{listing}
-
-\subsection*{\color{BrickRed}Adding more items...}\index{lists!appending}
-
-We can add items to a list by using a method called `append'.  A method is an action or command that tells Python that we want to do something.  We'll talk more about methods later, but for the moment, to add an item to our shopping list, we can do the following:
+Можно изменить элемент списка, просто присвоив ему новое значение, как будто это обычная переменная. Можно, например, заменить сельдерей алатом:
 
 \begin{listing}
 \begin{verbatim}
->>> shopping_list.append('chocolate bar')
+>>> shopping_list[3] = 'салат'
 >>> print(shopping_list)
-['eggs', 'milk', 'cheese', 'lettuce', 'peanut butter', 'baking soda', 
-'chocolate bar']
+['яйца', 'молоко', 'сыр', 'салат', 'масло', 'сода']
 \end{verbatim}
 \end{listing}
 
-Which, if nothing else, is certainly an improved shopping list.
+\subsection*{\color{BrickRed}Добавляем ещё элементы...}\index{список!добавление элементов}
 
-\subsection*{\color{BrickRed}$\ldots$and removing items}\index{lists!removing}
-
-We can remove items from a list by using the command `del' (short for delete).  For example, to remove the 6th item in the list (baking soda):
+Можно добавить к списку новых элементов, вызвав функцию \code{append}. Подробно про функции (и как делать свои) мы поговорим позже, но пока можно воспользоваться готовой вот так:
 
 \begin{listing}
 \begin{verbatim}
->>> del shopping_list[5]
+>>> shopping_list.append('шоколадка')
 >>> print(shopping_list)
-['eggs', 'milk', 'cheese', 'lettuce', 'peanut butter', 'chocolate bar']
+['яйца', 'молоко', 'сыр', 'салат', 'масло', 'сода', 'шоколадка']
 \end{verbatim}
 \end{listing}
 
-Remember that positions start at zero, so shopping\_list[5] actually refers to the 6th item.
+\btw{И этот список, несомненно, гораздо лучше оригинального.}
 
-\subsection*{\color{BrickRed}2 lists are better than 1}\index{lists!joining}
+\subsection*{\color{BrickRed}$\ldots$и удаляем элементы}\index{списки!удаление}
 
-We can join lists together by adding them, as if we were adding two numbers:
+Можно удалить из списка элементы, используя функцию \code{remove}. Например, чтобы удалить соду из списка, надо написать вот так:
+
+\begin{listing}
+\begin{verbatim}
+>>> shopping_list.remove ('сода')
+>>> print shopping_list
+['яйца', 'молоко', 'сыр', 'салат', 'масло', 'шоколадка']
+\end{verbatim}
+\end{listing}
+
+Ещё можно удалить элемент списка по ему индексу (как, кстати, и любую другую переменную). Для этого есть команда \code{del} (сокращение от слова \code{delete}, удалить), которая используется вот как:
+
+\begin{listing}
+\begin{verbatim}
+>>> del shopping_list[0]
+>>> print(shopping_list)
+['молоко', 'сыр', 'салат', 'масло', 'шоколадка']
+\end{verbatim}
+\end{listing}
+
+Теперь из списка исчез первый элемент — тот, который с индексом 0.
+
+\subsection*{\color{BrickRed}Два списка лучше одного!}\index{lists!joining}
+
+Можно объединить два списка, сложив их, как будто мы складываем числа:
 
 \begin{listing}
 \begin{verbatim}
@@ -611,8 +612,7 @@ We can join lists together by adding them, as if we were adding two numbers:
 \end{verbatim}
 \end{listing}
 
-\noindent
-We can also add the two lists and set the result to another variable:
+Можно записать результат сложения списков в новую переменную:
 
 \begin{listing}
 \begin{verbatim}
@@ -624,8 +624,21 @@ We can also add the two lists and set the result to another variable:
 \end{verbatim}
 \end{listing}
 
-\noindent
-And you can multiply a list in the same way we multiplied a string:
+Кстати, этот метод можно использовать, чтобы добавлять в список новые значения вместо использования функции \code{append}. Вот, например, так:
+
+\begin{listing}
+\begin{verbatim}
+>>> list1 = [ 1, 2, 3 ]
+>>> list1 = list1 + [ 4 ]
+>>> print (list1)
+[1, 2, 3, 4]
+>>> list1 = list1 + [5, 6, 7]
+>>> print (list1)
+[1, 2, 3, 4, 5, 6, 7]
+\end{verbatim}
+\end{listing}
+
+Ещё список можно умножать примерно так же, как мы до этого умножали строку:
 
 \begin{listing}
 \begin{verbatim}
@@ -635,8 +648,9 @@ And you can multiply a list in the same way we multiplied a string:
 \end{verbatim}
 \end{listing}
 
-\noindent
-In the above example, multiplying list1 by five is another way of saying ``repeat list1 five times''. However, division (/) and subtraction (-) don't make sense when working with lists, so you'll get errors when trying the following examples:
+В примере выше умножение списка на 5 — это инструкция Питону «повтори список 5 раз.
+
+Деление и вычитание для списка не имеют смысла, поэтому если попытаться так сделать, получится только ошибка:
 
 \begin{listing}
 \begin{verbatim}
@@ -647,8 +661,7 @@ TypeError: unsupported operand type(s) for /: 'list' and 'int'
 \end{verbatim}
 \end{listing}
 
-\noindent
-or:
+или вот:
 
 \begin{listing}
 \begin{verbatim}
@@ -659,12 +672,11 @@ TypeError: unsupported operand type(s) for -: 'type' and 'int'
 \end{verbatim}
 \end{listing}
 
-\noindent
-You'll get a rather nasty error message.
+\btw{И попробуй угадай, что Питон хочет сказать этими сообщениями об ошибке…}
 
-\section{Tuples and Lists}\label{tuplesandlists}\index{tuples}
+\section{Кортежи и списки}\label{tuplesandlists}\index{кортежи}
 
-A tuple (mentioned earlier) is a little bit like a list, but rather than using square brackets, you use round brackets---e.g. `(' and `)'.  You can use tuples in a similar way to a list:
+Кортеж (про который мы говорили раньше) вроде как список, но чтобы сделать его, нужно использовать круглые скобки вместо квадратных. Пользоваться кортежами можно примерно так же, как списками:
 
 \begin{listing}
 \begin{verbatim}
@@ -674,7 +686,7 @@ A tuple (mentioned earlier) is a little bit like a list, but rather than using s
 \end{verbatim}
 \end{listing}
 
-The main difference is that, unlike lists, tuples can't change, once you've created them.  So if you try to replace a value like we did earlier with the list, you'll get another error message:
+Основное отличие от кортежей списков — это что кортежи нельзя изменять. Если попытаться так сделать, то просто получится ещё одно сообщение об ошибке:
 
 \begin{listing}
 \begin{verbatim}
@@ -685,30 +697,38 @@ TypeError: 'tuple' object does not support item assignment
 \end{verbatim}
 \end{listing}
 
-That doesn't mean you can't change the variable containing the tuple to something else.  For example, this code will work fine:
+Это, конечно, не значит, что если переменная хранила кортеж, то в неё нельзя записать ничего больше. Нельзя именно поменять тот кортеж, на который она указывает, но можно вместо него записать новый.
+
+Например, вот этот код будет работать без проблем:
 
 \begin{listing}
 \begin{verbatim}
 >>> myvar = (1, 2, 3)
->>> myvar = [ 'a', 'list', 'of', 'strings' ]
+>>> myvar = [ 'список', 'строк' ]
 \end{verbatim}
 \end{listing}
 
-First we create the variable \code{myvar} pointing to a tuple of 3 numbers.  Then we change \code{myvar} to point at a list of strings. This might be a bit confusing at first.  But think of it like lockers in a school.  Each locker has a name tag on it. You put something in the locker, close the door, lock it, then throw away the key.  You then peel the name tag off, wander over to another empty locker, and stick something else in that (but this time you keep the key).  A tuple is like the locked locker.  You can't change what's inside it.  But you can take the label off and stick it on an unlocked locker, and then put stuff inside that locker and take stuff out---that's the list.
+Тут мы вначале создаём переменную \code{myvar}, указывающую на кортеж из трёх чисел. Потом говорим Питону, что теперь эта переменная указывает на список строк. Это может показаться немного странным — зачем вообще нужны кортежи и как именно они отличаются от списков. Тут можно представить шкафчики для вещей в бассейне, только с прозрачной дверцей. Можно положить вещи в шкафчик и выбросить ключ. Тогда нельзя будет поменять, что именно лежит в шкафчике (хотя посмотреть на них всё-таки получится), и шкафчик будет кортежем. А можно не выкидывать ключ, тогда шкафчик будет как список: всегда можно будет что-то туда положить или вынуть. На все шкафчики можно приклеивать и отлеплять метки — это наши переменные.
 
-\section{Things to try}
+Кортежи иногда бывают необходимы, когда списки не подходят именно из-за того, что списки можно менять. Мы потом столкнёмся с такими ситуациями.
 
-\emph{In this chapter we saw how to calculate simple mathematical equations using the Python console.  We also saw how brackets can change the result of an equation, by controlling the order that operators are used.  We found out how to tell Python to remember values for later use---using variables---plus how Python uses `strings' for storing text, and lists and tuples, for handling more than one item.}
-\par
+\section{Ещё раз вкратце}
 
-\subsection*{Exercise 1}
-Make a list of your favourite toys and name it \code{toys}.  Make a list of your favourite foods and name it \code{foods}.  Join these two lists and name the result \code{favourites}.  Finally print the variable \code{favourites}.
+%todo Перевести
+%\section{Things to try}
 
-\subsection*{Exercise 2}
-If you have 3 boxes containing 25 chocolates, and 10 bags containing 32 sweets, how many sweets and chocolates do you have in total?  (Note: you can do this with one equation with the Python console)
+\btw{В этой главе мы увидели, как вычислять простые математические примеры в консоли Питона. Потом мы ещё обсудили, как использовать скобки для изменения результатов вычисления, чтобы менять приоритеты операций. Ещё мы научились говорить Питону запоминать значения для дальнейшего использования — при помощи переменных — и узнали, что Питон использует «строки» для хранения текста, а ещё списки и кортежи, в которых можно хранить несколько разных значений сразу.}
 
-\subsection*{Exercise 3}
-Create variables for your first and last name. Now create a string and use placeholders to add your name.
+\subsection*{Упражнение 1}
 
+Создай список своих любимых игрушек \code{toys} и список своей любимой еды \code{foods}. Объедини списки и сохрани результат в переменную \code{favourites}, а затем напечатай на экран её значение.
+
+\subsection*{Упражнение 2}
+
+Если у тебя есть 3 коробки по 25 шоколадок и ещё 10 коробок по 32 конфеты, сколько у тебя всего сладостей в штуках? Как можно добавить сюда переменных и быстро узнать, сколько будет сладостей, если в каждую из коробок с конфетами положить по 35 конфет вместо 32?
+
+\subsection*{Упражнение 3}
+
+Запиши в переменные свои имя и фамилию. Потом создай строку с шаблонами подстановки, подставь в неё имя и фамилию (операцией \%) и выведи результат на экран.
 
 \newpage

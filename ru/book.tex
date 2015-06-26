@@ -11,7 +11,9 @@
  \setmainfont{CMU Serif}
  \setsansfont{CMU Sans Serif}
  \setmonofont{CMU Typewriter Text}
-
+% \setmonofont{DejaVuSansMono}
+% \setmonofont{LiberationMono-Regular} <error
+ 
 \RequirePackage{hyperref}
 \hypersetup{
 	colorlinks
@@ -22,6 +24,7 @@
 \RequirePackage{wrapfig}
 \RequirePackage{textpos}
 \RequirePackage{perpage}
+\RequirePackage{indentfirst}
 \MakePerPage{footnote}
 
 \RequirePackage{geometry}
@@ -44,7 +47,7 @@
 \author{Jason R Briggs}
 
 \makeindex
-\newcommand{\code}{\textcolor{OliveGreen}\bfseries}
+\newcommand{\code}[1]{\textcolor{OliveGreen}{\ttfamily #1}}
 \newenvironment{listing}
 {\begin{list}{}{\setlength{\leftmargin}{1em}}\item\footnotesize\samepage}
 {\end{list}}
