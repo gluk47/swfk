@@ -25,6 +25,8 @@
 \RequirePackage{textpos}
 \RequirePackage{perpage}
 \RequirePackage{indentfirst}
+\RequirePackage{makeidx}
+
 \MakePerPage{footnote}
 
 \RequirePackage{geometry}
@@ -53,6 +55,7 @@
 {\end{list}}
 \definecolor{PaleBlue}{rgb}{0.95,0.95,1}
 
+\makeindex
 
 \begin{document}
 \input{frontmatter}
@@ -62,4 +65,8 @@
 \pagestyle{headings}
 \input{chapter1.tex}
 \input{chapter2.tex}
+\input{chapter3.tex}
+
+\printindex
+
 \end{document}
