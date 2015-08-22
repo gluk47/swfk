@@ -1,5 +1,18 @@
-Unofficial clone of LaTeX source of "Snake Wrangling for Kids"
-The original repository was copied from here: https://code.google.com/p/swfk/
+Это русский перевод книги "Snake Wrangling for Kids", позднее переработанной и выпущенной как "Python for kids".
+Это клон репозитория https://code.google.com/p/swfk/, там книгу писал автор, Jason R Briggs.
+
+В этом репозитории есть оригинальная книга без изменений в папке en, она как-то собирается при помощи latex и dvipdf.
+В папке ru есть перевод (незаконченный, начатый с линуксовой версии для Питона 3), он собирается командой
+  xelatex book.tex
+
+Ну и свежая собранная версия есть там же, book.pdf (собрана из тех же исходников, которые лежат в свежем коммите).
+
+Книга распространяется на условиях лицензии Creative Commons Attribution-Noncommercial-Share Alike 3.0 New Zealand License, что значит, что её можно читать, изменять и невозбранно распространять, но только под той же лицензией, бесплатно и обязательно указывая понятным образом авторство разных частей (как минимум, «оригинальной» и изменённой последним автором).
+Подробнее тут почитайте: http://creativecommons.org/licenses/by-nc-sa/3.0/nz/deed.ru
+
+
+This is an unofficial clone of LaTeX source of "Snake Wrangling for Kids"
+The original repository was copied from here: https://code.google.com/p/swfk/, where it was maintained by the original book author, Jason R Briggs.
 
 This repository contains both the original English book
 and its Russian translation (with priority in translating to the Linux edition).
@@ -7,5 +20,6 @@ and its Russian translation (with priority in translating to the Linux edition).
 This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 New Zealand License.
 To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/nz or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
 
-To build, you'll need xelatex (unlike the original book which builds with latex and dvipdf).
+To build, you'll need xelatex (unlike the original book which builds with latex and dvipdf), like that:
+  xelatex book.tex
 
