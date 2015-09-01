@@ -19,12 +19,12 @@
 
 \RequirePackage{polyglossia}
  \setdefaultlanguage{russian}
- \setotherlanguage{english}
+% \setotherlanguage{english}
 
-\RequirePackage{fontspec}
-\setmainfont{CMU Serif}
-\setsansfont{CMU Sans Serif}
-\setmonofont{CMU Typewriter Text}
+\RequirePackage{microtype}
+\setmainfont[Ligatures=TeX]{CMU Serif}
+\setsansfont[Ligatures=TeX]{CMU Sans Serif}
+\setmonofont[Ligatures=TeX]{CMU Typewriter Text}
 
 % \setmonofont{DejaVuSansMono}
 % \setmonofont{LiberationMono-Regular} <error
@@ -64,7 +64,6 @@
 \title{Snake Wrangling for Kids - Learning to Program with Python}
 \author{Jason R Briggs}
 
-\makeindex
 \newcommand{\code}[1]{\textcolor{OliveGreen}{\ttfamily #1}}
 \newenvironment{listing}
 {\begin{list}{}{\setlength{\leftmargin}{1em}}\item\footnotesize\samepage}
@@ -78,6 +77,7 @@
 \excludecomment{MAC}
 
 \begin{document}
+\hyphenation{пе-ре-мен-ная}
 \input{frontmatter}
 \input{preface.tex}
 
@@ -91,5 +91,4 @@
 \input{chapter6.tex}
 
 \printindex
-
 \end{document}

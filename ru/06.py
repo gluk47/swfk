@@ -22,10 +22,11 @@ def your_age():
 def interest (capital, years, percent):
     print ('>>> calculate_interest (%d, %d, %d)' % (capital, years, percent))
     for i in range (0, years):
+        print ('%s: %s' % (i, capital))
         capital *= (1 + percent/100)
     print (capital)
 
 interest (1000, 1, 11)
 interest (1200, 5, 13)
 interest (1500, 10, 15)
-
+interest (50000, 5, 18)
