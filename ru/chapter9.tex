@@ -15,8 +15,7 @@
 % or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
 %
 
-%TODO
-\chapter{A bit graphic}\label{ch:abitgraphic}
+\chapter{Немного компьютерной графики}\label{ch:abitgraphic}
 
 Когда просишь черепашку что-нибудь нарисовать, сталкиваешь с одной проблемой. Дело в том… что черепашка… … очень… … … медленная.
 
@@ -30,8 +29,7 @@
 \includegraphics*[width=100mm]{../en/turtle1.eps}
 \end{center}
 
-%TODO
-\section{Quick Draw}
+\section{Рисуем быстро}
 
 В каждом языке программирования есть свой способ рисовать на экране. Некоторые способы позволяют рисовать быстро, некототрые — медленно, так что программисты, которые пишут игры, пользуются только подходящими языками программирования.
 
@@ -435,8 +433,7 @@ canvas.create_rectangle(10, 10, 200, 100)
 
 \section{Нарисуем эллипс}
 
-%TODO уточнить терминологию
-Последняя из команд в предыдущем примере рисует аккурат целый эллипс (он же овал\footnote{На самом деле, эллипсом называют саму линию, а овалом — то, что она ограничивает.}). Чтобы рисовать овалы, есть и специальная команда, покороче: \code{create\_oval}. Так же, как и для рисования дуги, для рисования овала надо задать ограничивающий прямоугольник. Например, вот такой:
+Последняя из команд в предыдущем примере рисует аккурат целый эллипс. Чтобы рисовать эллипсы, есть и специальная команда, покороче: \code{create\_oval}\footnote{Эллипс — частный случай овала; так же, как окружность — частный случай эллипса.}. Как и для рисования дуги, для рисования эллипса надо задать ограничивающий прямоугольник. Например, вот такой:
 
 \begin{listing}
 \begin{verbatim}
@@ -447,7 +444,7 @@ canvas.create_rectangle(10, 10, 200, 100)
 \end{verbatim}
 \end{listing}
 
-Этот пример рисует овал в воображаемом прямоугольнике который занимает пространство от точки (1, 1) до точки (300, 200). Если мы теперь нарисуем прямоугольник с теми же координатами, то увидим, что овал как раз аккуратно в него вписан (и получится у нас рисунок \ref{fig38}):
+Этот пример рисует эллипс в воображаемом прямоугольнике который занимает пространство от точки (1, 1) до точки (300, 200). Если мы теперь нарисуем прямоугольник с теми же координатами, то увидим, что эллипс как раз аккуратно в него вписан (и получится у нас рисунок \ref{fig38}):
 
 \begin{listing}
 \begin{verbatim}
@@ -469,7 +466,7 @@ canvas.create_rectangle(10, 10, 200, 100)
 \caption{Эллипс в рамочке.}\label{fig39}
 \end{figure}
 
-Чтобы нарисовать окружность\footnote{Тут как с овалом: окружность — это линия, а круг можно вырезать из бумаги по этой линии — это всё, что внутри линии.}, нам нужно в качестве ограничивающего прямоугольника задать квадрат (как на картинке \ref{fig40}):
+Чтобы нарисовать окружность, нам нужно в качестве ограничивающего прямоугольника задать квадрат (как на картинке \ref{fig40}):
 
 \begin{listing}
 \begin{verbatim}
@@ -489,7 +486,7 @@ canvas.create_rectangle(10, 10, 200, 100)
 
 \section{Нарисуем многоугольник}\index{modules!tkinter!create\_polygon}
 
-Многоугольник — это какая-то геометрическая фигура с углами, у которой больше трёх сторон. Треугольники, прямоугольники, пятиугольники — это всё примеры многоугольников. Помимо этих правильных форм, можно создавать и более неуклюжие фигуры. Для этого есть функция \code{create\_polygon}. Ей нужно передать столько пар координат, сколько вершин у нашего многоугольника, а она соединит все эти вершины и, если попросить, закрасит получившуюся фигуру.
+Многоугольник — это какая-то геометрическая фигура с углами, у которой больше двух сторон. Треугольники, прямоугольники, пятиугольники — это всё примеры многоугольников. Помимо этих правильных форм, можно создавать и более неуклюжие фигуры. Для этого есть функция \code{create\_polygon}. Ей нужно передать столько пар координат, сколько вершин у нашего многоугольника, а она соединит все эти вершины и, если попросить, закрасит получившуюся фигуру.
 
 Начнём с треугольника. У него три вершины, у каждой по две координаты; закрашивать его мы не хотим; а линии пусть рисуются чёрными. Всё это на питоньем языке выглядит так (а в результате получается рисунок \ref{fig41}):
 
@@ -578,9 +575,7 @@ canvas.create_rectangle(10, 10, 200, 100)
 
 \section{Простая анимация}\index{модули!tkinter!простая анимация}
 
-До сих пор мы рисовали неподвижные картинки. Этим возможности Питона не ограничиваются, Tk может нарисовать нам и движущиеся фигуры, хотя это не его сильная сторона. Например, мы вполне можем от него добиться 
-
-So far, we've seen how to do static drawing---that's pictures that don't move. What about animation? Animation is not necessarily \code{Tk}'s strong suit, but you can do the basics. For example, we can create a filled triangle and then make it move across the screen using the following code:
+До сих пор мы рисовали неподвижные картинки. Этим возможности Питона не ограничиваются: \code{Tk} может нарисовать нам и движущиеся фигуры, хотя это не его сильная сторона. Например, мы вполне можем от него добиться закрашенного треугольничка, бегающего по экрану. Вот код для этого:
 
 \begin{listing}
 \begin{verbatim}
@@ -598,23 +593,26 @@ So far, we've seen how to do static drawing---that's pictures that don't move. W
 \end{verbatim}
 \end{listing}
 
-The moment you press the Enter key after typing the last line, the triangle will start moving across the screen (you can see it half-way across in figure~\ref{fig44}).
+В тот момент, когда ты нажмёшь Enter после последней строки, треугольничек задвигается. Он на полпути изображён на рисунке \ref{fig44}.
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=80mm]{../en/figure44.eps}
 \end{center}
-\caption{The triangle moving across the screen.}\label{fig44}
+\caption{Треугольничек во время движения по экрану.}\label{fig44}
 \end{figure}
 
 \par
-\emph{How does it work?}
+\emph{Как это работает?}
 \par
-Lines 1 to 5 we've seen before---it's just the basic setup to display a canvas---and in line 6, we create the triangle (using the \code{create\_polygon} function), and in line 7 you can see the identifier (the number 1) that is returned by this function. In line 8, we setup a simple for-loop to count from 0 to 59.
 
-The block of lines (9 to 11) is the code to move the triangle. The \code{move} function on the canvas object will move any drawn object by adding values to the object's x and y coordinates. For example, in line 9 we move the object with id 1 (the identifier for the triangle) 5 pixels across and 0 pixels down. If we wanted to move the back again we might use canvas.move(1, -5, 0)\index{modules!tkinter!move}.
- 
-The function \code{update} on the \code{tk} object forces it to update (if we didn't use \code{update}, tkinter would wait until the loop had finished before moving the triangle, which means you wouldn't see it move). Finally line 11 tells Python to sleep for 1/20th of a second (0.05), before continuing. We can change this code, so the triangle moves diagonally down the screen, by calling \code{move(1, 5, 5)}.  First, close the canvas (by clicking on the X button on the window), then try this code:
+Строки с 1 по 5 мы уже видели раньше — это просто настройка холста, — а в строке 6 мы создаём треугольник. В строке 7 Питон напечатал номер треугольника — это первая фигура на холсте. В строке 8 мы создаём цикл из 60 шагов.
+
+Строки с 9 по 11 объясняют Питону, что треугольник должен двигаться. Функция \code{move} объекта \code{canvas} передвигает зажанный объект, прибавляя значения к его координатам x и у. В строке 9 мы просим её двигать объект №1 на 5 пикселей вправо и на 0 пикселей вбок. Если бы мы хотели, чтобы треугольник полз влево, нам бы стоило написать вот как: \code{canvas.move(1, -5, 0)}\index{модули!tkinter!move}.
+
+Функция \code{update} в следующей строке говорит Питону перерисовать изображение. Без неё он бы сперва дождался конца цикла и потом нарисовал треугольник в его новом месте, а движения треугольника к новому месту мы бы не увидели. Наконец, в строке 11 мы говорим Питону притормозить на 1/20 секунды перед следующим шагом. Если мы скажем тормозить большее время, то треугольник будет двигаться рывками.
+
+Можно изменить этот код так, чтобы треугольник двигался наискосок через холст. Например так: закрой графическое окно с треугольником и введи в консоль Питона следующий код:
 
 \begin{listing}
 \begin{verbatim}
@@ -632,7 +630,7 @@ The function \code{update} on the \code{tk} object forces it to update (if we di
 \end{verbatim}
 \end{listing}
 
-Figure~\ref{fig45} shows the triangle part way down the screen. Move the triangle diagonally back up the screen to its starting position, by using -5, -5:
+Рисунок \ref{fig45} показывает треугольник на полпути к финишу. Можно вернуть треугольник к началу таким кодом:
 
 \begin{listing}
 \begin{verbatim}
@@ -648,12 +646,12 @@ Figure~\ref{fig45} shows the triangle part way down the screen. Move the triangl
 \begin{center}
 \includegraphics[width=80mm]{../en/figure45.eps}
 \end{center}
-\caption{The triangle moving down the screen.}\label{fig45}
+\caption{Треугольник на полпути к низу экрана.}\label{fig45}
 \end{figure}
 
-\section{Reacting to events$\ldots$}\index{modules!tkinter!events}
+\section{Реагируем на события…}\index{модули!tkinter!события}
 
-We can also make the triangle react when someone hits a key, by using what are called \emph{event bindings}.  Events are things that occur while a program is running, such as someone moving the mouse, hitting a key, or even closing a window. You can setup \code{Tk} to look out for these events, and then do something in response. To begin handling events we need to start by creating a function. Suppose we want the triangle to move when the enter key is pressed? We can define a function to move the triangle:
+Мы можем сделать так, чтобы треугольник бегал по экрану не просто как его нравится, а в ответ на наши нажатия клавиш. Нажатия клавиш для Питона — один из видов событий, и на них можно реагировать. Ещё события — это движение мыши, перемещение или закрытие окна. Можно указать \code{Tk}, что делать, когда каждое из событий возникает. Первым делом для этого надо создать функцию, которая и будет вызываться в случае чего. Допустим, мы хотим подвинуть треугольник. Вот функция для этого:
 
 \begin{listing}
 \begin{verbatim}
@@ -662,7 +660,7 @@ We can also make the triangle react when someone hits a key, by using what are c
 \end{verbatim}
 \end{listing}
 
-The function needs to have a single parameter (event), which is used by Tk to send information to the function about what has happened.  We then tell Tk that this function should be used for a particular event, using the \code{bind\_all}\index{modules!tkinter!bind\_all} function on the canvas. The full code looks like this:
+У функции должен быть один параметр, а именно — событие. Так \code{Tk} сообщает нам, что именно произошло — это пригодится, если одна и та же функция реагирует на много разных событий, но немножко по-разному. Теперь эту функцию можно привязать к событию нажатия клавиши Enter, используя функцию \code{bind\_all}\index{modules!tkinter!bind\_all}. Вот так:
 
 \begin{listing}
 \begin{verbatim}
@@ -678,9 +676,9 @@ The function needs to have a single parameter (event), which is used by Tk to se
 \end{verbatim}
 \end{listing}
 
-The first parameter in the \code{bind\_all} function describes the event which we want Tk to look out for. In this case, it's the event \code{<KeyPress-Return>} (which is a press of the enter key).  We tell Tk that the \code{movetriangle} function should be called when this key-press event occurs.  If you run this code, click on the Tk canvas with your mouse, and then try hitting the Enter (or Return) key on your keyboard.
+Первым параметром функции \code{bind\_all} передаётся название события. \\«\code{<KeyPress-Return>}» значит «нажата клавиша Enter (её по-английски иногда называют Return). Вторым параметром мы сообщаем функции, что вызывать, если это событие случилось. Если этот код запустить и щёлкнуть мышкой по холсту с треугольником (чтобы система поняла, что все следующие нажатия клавиш надо отправлять именно ему), то пока нажата клавиша Enter, треугольник будет двигаться.
 
-How about changing the direction of the triangle depending upon different key presses, such as the arrow keys? First of all we change the \code{move} triangle function to the following:
+Теперь мы можем заставить треугольник двигаться туда, куда мы хотим. А говорить ему, куда мы хотим, мы будем, нажимая стрелки на клавиатуре. Функция ниже как раз так и работает: например, если нажать стрелку вниз, то треугольник уползёт на три пикселя вниз:
 
 \begin{listing}
 \begin{verbatim}
@@ -696,7 +694,11 @@ How about changing the direction of the triangle depending upon different key pr
 \end{verbatim}
 \end{listing}
 
-The event object that is passed to \code{movetriangle}, contains a number of \emph{properties}\footnote{Properties are named values, which describe something---for example, a property of the sky is that it's blue (sometimes), a property of a car is that it has wheels. In programming terms, a property has a name and a value.}.  One of these properties is \code{keysym}, which is a string holding the value of the actual key pressed.  If \code{keysym} contains the string `Up', we call \code{canvas.move} with the parameters (1, 0, -3); if it contains down we call with the parameters (1, 0, 3), and so on.  Remember that the first parameter is the identifying number for the shape drawn on the canvas, the second parameter is the value to add to the x (horizontal) coordinate, and the last parameter is the value to add to the y (vertical) coordinate. We then tell Tk that the \code{movetriangle} function should be used to handle events from 4 different keys (up, down, left and right).  So, the code now looks like this:
+У параметра \code{event}, который передаётся в функцию, есть несколько \emph{полей}, то есть значений внутри. Одно из них мы как раз используем: это \code{keysym}. В реальной жизни у разных вещей тоже есть всякие свойства: например, у неба есть цвет, и значение этого свойства — «голубой». А у воды есть свойство «температура», значением которой может быть число — чему она равна в градусах.
+
+Так вот, у нашего события есть свойство: какая клавиша была нажата. Ориентируясь на значение этого свойства (или поля, это разные названия одного и того же), мы выбираем, куда двигать треугольник. Допустим, если нажата была клавиша вверх (по-английски — «Up»), то нам нужно подвинуть фигуру №1 (наш треугольник) на 0 пикселей вправо и на 3 пикселя вверх. Ну и в остальные стороны похожим образом.
+
+Осталось нам назначить эту функцию обработчиком событий от нажатий четырёх стрелок, вот так:
 
 \begin{listing}
 \begin{verbatim}
@@ -723,7 +725,6 @@ The event object that is passed to \code{movetriangle}, contains a number of \em
 \end{verbatim}
 \end{listing}
 
-\noindent
-With this example, the triangle now moves in the direction of the arrow key that you press.
+Если запустить этот код, то треугольник будет двигаться в ту сторону, куда мы попросим.
 
 \newpage
