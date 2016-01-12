@@ -4,6 +4,7 @@ build () {
 	local os=$1
 	ln -fs version-${os}.tex version.tex
 	xelatex book.tex
+	xelatex book.tex
 	mv book.pdf book-${os}.pdf
 }
 

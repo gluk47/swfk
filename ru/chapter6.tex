@@ -15,15 +15,9 @@
 % or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
 %
 
-%TODO перевести название
 \chapter{Повторное использование…}\label{ch:sortoflikerecycling}
 
 Представь, сколько мусора ты производишь каждый день. Всякие бутылочки от воды, обёртки от еды, пакетики от овощей, пластиковые коробочки, в которых продают мясо; а ещё, возможно, журналы, газеты или другая бумага. Ну и теперь представь, что получится, если этот весь мусор сложить в одну большую кучу.
-
-%TODO уточнить перевод
-%Think about how much rubbish you create each day. Bottled water or bottles of soft drink, packets of crisps, plastic sandwich wrappers, bags of vegetables, meat on plastic trays, plastic shopping bags, newspapers, magazines, and so on and so on and so on$\ldots$
-%\par
-%Now just think about what would happen if all of that trash just got dumped in a pile at the end of your driveway.
 
 \begin{center}
 \includegraphics*[width=100mm]{../en/trash.eps}
@@ -128,7 +122,8 @@ NameError: name 'a' is not defined
 
 В примере выше мы создаём функцию \code{variable\_test}, которая умножает две переменных, объявленных в этой же функции (\code{a} и \code{b}), а потом возвращает результат. Чтобы вызвать эту функцию, надо написать её имя и пустые скобки: пустые — потому что функция не принимает параметров; но при каждом вызове любой функции надо писать скобки, чтобы отличить её от переменной. Так вот, если вызвать эту функцию, то мы получим ответ: 200. Но если после этого мы попытаемся напечатать значение переменной \code{a} (или переменной \code{b}, всё равно), то получим только ошибку. Это потому, что \emph{область видимости}\index{область видимости} переменных, значения которым присваиваются в функции, ограничена телом этой функции.
 
-Можно себе представить функцию как маленький остров посреди океана, куда никто не приплывёт. Но иногда мимо пролетает самолёт и сбрасывает коробочку с листами бумаги: на них записаны значения аргументов функции. Островитяне что-то делают с этими аргументами, а потом результат запечатывают в бутылку и кидают в океан в нужном месте: течение потом выносит этот результат на большую землю, где и ждут ответ. И что там происходит на острове, жители большой земли не знают — какие там переменные используются, чему они равны. А вот островитяне, наоборот, могут достать свой могучий бинокль и зорко глянуть на большую землю, чтобы подсмотреть значения переменных оттуда (но поменять их не могут). Примерно так:
+Можно себе представить функцию как маленький остров посреди океана, куда никто не приплывёт. Но иногда мимо пролетает самолёт и сбрасывает коробочку с листами бумаги: на них записаны значения аргументов функции. Островитяне что-то делают с этими аргументами, а потом результат запечатывают в бутылку и кидают в океан в нужном месте: течение потом выносит этот результат на большую землю, где и ждут ответ. И что там происходит на острове, жители большой земли не знают — какие там переменные используются, чему они равны. А вот островитяне, наоборот, могут достать свой могучий бинокль и зорко глянуть на большую землю, чтобы подсмотреть значения переменных оттуда (но поменять их не могут %мы останемся на светлой стороне силы и не расскажем про global.
+). Примерно так:
 
 \begin{listing}
 \begin{verbatim}
@@ -201,23 +196,22 @@ NameError: name 'a' is not defined
 
 \begin{WINDOWS}
 
-To see how \code{file} is used, open Notepad and type a few words, then save the file onto your C drive, by:
+Для этого давай откроем блокнот. Напечатай туда что-нибудь, пару слов каких-нибудь, и сохрани этот файл в корень диска C, вот так:
 
 \begin{enumerate}
- \item clicking on the File menu, then Save,
- \item double-click on `My Computer' in the file dialog,
- \item double-click on `Local Drive (C:)',
- \item in the File name box (at the bottom) where it says `*.txt', type `test.txt' 
+ \item открой меню «Файл», выбери там «Сохранить»
+ \item в появившемся окне слева в списке должен встретиться диск C. Он лежит чуть ниже строчки «Компьютер».
+ \item в нижней части этого окна впечатай имя файла: \code{test.txt}.
 \end{enumerate}
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=65mm]{../en/figure17.eps}
 \end{center}
-\caption{The save dialog from Windows Notepad.}\label{fig17}
+\caption{Окно сохранения файла блокнота Windows.}\label{fig17}
 \end{figure}
 
-Open the Python console again, and try the following:
+Открой снова консоль Питона и введи туда такие команды:
 
 \begin{listing}
 \begin{verbatim}
@@ -225,21 +219,20 @@ Open the Python console again, and try the following:
 >>> print(f.read())
 \end{verbatim}
 \end{listing}
-
-The contents of the file you just created should be printed to the console. You can now jump ahead to the bit that says: ``Continuing from here$\ldots$''.
 \end{WINDOWS}
 
 \begin{MAC}
-To see how \code{file} is used, open up the Text Editor, by clicking on the editor icon (\includegraphics*[width=12mm]{../en/textedit-icon.eps}).  Type a few words then save the file to the Desktop by clicking File, then Save, and entering the name `text.txt' in the entry box next to `Save As'.
+	
+Для этого давай откроем текстовый редактор (\includegraphics*[width=12mm]{../en/textedit-icon.eps}). Напечатай туда что-нибудь и сохрани на рабочий стол этот файл под именем «test.txt». Чтобы сохранить, нажми вверху (в меню) «Файл», потом выбери «Сохранить».
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=65mm]{../en/figure18.eps}
 \end{center}
-\caption{The save dialog from Mac OS X Text Editor.}\label{fig18}
+\caption{Диалог сохранения файла в текстовом редакторе Mac OS X.}\label{fig18}
 \end{figure}
 
-Open the Python console again, and try the following:
+Открой ещё раз консоль Питона и введи туда такие команды:
 
 \begin{listing}
 \begin{verbatim}
@@ -247,8 +240,6 @@ Open the Python console again, and try the following:
 >>> print(f.read())
 \end{verbatim}
 \end{listing}
-
-The contents of the file you just created should be printed to the console.  You can now jump ahead to the bit that says: ``Continuing from here$\ldots$''.
 \end{MAC}
 
 \begin{LINUX}
@@ -269,8 +260,9 @@ The contents of the file you just created should be printed to the console.  You
 >>> print(f.read())
 \end{verbatim}
 \end{listing}
-
 \end{LINUX}
+
+В консоли напечатается всё, что есть в файле.
 
 Давай разберёмся, что этот кусочек кода делает. Первая строка вызывает функцию \code{open}, передавая ей имя файла в качестве параметра. Эта функция открывает файл, чтобы его потом использовать. Она возвращает специальное значение (объект), которое описывает этот файл. Потом у этого объекта можно вызывать функции, чтобы прочитать что-то из файла или записать в файл. Этот объект сохраняется в переменную \code{f} в нашей строчке кода.
 
