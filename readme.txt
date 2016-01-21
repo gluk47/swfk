@@ -22,6 +22,12 @@ and its Russian translation (with priority in translating to the Linux edition).
 This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 New Zealand License.
 To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/nz or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
 
-To build, you'll need xelatex (unlike the original book which builds with latex and dvipdf), like that:
-  xelatex book.tex
+To build, you'll need xelatex (unlike the original book which builds with latex and dvipdf).
+The easiest way to build the translated book is to go to the folder 'ru' and run:
+  ./build.sh
+or, for just some versions:
+  ./build.sh macos linux
+  ./build.sh windows
+  ./build.sh help
+If you input an incorrect target (e.g. 'help'), you'll get the list of all supported targets.
 
