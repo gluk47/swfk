@@ -1,5 +1,8 @@
 #!/bin/bash -e
 
+# apt install texlive-lang-cyrillic texlive-lang-european
+# http://cm-unicode.sourceforge.net/
+
 valid_targets=($(echo version-*.tex))
 valid_targets=(${valid_targets[@]#version-})
 valid_targets=(${valid_targets[@]%.tex})
